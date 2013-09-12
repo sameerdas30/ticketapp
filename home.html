@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Ticket Filer Mobile App Store</title> 
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+<link rel="icon" href="favicon.ico" type="image/x-icon"> 
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content='True' name='HandheldFriendly' />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <meta name="viewport" content="target-densitydpi=device-dpi" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="application-name" content="Ticketfiler.com"/>
+<meta name="msapplication-TileColor" content="#d84949"/>
+<meta name="msapplication-square70x70logo" content="tiny.png"/>
+<meta name="msapplication-square150x150logo" content="square.png"/>
+<meta name="msapplication-wide310x150logo" content="wide.png"/>
+<meta name="msapplication-square310x310logo" content="large.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-startup-image" href="images/splash-startup.png">  
+     
+    <!-- Custom CSS -->  
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <!-- Latest Mobile CSS --> 
+	<link href="css/jquery.mobile-1.3.2.min.css" rel="stylesheet" type="text/css">
+    <!-- Fonts CSS --> 
+	<link href="font/fonts.css" rel="stylesheet" type="text/css">
+    <!-- Latest Jquery --> 
+    <script src="js/jquery.js"></script>
+    <script src="js/jquery.mobile-1.3.2.min.js"></script>
+    <script type="text/javascript">
+        <!--$("#parkterm").live('pageinit', function() {-->
+			$(document).on('pageshow', '#parkterm', function(){
+			<!--$( "#parkterm" ).on( "pagebeforeshow", function( event ) {-->
+			alert('sam');
+
+			 $('#checkbox-1').attr('checked', 'checked').checkboxradio('refresh');
+			 /*$('#checkbox-1').removeAttr('checked').checkboxradio('refresh');*/
+		});
+			</script>
+</head> 
+<body> 
+<div data-role="page" data-theme="b">
+	<div data-role="header" data-theme="a" align="center">
+       <div class="content_inner_div">
+         <div class="header_content_ticket_div">
+            <a href="home.html"><img src="images/logo.jpg" width="170" height="32" alt="" /></a></div>
+        </div><!--content_inner_div-->
+            <br>
+            <br>
+            <br>
+            <br>
+             <!--don't remove the break-->
+    </div><!-- /header -->
+	<div data-role="content">	
+    <ul data-role="listview" data-theme="a">
+    <li  data-icon="home-arrow">
+    <a href="parking.html" rel="external">
+    <img src="images/r_icon.jpg" />
+    <h3>PARKING TICKET</h3>
+    <p>File your parking tickets</p>
+    </a>
+    
+    </li>
+        
+        
+        
+    <li data-icon="home-arrow">
+    <a href="traffic.html" rel="external">
+    <img src="images/c_icon.jpg" />
+    <h3>TRAFFIC TICKET</h3>
+    <p>File your traffic tickets</p>
+    </a>
+   
+    </li> 
+     <li data-icon="home-arrow">
+    <a href="about_us1.html" rel="external">
+    <img src="images/i_icon.jpg" />
+    <h3>ABOUT</h3>
+    <p>About TicketFiler</p>
+    </a>
+    </li> 
+  </ul>    		
+	</div></div><!-- /content -->
+
+	<div data-role="footer">
+<h4></h4>
+</div><!-- /footer -->
+<!-- /page -->
+</body>
+
+
+
+</html>

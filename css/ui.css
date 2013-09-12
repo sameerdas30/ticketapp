@@ -1,0 +1,43 @@
+.ui-li, .ui-li.ui-field-contain {
+padding-top: 9px!important;
+}
+.ui-li>.ui-btn-inner {
+border: 0px!important;
+}
+
+
+btn-icon-right>.ui-btn-inner>.ui-icon {
+top: 19%!important;
+
+}
+.ui-icon {
+width: 45px!important;
+height: 44px!important;
+}
+
+.ui-icon-arrow-r {
+background-position:right!important;
+}
+.ui-btn-icon-left>.ui-btn-inner>.ui-icon, .ui-btn-icon-right>.ui-btn-inner>.ui-icon{
+position: absolute;
+top: 24%!important;
+margin-top: 0px!important;
+
+}
+.ui-icon-shadow {
+-moz-box-shadow: 0 1px 0 rgba(255,255,255,.4);
+-webkit-box-shadow: 0 1px 0 rgba(255,255,255,.4);
+box-shadow:none!important;
+}
+.ui-icon, .ui-icon-searchfield:after {
+	background-color: #666;
+	background-color: rgba(0,0,0,.4);
+	background-image: url(../images/arrow.jpg)!important;
+	background-repeat: no-repeat;
+	-webkit-border-radius: 9px;
+	border-radius: 9px;
+}
+.ui-li-has-thumb .ui-btn-inner a.ui-link-inherit, .ui-li-static.ui-li-has-thumb {
+min-height: 74px!important;
+padding-left: 90px!important;
+}

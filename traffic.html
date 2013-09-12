@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Ticket Filer Mobile App Store</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+	<link rel="icon" href="favicon.ico" type="image/x-icon"> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content='True' name='HandheldFriendly' />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <meta name="viewport" content="target-densitydpi=device-dpi" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+     <meta name="application-name" content="Ticketfiler.com"/>
+<meta name="msapplication-TileColor" content="#d84949"/>
+<meta name="msapplication-square70x70logo" content="tiny.png"/>
+<meta name="msapplication-square150x150logo" content="square.png"/>
+<meta name="msapplication-wide310x150logo" content="wide.png"/>
+<meta name="msapplication-square310x310logo" content="large.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-startup-image" href="images/splash-startup.png">
+    <!-- Custom CSS -->  
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link href="css/mobiscroll.custom-2.5.0.min.css" rel="stylesheet" type="text/css" />
+    <!-- Latest Mobile CSS --> 
+	<link href="css/jquery.mobile-1.3.2.min.css" rel="stylesheet" type="text/css">
+    <!-- Fonts CSS --> 
+	<link href="font/fonts.css" rel="stylesheet" type="text/css">
+    <!-- Latest Jquery --> 
+    <script src="js/jquery.js"></script>
+       <script src="js/jquery.mobile-1.3.2.min.js"></script>
+     <script type="text/javascript" src="js/jquery-migrate-1.2.1.min.js"></script>
+     
+     <script src="js/mobiscroll.custom-2.5.0.min.js" type="text/javascript"></script>
+    
+     <script type="text/javascript">
+	 $(document).ajaxStart(function() {
+		 $.mobile.loading('show');
+	 });
+	 $(document).ajaxStop(function() {
+	//alert('stop');
+    $.mobile.loading('hide');
+});
+	 function getPageName(url) {
+    var currurl = window.location.pathname;
+    var index = currurl.lastIndexOf("/") + 1;
+    var filenameWithExtension = currurl.substr(index);
+    var filename = filenameWithExtension.split(".")[0]; // <-- added this line
+    return filename;                                    // <-- added this line
+}
+     jQuery(document).ready(function(){	
+	var pname=getPageName(window.location);
+	if(pname=='faq')
+	{
+		jQuery('#faq').addClass('ui-btn-active');
+
+	}
+	else if(pname=='legal')
+	{
+		jQuery('#legal').addClass('ui-btn-active');
+	}
+	else
+	{
+		jQuery('#fileticket').addClass('ui-btn-active');	
+	}
+});
+</script>
+<script type="text/javascript">
+ var MyDate = new Date();
+var date_string;
+
+date_string =  MyDate.getFullYear() + '-' + ('0' + (MyDate.getMonth()+1)).slice(-2) + '-' +('0' + MyDate.getDate()).slice(-2);
+//Create Function: set field value
+function setFieldValue(id, value) {
+	document.getElementById(id).value = value;
+}
+
+
+window.onload = function() {
+	
+	setFieldValue("DateTime", date_string);
+	
+}
+
+</script>
+</head> 
+<body> 
+<div data-role="page"  data-theme="b">
+	<div data-role="header" align="left" data-theme="a">
+      <a  data-rel="back" data-role="button" data-icon="back" data-direction="reverse" data-theme="b" data-iconpos="notext"></a>
+    <div class="header_content_ticket_div" align="center">
+    <a href="home.html"><img src="images/logo.jpg" width="170" height="32" alt=""></a>
+     </div> 
+    <a href="home.html" data-role="button" data-icon="home" data-iconpos="notext" data-theme="b"></a>
+  <div class="header_div">
+    <div data-role="navbar">
+		<ul id="tigg">
+			<li><a href="home.html" id="fileticket" rel="external">File ticket</a></li>
+			<li><a href="legal.html" id="legal" rel="external">Legal</a></li>
+			<li><a href="faq.html" id="faq" rel="external">FAQ</a></li>
+		</ul>
+	</div><!-- /navbar -->
+    </div>
+    </div><!-- /header -->
+<script src="js/traffic_custom.js" type="text/javascript"></script>  
+<script type="text/javascript">
+        $(document).ready(function() {
+			$('#t_payment').click(function(){
+				var str = $("form#register1").serialize();
+	  fsubmit(decodeURIComponent(str));
+	  });
+	  function fsubmit(datastr) {
+            $.ajax({
+            type: "POST", 
+			beforeSend: function() { $.mobile.showPageLoadingMsg(); }, //Show spinner
+            complete: function() { $.mobile.hidePageLoadingMsg() }, //Hide spinn 
+			data: datastr,
+			url: 'http://wordpress-guru.net/ticket/m/mprocessing.php',
+			cache: false,
+			success: function(response) {
+            alert("Thanks for your patience you will be taken to our next step!");
+			window.location.href ='traffic_free_paralegal.html?id='+response+'&t_type=traffic';
+        },
+          error: function(response) {
+          alert(response);
+        }
+			});
+	  }//Submit function end
+
+		});
+		
+    </script>
+    
+    
+
+<script type="text/javascript" language="javascript">
+function ajaxd(t_id) { 
+  jQuery.ajax({
+   type: "GET",
+   url: "http://wordpress-guru.net/ticket/m/tmgetcity.php",
+   data:'t_owner_province='+t_id,
+   success: function(msg){
+	   jQuery('#t_owner_city option').remove();
+	   jQuery("#t_owner_city").selectmenu('refresh');
+     jQuery(msg).appendTo("#t_owner_city");
+	  jQuery("#t_owner_city").selectmenu('refresh');
+   }
+ });
+}
+</script>
+<script type="text/javascript">
+ $(document).ready(function(){
+                $('#t_termcon').load('http://wordpress-guru.net/ticket/m/t_terms_con.php', '', function(response, status, xhr) {
+					$.mobile.ajaxEnabled=false
+					
+                });
+				$('#t_city').load('http://wordpress-guru.net/ticket/m/t_city.php', '', function(response, status, xhr) {
+					/*$.mobile.ajaxEnabled=false*/
+					jQuery("#t_city").selectmenu('refresh');
+					
+                });
+				$("#t_city").change(function(){
+	 var ct_name=$(this).val();
+      //alert(ct_name);
+	$.get("users.php?city="+ct_name+"&type=city",
+   function(data) {
+	  // alert(data);
+     if(data==1)
+	 {
+		  $('#t_city').append( '<input type="hidden" name="city" value="'+ct_name+'">');
+		$(".next").trigger("click").show();
+		 $("#t-third-step").show();
+		 $('#cometocity').hide();
+		 $("#t-fourth-step").hide();
+		 $("#t-seven-step").hide();
+		  $("#t-fifth-step").hide();
+		  $("#t-eight-step").hide();
+		 $('#t_ticket_no').parent().removeClass('warning');
+		 $('#t_owner_fst_name').parent().removeClass('warning');
+		 $('#t_Unit_no').parent().removeClass('warning');
+		  $('#t_license_no').parent().removeClass('warning');
+		  $('#t_owner_phno').parent().removeClass('warning');
+		  $('#t_owner_email').parent().removeClass('warning');
+		  $('#t_language').parent().removeClass('warning');
+		  $('#t_checkbox_value_2').parent().removeClass('warning');
+		  $('#t_radio_value_4').parent().parent().find('label').removeClass('warning');
+	      $('#t_radio_value_3').parent().parent().find('label').removeClass('warning');
+		 $(".vtype").each(function(){
+			  $('#company').hide();
+	      $(this).change(function(){ 
+		/* var asdf= $(this).val();
+		 alert(asdf);*/
+		  if($(this).val()=='CV')
+		  {
+			 $('#company').show();
+		  }
+		  else
+		  {
+			   $('#company').hide();
+		  }
+		  
+		  
+		  });
+          });
+	 }
+	 else
+	 {
+		$(".next").trigger("click").hide();
+		$("#t-first-step").hide();
+		$('#t-second-step').show();
+		$("#t-third-step").hide();
+		$("#t-fourth-step").hide();
+		$("#t-seven-step").hide();
+		//$('#p_city').parent().parent().find("#st").addClass('invalid');
+		$('#t_city').append($('<option>', { 
+		value: ct_name,
+		text : ct_name 
+		}));
+		$('#cometocity').show();
+		$('#cmto').html(ct_name);
+		$('#cometocity a').attr("href", "mailchimp.html");
+		$('#t-second-step a.prev').click(function() {
+        $('.prev-next a.next').show();
+        });
+        $('#t-first-step a.next').click(function() {
+        $('.prev-next a.next').hide();
+       });
+	 }
+   });
+});
+				$('#t_owner_province').load('http://wordpress-guru.net/ticket/m/t_owner_province.php', '', function(response, status, xhr) {
+					$.mobile.ajaxEnabled=false
+					
+                });
+				
+				/*$('#t_owner_province1').load('http://173.254.28.68/~wordpri7/ticketmobile/t_owner_province1.php', '', function(response, status, xhr) {
+					$.mobile.ajaxEnabled=false
+					
+                });*/
+				$('#t_owner_province1').load('http://wordpress-guru.net/ticket/m/t_owner_province.php', '', function(response, status, xhr) {
+					$.mobile.ajaxEnabled=false
+					
+                });
+				
+				
+				
+			
+            });
+</script>
+
+
+<form name="register1" id="register1" enctype="multipart/form-data" method="post" action="" data-ajax="false">
+
+
+<!--step1 starts-->
+<div id="t-first-step">
+	<div data-role="content" style="min-height:250px;">	
+		
+      <div class="content_div">
+      <div id="t_termcon">
+      </div>
+      
+      <div class="content_inner_div">
+      <div class="check_box_div">	
+<fieldset data-role="controlgroup" class="checkboxWidth">
+<input type="checkbox" name="t_checkbox_value_0" id="t_checkbox_value_0" data-iconpos="notext" data-theme="c" />
+ <label for="t_checkbox_value_0" data="test"></label>
+ </fieldset>
+ <div class="checkboxright_width">Accept Terms and Conditions </div>
+ 
+      </div>
+      
+      </div>
+   
+      </div>
+       		
+	</div>
+        		
+	</div>
+    
+<!--step1 completed-->
+
+
+
+<!--step2 starts-->
+<div id="t-second-step">
+<div data-role="content">
+  
+<div class="header_text_top_div"><h1>01 - CITY</h1></div>
+<h2>What city did you get your parking ticket in?</h2>
+ <div class="content_inner_div">
+<select name="t_city" id="t_city" data-theme="c">
+<option value="">Select City</option>
+</select> 
+</div>
+<div class="cometo_button_ct" id="cometocity"><a data-role="button" href="javascript:void(0)">Come to <span id="cmto">[city]</span>! </a></div>
+
+
+
+<p>Note: TicketFiler is currently ONLY in Toronto, Ontario.</p>
+<p>If you would like to see TicketFiler come to your home 
+town, click the â€œplease come to my city!â€ button, tell 
+us to stop watching YouTube and get to work!</p>   
+</div>
+</div>
+
+
+<!--step2 completed-->
+
+
+
+<!--step3 starts--> 
+<div id="t-third-step"> 
+<div data-role="content">
+  
+
+<div class="header_text_top_div"><h1>02 - Date Ticketed</h1></div>
+<h2>What day did you get the ticket?</h2>
+
+     <div class="content_inner_div"> 
+        
+        <input type="text" name="DateTime" id="DateTime" value="" >
+    </div>   
+       
+
+
+
+<p>Note: Ticket Filer can ONLY submit a ticket on your 
+behalf if it was received within 30 days.</p>
+  
+</div>
+</div>
+   
+<!--step3 completed--> 
+
+ 
+ 
+ <!--step4 starts-->
+<div id="t-fourth-step"> 
+<div data-role="content" >
+
+<div class="header_text_top_div"><h1>02 - Ticket Number</h1></div>
+<h2>What is your parking ticket number?</h2>
+<input type="text" name="t_ticket_no" id="t_ticket_no" maxlength="8" placeholder="AB123456">
+    
+<p></p>
+<p>Your traffic ticket number is usually located in the 
+top right corner of your ticket and will look like 
+AB123456 or 87654321. </p>
+<p><strong>Click on this text to see a picture of where 
+to find the traffic ticket number.</strong></p>
+</div>
+      
+  </div>
+  
+<!--step4 completed-->
+<div id="t-fourth-step-license"> 
+<div data-role="content">
+
+<div class="header_text_top_div"><h1>04 - License Number</h1></div>
+<h2>What is the License Plate Number of the ticketed vehicle?</h2>
+<input type="text" name="t_license_no" id="t_license_no" maxlength="8" placeholder="ABCD 123">
+    
+<p></p>
+<p>Your traffic license number is usually located in the 
+top right corner of your ticket and will look like 
+ABCD 123 or 87654321.</p>
+<p><strong>Click on this text to see a picture of where 
+to find the traffic ticket number.</strong></p>
+</div>
+      
+  </div>
+
+<div id="t-fourth-step-para"> 
+<div data-role="content" >
+
+<div class="header_text_top_div"><h1>05 - vehicle</h1></div>
+<h2>Is this a personal or company vehicle?</h2>
+  <div class="check_box_div">	
+<fieldset data-role="controlgroup" class="checkboxWidth">
+<input type="radio" name="t_checkbox_value_3" value="PV" class="vtype" id="t_radio_value_3"  data-iconpos="notext" data-theme="c"  />
+ <label for="t_radio_value_3" data="test"></label>
+ </fieldset>
+ <div class="checkboxright_width">Personal Vehicle</div>
+ 
+      </div>
+       <div class="check_box_div">	
+<fieldset data-role="controlgroup" class="checkboxWidth">
+<input type="radio" name="t_checkbox_value_3" value="CV" class="vtype" id="t_radio_value_4"  data-iconpos="notext" data-theme="c"  />
+ <label for="t_radio_value_4" data="test"></label>
+ </fieldset>
+ <div class="checkboxright_width">Company Vehicle</div>
+ 
+      </div>
+      <div id="company">
+  <h1> Company Name</h1>
+<input type="text" name="t_company_name" id="t_company_name" placeholder="COMPANY NAME">
+</div>
+</div>
+      
+  </div>
+
+
+
+
+
+<!--step5 starts-->
+<div id="t-fifth-step"> 
+<div data-role="content">
+
+<div class="header_text_top_div"><h1>03 - Owner's Name</h1></div>
+<h2>What is the name of the owner as it appears on the vehicle registration?</h2>
+<input type="text" name="t_owner_fst_name" id="t_owner_fst_name" placeholder="FIRST NAME">
+<input type="text" name="t_owner_lst_name" id="t_owner_lst_name" placeholder="LAST NAME">
+<!--<input type="text" name="t_owner_email" id="t_owner_email" placeholder="Email">-->
+
+<p>Please verify the name of the OWNER of the ticketed
+vehicle. Note, if you were driving a friendâ€™s or relativeâ€™s 
+car we need their name.</p>
+<p><strong>Check the vehicle registry to find the 
+proper name of the owner of the car.</strong></p>
+ </div>     
+ 
+  </div>
+	
+<!--step5 completed-->
+<!--step6 starts-->
+<div id="t-six-step"> 
+<div data-role="content">
+
+<div class="header_text_top_div"><h1>04 - Owner Address</h1></div>
+
+<h3>What is the address of the owner of the vehicle?</h3>
+
+<div class="content_inner_div">
+<div class="mob_left_field">
+<input type="text" name="t_Unit_no" id="t_Unit_no" placeholder="Unit Number">
+</div>
+<div class="mob_right_field">
+<input type="text" name="t_Street_no" id="t_Street_no" placeholder=" Street Number">
+</div>
+
+</div>
+<div class="content_inner_div">
+<input type="text" name="t_Street_name" id="t_Street_name" placeholder="Street name">
+</div>
+
+<div class="content_inner_div">
+ <select name="t_owner_province" id="t_owner_province" value="Province" data-theme="c" onChange="ajaxd(this.value)";>
+ </select>
+<!--<div id="t_owner_province"></div>-->
+</div>
+<div class="content_inner_div">
+   <div class="mob_left_field">
+   <select name="t_owner_city" id="t_owner_city" value="City" data-theme="c">
+    
+   
+</select>  
+
+   </div>
+<div class="mob_right_field">
+<input type="text" name="t_Zip_code" id="t_Zip_code" maxlength="8" placeholder="Post Code" >
+</div>
+   </div>
+   <p>Check the vehicle registry to find the 
+proper address of the owner of the car.</p>
+</div>      
+  </div>
+	
+<!--step6 completed-->
+<div id="t-email-step">
+<div data-role="content">
+
+<div class="header_text_top_div"><h1>08 - Email</h1></div>
+<h2>Please enter your email address so we can email you a receipt.</h2>
+<input type="text" name="t_owner_email" id="t_owner_email"  placeholder="Email">
+    
+<p></p>
+<p>We will not give away your email to anyone or send you spamy emails.
+Our guess is that you are going to tell our friends about us anyway.
+</p>
+
+</div>
+      
+  </div>
+
+
+<!--step7 starts-->
+<div id="t-seven-step">
+<div data-role="content">
+
+<div class="header_text_top_div"><h1>05 - Phone Number</h1></div>
+<h2>What is your daytime telephone number?</h2>
+<input type="text" name="t_owner_phno" id="t_owner_phno"  maxlength="10" placeholder="Phone number">
+    
+<p></p>
+<p>Please provide the best number for the courts to
+be able to reach you during the day.
+</p>
+
+</div>
+      
+  </div>
+  
+<!--step7 completed-->
+<!--step9 starts-->
+<div id="t-nine-step">
+<div data-role="content">
+
+<div class="header_text_top_div"><h1>07 - Summary</h1></div>
+
+<h3>Please verify the following
+information is correct. </h3>
+<div class="content_inner_div" align="left">
+<div class="profile_left_div1"><h4>City:</h4></div>
+<div class="profile_right_div1"><h4><div id="t_owner_city1"></div></h4></div>
+
+</div>
+<div class="content_inner_div">
+<div class="profile_left_div1"><h4>Date Of Submit:</h4></div>
+<!--<input type="text" name="p_owner_email" id="p_owner_email1" >-->
+<div class="profile_right_div1"><h4><div id="t_date_of_infraction"></div></h4></div>
+</div>
+<div class="content_inner_div">
+<div class="profile_left_div1"><h4>Notice Number:</h4></div>
+<!--<input type="text" name="p_owner_email" id="p_owner_email1" >-->
+<div class="profile_right_div1"><h4><div id="t_notice_no"></div></h4></div>
+</div>
+<div class="content_inner_div">
+<div class="profile_left_div1"><h4>License Number:</h4></div>
+<!--<input type="text" name="p_owner_email" id="p_owner_email1" >-->
+<div class="profile_right_div1"><h4><div id="t_license_no_of_ticket"></div></h4></div>
+</div>
+<div class="content_inner_div" id="tcomp_hide">
+<div class="profile_left_div1"><h4>Company Name:</h4></div>
+<div class="profile_right_div1"><h4><div id="tcm_name"></div></h4></div>
+</div>
+<div class="content_inner_div">
+<!--<input type="text" name="t_owner_fst_name" id="t_owner_fst_name1" >-->
+<div class="profile_left_div1"><h4>First Name:</h4></div>
+<div class="profile_right_div1"><h4><div id="t_owner_fst_name1"></div></h4></div>
+</div>
+<div class="content_inner_div">
+<!--<input type="text" name="t_owner_lst_name" id="t_owner_lst_name1" >-->
+<div class="profile_left_div1"><h4>Last Name </h4></div>
+<div class="profile_right_div1"><h4><div id="t_owner_lst_name1"></div></h4></div>
+</div>
+
+<div class="content_inner_div">
+<div class="mob_left_field1">
+<!--<input type="text" name="t_Unit_no" id="t_Unit_no1" >-->
+<div class="profile_left_div1"><h4>Unit No. </h4></div>
+<div class="profile_right_div1"><h4><div id="t_Unit_no1"></div></h4></div>
+</div>
+<div class="mob_right_field1">
+<!--<input type="text" name="t_Street_no" id="t_Street_no1" >-->
+<div class="profile_left_div1"><h4>Street No. </h4></div>
+<div class="profile_right_div1"><h4><div id="t_Street_no1"></div></h4></div>
+</div>
+
+</div>
+<div class="content_inner_div">
+<!--<input type="text" name="t_Street_name" id="t_Street_name1" >-->
+<div class="profile_left_div1"><h4>Street Name </h4></div>
+<div class="profile_right_div1"><h4><div id="t_Street_name1"></div></h4></div>
+</div>
+
+
+<div class="content_inner_div">
+   <div class="mob_left_field1">
+  <div class="profile_left_div1"><h4>Provience </h4></div>
+<div class="profile_right_div1"><h4><div id="t_owner_province1"></div></h4></div>
+
+</div>
+
+<div class="mob_right_field1">
+<!--<input type="text" name="t_Zip_code" id="t_Zip_code1" value="" >-->
+<div class="profile_left_div1"><h4>Zip Code </h4></div>
+<div class="profile_right_div1"><h4><div id="t_Zip_code1"></div></h4></div>
+</div>
+   </div>
+
+ <div class="content_inner_div">
+<!--<input type="text" name="t_owner_phno" id="t_owner_phno1" value="" >-->
+<div class="profile_left_div1"><h4>Phone No. </h4></div>
+<div class="profile_right_div1"><h4><div id="t_owner_phno1"></div></h4></div>
+ </div>  
+  
+<div class="content_inner_div">
+      <div class="check_box_div">	
+<fieldset data-role="controlgroup" class="checkboxWidth">
+<input type="checkbox" name="t_checkbox_value_2" id="t_checkbox_value_2" data-iconpos="notext" data-theme="c" />
+ <label for="t_checkbox_value_2" data="test"></label>
+ </fieldset>
+ <div class="checkboxright_width">I,&nbsp;<a id="t_fname"></a>&nbsp;<a id="t_lname"></a>, confirm that 
+all information is accurate.</div>
+ 
+      </div>
+      
+      </div>  
+   
+   
+</div>
+ 
+      
+  </div>
+  
+<!--step9 completed-->
+
+
+<!--step10 starts-->
+<div id="t-ten-step">
+<div data-role="content">
+
+<div class="header_text_top_div"><h1>Checkout</h1></div>
+<h3>Please choose your method
+of payment below. </h3>
+<p>Using TicketFiler to file for a court date does NOT 
+include representation on the date you receive. It is 
+simply a filing service. You can request Paralegal 
+representation after you checkout!<br>
+<br>
+
+
+The more tickets that we file, the more clogged the court
+system becomes and the more likely the powers that be 
+will have to reevaluate whether the meager amount of 
+money they get from the current model is worth the 
+massive amounts of animosity they generate. <br>
+<br>
+
+
+That is why if you share your experience on Facebook or
+Twitter we will file your traffic ticket for FREE!! </p>
+
+     
+    
+<p></p>
+<input  name="file" type="button" id="t_payment"  data-theme="b" value="file my ticket - $9.99" data-ajax="false" />
+
+
+ 
+</div>
+	</div>
+    
+<!--step10 completed-->
+ <input type="hidden" name="t_type" id="t_type" value="traffic" /><!--Ticket Type-->
+<input type="hidden" name="s_type" id="s_type" value="mobile" /><!--Site Type-->
+<!--<input type="hidden" name="user" id="user" value="" />-->
+</form>
+
+
