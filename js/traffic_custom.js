@@ -98,6 +98,10 @@ function datediff(ds1,ds2) {
 									{
 									$('#t_ticket_no').parent().removeClass('warning');/*alert('Enter Your Ticket Number');*/
 									}
+									else
+									{
+										$('#t_ticket_no').parent().addClass('warning');
+									}
 										
 								}
 								else

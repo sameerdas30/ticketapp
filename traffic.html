@@ -161,7 +161,7 @@ function ajaxd(t_id) {
 					jQuery("#t_city").selectmenu('refresh');
 					
                 });
-				$("#t_city").change(function(){
+	 $("#t_city").change(function(){
 	 var ct_name=$(this).val();
       //alert(ct_name);
 	$.get("users.php?city="+ct_name+"&type=city",
@@ -169,29 +169,12 @@ function ajaxd(t_id) {
 	  // alert(data);
      if(data==1)
 	 {
-		  $('#t_city').append( '<input type="hidden" name="city" value="'+ct_name+'">');
-		$(".next").trigger("click").show();
+		 $(".next").show();
+	     $("#t-second-step").hide();
 		 $("#t-third-step").show();
-		 $('#cometocity').hide();
-		 $("#t-fourth-step").hide();
-		 $("#t-seven-step").hide();
-		  $("#t-fifth-step").hide();
-		  $("#t-eight-step").hide();
-		 $('#t_ticket_no').parent().removeClass('warning');
-		 $('#t_owner_fst_name').parent().removeClass('warning');
-		 $('#t_Unit_no').parent().removeClass('warning');
-		  $('#t_license_no').parent().removeClass('warning');
-		  $('#t_owner_phno').parent().removeClass('warning');
-		  $('#t_owner_email').parent().removeClass('warning');
-		  $('#t_language').parent().removeClass('warning');
-		  $('#t_checkbox_value_2').parent().removeClass('warning');
-		  $('#t_radio_value_4').parent().parent().find('label').removeClass('warning');
-	      $('#t_radio_value_3').parent().parent().find('label').removeClass('warning');
 		 $(".vtype").each(function(){
 			  $('#company').hide();
 	      $(this).change(function(){ 
-		/* var asdf= $(this).val();
-		 alert(asdf);*/
 		  if($(this).val()=='CV')
 		  {
 			 $('#company').show();
@@ -207,26 +190,27 @@ function ajaxd(t_id) {
 	 }
 	 else
 	 {
-		$(".next").trigger("click").hide();
 		$("#t-first-step").hide();
-		$('#t-second-step').show();
+		$('#t-second-step').hide();
 		$("#t-third-step").hide();
 		$("#t-fourth-step").hide();
-		$("#t-seven-step").hide();
-		//$('#p_city').parent().parent().find("#st").addClass('invalid');
-		$('#t_city').append($('<option>', { 
+		$("#t-citywrong-step").show();
+		$('#t_cityw').append($('<option>', { 
 		value: ct_name,
 		text : ct_name 
 		}));
-		$('#cometocity').show();
-		$('#cmto').html(ct_name);
-		$('#cometocity a').attr("href", "mailchimp.html");
-		$('#t-second-step a.prev').click(function() {
-        $('.prev-next a.next').show();
-        });
-        $('#t-first-step a.next').click(function() {
-        $('.prev-next a.next').hide();
-       });
+		$('#t_cityw').selectmenu('refresh');
+		$('.prev-next a.next').hide();
+		$('#t_cometocity').show();
+		$('#t_wcity').text(ct_name);
+		$('span#t_cmto').text(ct_name);
+		$('#t_cometocity a').attr("href", "mailchimp.html");
+		$("#t-citywrong-step a.prev").click(function() {
+			$("#t-citywrong-step").hide();
+			$("#t-second-step").show();
+			$("#t-ten-step").hide();
+			$(".next").show();
+		});
 	 }
    });
 });
@@ -235,15 +219,112 @@ function ajaxd(t_id) {
 					
                 });
 				
-				/*$('#t_owner_province1').load('http://173.254.28.68/~wordpri7/ticketmobile/t_owner_province1.php', '', function(response, status, xhr) {
-					$.mobile.ajaxEnabled=false
-					
-                });*/
 				$('#t_owner_province1').load('http://wordpress-guru.net/ticket/m/t_owner_province.php', '', function(response, status, xhr) {
 					$.mobile.ajaxEnabled=false
 					
                 });
 				
+	function datediff(ds1,ds2) {
+	console.log(ds1);
+	console.log(ds2);
+	var oneday = 86400000;
+	return (ds2-ds1) / oneday;
+	}
+	$('#DateTime').on('change', function() {
+		var curdate= new Date();
+		var pickdate=$('#DateTime').mobiscroll( "getDate" );
+		var dtval = $('#DateTime').mobiscroll({ dateFormat: 'yyyy-mm-dd' }).val();
+		console.log(datediff(pickdate,curdate));
+		if(datediff(pickdate,curdate)>30)
+		{
+			$("#t-third-step").hide('fast');			
+			$("#t-third-stepw").show();
+			$("#t-third-stepw a.next").hide('fast');
+			var date1=$('#DateTime').val();
+		    $('#tDateTimew').val(date1);
+			$('#tDateTimew').attr('disabled','true');
+			$('#t-third-stepw a.prev').on('click', function() {
+				var nowd = new Date();
+				var mt= nowd.getMonth();
+				var yr= nowd.getFullYear();
+				$('#DateTime').mobiscroll().date({
+				theme: 'ios',
+				display: 'bubble',
+				mode: 'scroller',
+				dateFormat: 'yy-mm-dd',
+				minDate: new Date(yr, mt - 1, 1),
+				maxDate: new Date,
+				width: 50
+				});
+				$("#t-third-stepw").hide();
+				$("#t-citywrong-step").hide();
+				$("#t-third-step").show();
+			});
+		}
+		else
+		{
+			$("#t-third-stepw").hide();
+			$("#t-third-step").hide();
+			$("#t-fourth-step").show();
+			$('#t-third-step a.next').on('click', function() {
+				$("#t-third-stepw").hide();
+				$("#t-fourth-step").show();
+			});
+		}
+	});
+	$('#t-third-step a.next').on('click', function() {
+				var curdate= new Date();
+		var pickdate=$('#DateTime').mobiscroll( "getDate" );
+		var dtval = $('#DateTime').mobiscroll({ dateFormat: 'yyyy-mm-dd' }).val();
+		console.log(datediff(pickdate,curdate));
+		if(datediff(pickdate,curdate)>30)
+		{
+			$("#t-third-step").hide('fast');
+			$("#t-fourth-step").hide();			
+			$("#t-third-stepw").show();
+			$("#t-third-stepw a.next").hide('fast');
+			var date1=$('#DateTime').val();
+		    $('#tDateTimew').val(date1);
+			$('#tDateTimew').attr('disabled','true');
+			$('#t-third-stepw a.prev').on('click', function() {
+				var nowd = new Date();
+				var mt= nowd.getMonth();
+				var yr= nowd.getFullYear();
+				$('#DateTime').mobiscroll().date({
+				theme: 'ios',
+				display: 'bubble',
+				mode: 'scroller',
+				dateFormat: 'yy-mm-dd',
+				minDate: new Date(yr, mt - 1, 1),
+				maxDate: new Date,
+				width: 50
+				});
+				$("#t-third-stepw").hide();
+				$("#t-citywrong-step").hide();
+				$("#t-third-step").show();
+			});
+		}
+		else
+		{
+			$("#t-third-stepw").hide();
+			
+				$("#t-fourth-step").show();
+		}
+			});
+	$('#t-fourth-step a.prev').on('click', function() {
+				var nowd = new Date();
+				var mt= nowd.getMonth();
+				var yr= nowd.getFullYear();
+				$('#DateTime').mobiscroll().date({
+				theme: 'ios',
+				display: 'bubble',
+				mode: 'scroller',
+				dateFormat: 'yy-mm-dd',
+				minDate: new Date(yr, mt - 1, 1),
+				maxDate: new Date,
+				width: 50
+				});
+			});
 				
 				
 			
@@ -295,14 +376,7 @@ function ajaxd(t_id) {
 <option value="">Select City</option>
 </select> 
 </div>
-<div class="cometo_button_ct" id="cometocity"><a data-role="button" href="javascript:void(0)">Come to <span id="cmto">[city]</span>! </a></div>
-
-
-
-<p>Note: TicketFiler is currently ONLY in Toronto, Ontario.</p>
-<p>If you would like to see TicketFiler come to your home 
-town, click the â€œplease come to my city!â€ button, tell 
-us to stop watching YouTube and get to work!</p>   
+<p>Note: TicketFiler is currently ONLY in Toronto, Ontario.</p>   
 </div>
 </div>
 
@@ -646,6 +720,39 @@ Twitter we will file your traffic ticket for FREE!! </p>
 	</div>
     
 <!--step10 completed-->
+<div id="t-citywrong-step">
+<div data-role="content">	
+<div class="header_text_top_div"><h1>SORRY! WE AREN'T IN <a id="t_wcity"></a></h1></div>
+<h2>Do you want us to come to your town?</h2>
+ <!--<div class="confirm_eligibility_div">
+<h1><a id="ct"></a> </h1>
+    </div>-->
+ <div class="content_inner_div" >
+<select name="t_cityw" id="t_cityw" data-theme="c">
+</select>
+</div>
+
+<div class="cometo_button_ct" id="t_cometocity"><a class="city_bt" href="javascript:void(0)">Come to <span id="t_cmto">[city]</span>! </a></div>
+<p>If you would like to see TicketFiler come to your home 
+town, click the please come to my city! button, tell 
+us to stop watching YouTube and get to work!</p> 
+</div>
+<!--<div class="prev-next">
+<a class="prev back_bt" href="javascript:void(0)" data-corners="true" id="default"  data-wrapperels="span"  data-shadow="true"  data-theme="b" data-corners="true">Back</a>  
+</div> -->
+</div>
+<div id="t-third-stepw"> 
+<div data-role="content">
+<div class="header_text_top_div">
+<h1>SORRY! WE CAN'T SUBMIT PAST DUE TICKETS.</h1></div>
+
+<h2>We can only file parking tickets you have received within the last 30 days.</h2>
+<div class="content_inner_div"> 
+        <input type="text" name="tDateTimew" id="tDateTimew" value="">
+    </div>
+<p>For tickets received outside this timeline, please talk to a Registered Paralegal to discuss your options. Click on the link below or, alternatively, consol yourself with cute cat videos. Hopefully we can help you next time!</p>
+</div>
+</div>
  <input type="hidden" name="t_type" id="t_type" value="traffic" /><!--Ticket Type-->
 <input type="hidden" name="s_type" id="s_type" value="mobile" /><!--Site Type-->
 <!--<input type="hidden" name="user" id="user" value="" />-->

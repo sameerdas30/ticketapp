@@ -177,27 +177,8 @@ function ajaxd(p_id) {
 	 {
 		  
 		$(".next").show();
-	 $("#second-step").hide();
-		 $("#third-step").show();
-		 
-		 /*$('#cometocity').hide();
-		 $("#fourth-step").hide();
-		$("#text1").hide();
-		$("#text2").hide();
-        $("#text3").hide();
-		$("#num1").show(); 
-		$("#num2").show(); 
-		$("#num3").show();
-		 $('#Ticket_no').parent().removeClass('warning');
-		  $('#license_no').parent().removeClass('warning');
-		 $('#p_owner_fst_name').parent().removeClass('warning');
-		 $('#Unit_no').parent().removeClass('warning');
-		  $('#p_owner_phno').parent().removeClass('warning');
-		   $('#p_owner_email').parent().removeClass('warning');
-		  $('#p_language').parent().removeClass('warning');
-		  $('#checkbox_value_2').parent().removeClass('warning');
-		   $('#p_radio_value_4').parent().parent().find('label').removeClass('warning');
-	      $('#p_radio_value_3').parent().parent().find('label').removeClass('warning');*/
+        $("#second-step").hide();
+        $("#third-step").show();
 		  
 		  $(".vtype").each(function(){
 			  $('#pcompany').hide();
@@ -240,12 +221,6 @@ function ajaxd(p_id) {
 			$("#ten-step").hide();
 			$(".next").show();
 		});
-		/* $('#second-step a.prev').click(function() {
-   $('.prev-next a.next').show();
-  });
-  $('#first-step a.next').click(function() {
-   $('.prev-next a.next').hide();
-  });*/
 	 }
    });
 });
@@ -298,12 +273,53 @@ function ajaxd(p_id) {
 		else
 		{
 			$("#third-stepw").hide();
+			$("#third-step").hide();
+			$("#fourth-step").show();
 			$('#third-step a.next').on('click', function() {
 				$("#third-stepw").hide();
 				$("#fourth-step").show();
 			});
 		}
 	});
+	$('#third-step a.next').on('click', function() {
+				var curdate= new Date();
+		var pickdate=$('#pDateTime').mobiscroll( "getDate" );
+		var dtval = $('#pDateTime').mobiscroll({ dateFormat: 'yyyy-mm-dd' }).val();
+		console.log(datediff(pickdate,curdate));
+		if(datediff(pickdate,curdate)>30)
+		{
+			$("#third-step").hide('fast');
+			$("#fourth-step").hide();			
+			$("#third-stepw").show();
+			$("#third-stepw a.next").hide('fast');
+			var date1=$('#pDateTime').val();
+		    $('#pDateTimew').val(date1);
+			$('#pDateTimew').attr('disabled','true');
+			$('#third-stepw a.prev').on('click', function() {
+				var nowd = new Date();
+				var mt= nowd.getMonth();
+				var yr= nowd.getFullYear();
+				$('#pDateTime').mobiscroll().date({
+				theme: 'ios',
+				display: 'bubble',
+				mode: 'scroller',
+				dateFormat: 'yy-mm-dd',
+				minDate: new Date(yr, mt - 1, 1),
+				maxDate: new Date,
+				width: 50
+				});
+				$("#third-stepw").hide();
+				$("#citywrong-step").hide();
+				$("#third-step").show();
+			});
+		}
+		else
+		{
+			$("#third-stepw").hide();
+			
+				$("#fourth-step").show();
+		}
+			});
 	$('#fourth-step a.prev').on('click', function() {
 				var nowd = new Date();
 				var mt= nowd.getMonth();
@@ -377,24 +393,7 @@ function ajaxd(p_id) {
 behalf if it was received within 30 days.</p>
 </div>
 </div> 
-<!--step3 completed--> 
-  <!--step3 wrong starts-->
-<!--<div id="third-stepw" style="display:none;"> 
-<div data-role="content">
-  
 
-<div class="header_text_top_div">
-                                <h1 id="text1">SORRY! WE CAN'T SUBMIT PAST DUE TICKETS.</h1></div>
-
-<h2 id="text2">We can only file parking tickets you have received within the last 30 days.</h2>
-<div class="content_inner_div"> 
-        <input type="text" name="pDateTimew" id="pDateTimew" value="">
-    </div>   
-
-<p id="text3">For tickets received outside this timeline, please talk to a Registered Paralegal to discuss your options. Click on the link below or, alternatively, consol yourself with cute cat videos. Hopefully we can help you next time!</p>
-</div>
-</div>-->
-  <!--step3 completes-->
 <!--step4 starts-->
 <div id="fourth-step"> 
 <div data-role="content">
@@ -575,40 +574,6 @@ be able to reach you during the day.
 <!--step7 completed-->
 
 
-<!--step8 starts-->
-<!--<div id="eight-step">
-<div data-role="content">
-
-<div class="header_text_top_div">
-<h1>02 - TRIAL lANGUAGE</h1></div>
-<h2>What language would you like your trial to be held in?</h2>
-<select name="p_language" id="p_language" data-theme="c">
-        <option value="">Language</option>
-      <option value="English">English Language </option>
-      <option value="French">French Language</option>
-    </select> 
-    
-<p>If you would like to request an interpreter for 
-your trial please check the box below.</p>
-  
-  
- <div class="content_inner_div">
-      <div class="check_box_div">	
-<fieldset data-role="controlgroup" class="checkboxWidth">
-<input type="checkbox" name="checkbox_value_1" id="checkbox_value_1" data-iconpos="notext" data-theme="c" />
- <label for="checkbox_value_1" data="test"></label>
- </fieldset>
- <div class="checkboxright_width">Request {selected above}
-interpreter</div></div>
-      
-      </div> 
-      
-      </div> 
- </div>-->
-      
-      
-      
-<!--step8 completed-->
 
 
 <!--step9 starts-->
@@ -760,9 +725,7 @@ Twitter we will file your parking ticket for FREE!! </p>
 town, click the please come to my city! button, tell 
 us to stop watching YouTube and get to work!</p> 
 </div>
-<!--<div class="prev-next">
-<a class="prev back_bt" href="javascript:void(0)" data-corners="true" id="default"  data-wrapperels="span"  data-shadow="true"  data-theme="b" data-corners="true">Back</a>  
-</div> -->
+
 </div>
 <div id="third-stepw"> 
 <div data-role="content">

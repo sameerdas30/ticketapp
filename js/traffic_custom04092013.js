@@ -20,6 +20,12 @@
 			
  
             $('a.next').click(function(){
+function datediff(ds1,ds2) {
+ console.log(ds1);
+ console.log(ds2);
+ var oneday = 86400000;
+ return (ds2-ds1) / oneday;
+}	
 			
                 var whichStep = $(this).parent().parent().attr('id');
 
@@ -88,10 +94,8 @@
 								
 								if($('#t_ticket_no').val().length==8)
 								{
-									if($('#t_ticket_no').val().match(/^[A-Z][A-Z][0-9]+$/i))
+									if($('#t_ticket_no').val().match(/^[A-Z][A-Z][0-9]+$/i) || $('#t_ticket_no').val().match(/^[0-9]+$/i))
 									{
-										if($('#t_ticket_no').val().match(/^[0-9]+$/i))
-										{
 									$('#t_ticket_no').parent().removeClass('warning');/*alert('Enter Your Ticket Number');*/
 									}
 										
@@ -270,7 +274,7 @@
 										
 									}
 								
-                              if($('#t_Zip_code').val()=='')
+								if($('#t_Zip_code').val()=='')
 								{
 									/*alert('Enter Zipcode');*/
 									$('#t_Zip_code').parent().addClass('warning');
@@ -345,43 +349,15 @@
 										
 									}		
 								
-							}
-							else if( whichStep == 't-eight-step' )
-							{
-									var sel3 = document.getElementById('t_language');
-								 var sv3 = sel3.options[sel3.selectedIndex].value;
-								  if(sv3 =="")
-									{
-											/*alert('Select Language');*/
-											$('#t_language').parent().addClass('warning');
-											$('#t_language').focus();
-											return false;
-										
-									}
-									else
-									{
-										$('#t_language').parent().removeClass('warning');
-										
-									}	
-									if (!$("#t_checkbox_value_1").is(":checked")) 
-									{
-										/*alert('Please Check The Checkbox for further proceed');*/
-										$('#t_checkbox_value_1').parent().addClass('warning');
-										$('#t_checkbox_value_1').focus();
-										return false;
-									}
-									else
-									{
-										$('#t_checkbox_value_1').parent().removeClass('warning');
-										
-									}	
+							
+							
 	//summary								
 			var notice_no = $('#t_ticket_no').val();
 			var license_no = $('#t_license_no').val();
 			var date_of = $('#DateTime').val();							
 			var fname = $('#t_owner_fst_name').val();
 			var lname=$('#t_owner_lst_name').val();
-			var tcname=$('#t_company_name').val();
+			var tcname = $('#t_company_name').val();
 			var mail=$('#t_owner_email').val();
 			var language = $('#t_language').val();			
             var unitno = $('#t_Unit_no').val(); 
@@ -393,9 +369,10 @@
 			var phn=$('#t_owner_phno').val();
 			
 //show the confirmation notice values 
-				
+						 
 			 $("#t_owner_fst_name1").html(fname);
 			 $("#t_owner_lst_name1").html(lname);
+			 $('.content_inner_div show_comp').append('<div class="profile_left_div1"><h4>Company Name </h4></div><div class="profile_right_div1"><h4><div id="t_show_company"></div></h4></div>');
 		     $("#t_owner_email1").html(mail);
 			<!-- $('#t_language1 option[value=' + language + ']').attr('selected', true);-->
 			 $("#t_language1").html(language);
@@ -409,17 +386,18 @@
 			 $("#t_Zip_code1").html(zipcode);
 			 $("#t_fname").html(fname);
 			 $("#t_lname").html(lname);
-			 if(tcname=="") {
-				  $('#tcomp_hide').hide();
+			 $("#p_fname").html(fname);
+			  $("#tcm_name").html(tcname);
+			  if(tcname=="") {
+				$('#tcomp_hide').hide();
 			  }
-			$("#tcm_name").html(tcname);
 			 $("#t_owner_phno1").html(phn);
 			 $("#t_date_of_infraction").html(date_of);
 			 $("#t_notice_no").html(notice_no);
 			 $("#t_license_no_of_ticket").html(license_no);					
 							}
 							
-							else if( whichStep == 't-nine-step' )
+							if( whichStep == 't-nine-step' )
 							{
 								if (!$("#t_checkbox_value_2").is(":checked")) {
 									/*alert('Please Check The Checkbox for further proceed');*/
@@ -453,16 +431,18 @@
 
         $(function(){
     var nowd = new Date();
-
+		var mt= nowd.getMonth();
+		var yr= nowd.getFullYear();
     $('#DateTime').mobiscroll().date({
         theme: 'ios',
         display: 'bubble',
+        mode: 'scroller',
         dateFormat: 'yy-mm-dd',
-        startYear: nowd.getFullYear(),
-        endYear: nowd.getFullYear() + 10,
+        minDate: new Date(yr, mt - 1, 1),
+        maxDate: new Date,
         width: 50
-    });// ParkingDateTime Mobiscroll
-});	
+    });// TrafficDateTime Mobiscroll
+});		
  
  
 
