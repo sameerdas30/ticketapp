@@ -210,7 +210,7 @@ function ajaxd(p_id) {
 	 var ct_name=$(this).val();
 	  if(ct_name)
 	  {
-	$.get("users.php?city="+ct_name+"&type=city",
+	$.get("http://wordpress-guru.net/ticket/m/users.php?city="+ct_name+"&type=city",
    function(data) {
 	  // alert(data);
      if(data==1)
