@@ -95,14 +95,15 @@ function getUrlVars()
  $(document).ready(function(){
 		 	var soc = getUrlVars()["social"];
 			var rd = getUrlVars()["rid"];
+			var pid = getUrlVars()["post_id"];
 			var ID = getUrlVars()["id"];
 			var ttype = getUrlVars()["t_type"];
 			$('#t_type').val(ttype);
 			$('#upid').val(ID);
 			/*alert(t_type);*/
-			if(soc)
+			if(pid)
 			{
-				$.post("http://wordpress-guru.net/ticket/m/upd_soc.php",{ social: soc, rid: rd, t_type: ttype, id: ID },
+				$.post("http://wordpress-guru.net/ticket/m/upd_soc.php",{ social: soc, rid: pid, t_type: ttype, id: ID },
 		function(data){
 				if(data==1)
 				{
@@ -112,8 +113,30 @@ function getUrlVars()
 				{
 					alert('Sorry try again we are unable to authenticate.');
 				}
-			});
+				});
 			}
+			else
+			{
+				if(soc=='Twitter'){
+					$.post("http://wordpress-guru.net/ticket/m/upd_soc.php",{ social: soc, rid: rd, t_type: ttype, id: ID },
+			function(data){
+					if(data==1)
+					{
+						/*alert('Thank You');*/
+					}
+					else
+					{
+						alert('Sorry try again we are unable to authenticate.');
+					}
+					});
+				}
+				else
+				{
+					alert('Sorry try again we are unable to authenticate. Please try again restarting the app');
+					document.location.href="http://wordpress-guru.net/ticket/m/failure.html";
+				}
+			}
+			
  });
 </script>
 <script type="text/javascript" src="js/modernizr.custom.79639.js"></script> 

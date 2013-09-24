@@ -78,72 +78,25 @@
 	}
 });
 </script> 
-<div id="fb-root"></div>
+
 <script>
-
-  window.fbAsyncInit = function() {
-    // init the FB JS SDK
-    FB.init({
-      appId      : '422443441198616',                        // App ID from the app dashboard
-      channelUrl : 'http://wordpress-guru.net/channel.php', // Channel file for x-domain comms
-      status     : true,                                 // Check Facebook Login status
-      xfbml      : true                                  // Look for social plugins on the page
-    });
-
-    // Additional initialization code such as adding Event Listeners goes here
-  };
-
-  // Load the SDK asynchronously
-  (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = "//connect.facebook.net/en_US/all.js";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));
    function shareOnFacebook() {
-   FB.ui(
-  {
-    method: 'feed',
-    name: 'Finally, it is now easier to fight your ticket than it is to pay it.',
-    link: 'http://wordpress-guru.net/ticket/m',
-    picture: 'http://wordpress-guru.net/ticket/m/images/screen.png',
-    caption: 'Finally, it is now easier to fight your ticket than it is to pay it.',
-    description: 'Finally, it is now easier to fight your ticket than it is to pay it.'
-  },
-  function(response) {
-    if (response && response.post_id) {
-	  console.log(response);
-	  document.location.href="parking_paralegal.html?id="+idofparking+"&t_type="+t_type+"&social=Facebook&rid="+response.post_id;
-
-    } else {
-      alert('Sorry try again we are unable to authenticate.');
-    }
-  }
-);
+	   var nam=encodeURIComponent('Finally, it is now easier to fight your ticket than it is to pay it.');
+    var url=encodeURIComponent('http://wordpress-guru.net/ticket/m');
+    var picture=encodeURIComponent('http://wordpress-guru.net/ticket/m/images/screen.png');
+    var caption=encodeURIComponent('Finally, it is now easier to fight your ticket than it is to pay it.');
+	var description=encodeURIComponent('Finally, it is now easier to fight your ticket than it is to pay it.');
+	var redurl=encodeURIComponent('http://wordpress-guru.net/ticket/m/parking_paralegal.html?id='+idofparking+'&t_type='+t_type+'&social=Facebook');
+	
+	    document.location.href="https://www.facebook.com/dialog/feed?app_id=422443441198616&caption="+caption+"&description="+description+"&display=popup&link="+url+"&locale=en_US&name="+nam+"&picture="+picture+"&redirect_uri="+redurl;
    }
-   function tws_closed() {
-	      // stub function, override this
-		document.location.href="parking_paralegal.html?id="+idofparking+"&social=Twitter&t_type="+t_type+"&rid=success";
-	    }
 
-	    function tws_click(url, title) {
-	      
-	      url = encodeURIComponent('http://wordpress-guru.net/ticket/m/');
-	      title =  encodeURIComponent('Ticketapp');
-	      var width = 700;
-	      var height = 500;
-	      var shareurl = "https://twitter.com/share?text="+title+"&count=none&counturl="+url+"&url="+url
-	      var win = window.open(shareurl, 'sharer', 'toolbar=0,status=0,width='+width+',height='+height);
-	      var tws_closed_checks = 0;
-	      var timer = setInterval(function() {   
-	        if (win.closed || tws_closed_checks++ >= 150) {  
-	          clearInterval(timer);  
-	          tws_closed();
-	        }
-	      }, 500);
-	      
-	      return false;
+	    function tws_click() {
+	     var redurl=encodeURIComponent('http://wordpress-guru.net/ticket/m/parking_paralegal.html?id='+idofparking+'&t_type='+t_type+'&social=Twitter&rid=success');
+	      var url = encodeURIComponent('http://wordpress-guru.net/ticket/m/');
+	      var title =  encodeURIComponent('Ticketapp');
+		  
+		  document.location.href=redurl+"&text="+title+"&url="+url;
 	    }
 </script>
 
@@ -281,7 +234,7 @@ simply a filing service. If you want help fighting your
 ticket, you can Request a Paralegal NEXT!</p>
 <div class="content_inner_div">
    <p class="pimage" align="center"><a href="#" onclick="shareOnFacebook();"><img src="images/facebook_share.png" width="1300" height="207" alt=""> </a></p>
-    <p class="pimage" align="center"><a href="#" onClick="tws_click('http://wordpress-guru.net/ticket','Finally, it is now easier to fight your ticket than it is to pay it.')"><img src="images/twitter_share.png" width="1300" height="207" alt=""> </a></p>
+    <p class="pimage" align="center"><a href="#" onClick="tws_click()"><img src="images/twitter_share.png" width="1300" height="207" alt=""> </a></p>
     <p class="pimage" align="center"><a id="ref_mail" href=""><img src="images/email_share1.png" width="1300" height="207" alt=""> </a>							</p>
    </div>
 	 </div> </div>
