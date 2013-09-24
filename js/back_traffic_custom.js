@@ -18,9 +18,8 @@
             $('#t-first-step').show();
 			//$('option:selected', 'select#PUT').removeAttr('selected').next('option').attr('selected', 'selected');
 			
-            jQuery(document).ready(function(){
-			jQuery('a.next').click(function(){
-          
+ 
+            $('a.next').click(function(){
 function datediff(ds1,ds2) {
  console.log(ds1);
  console.log(ds2);
@@ -34,23 +33,16 @@ function datediff(ds1,ds2) {
 							{
 								
 								// validate first-step
-								
-								 if (!jQuery("#t_checkbox_value_0").is(":checked")) 
-								 	{
-                        			jQuery.alerts.dialogClass = 'alert-danger';
-									jAlert('Please Check The Checkbox for further proceed', 'error', function(){
-                          		    jQuery.alerts.dialogClass = null; // reset to default
-                                    });
-									jQuery(this).parent().parent().parent().find('label').addClass('warning');
-									jQuery('#t_checkbox_value_0').focus();
+								if (!$("#t_checkbox_value_0").is(":checked")) {
+								alert('Please Accept To Proceed')	
+									$(this).parent().parent().parent().find('label').addClass('warning');
+									$('#t_checkbox_value_0').focus()
 									return false;
-				                 
-							
 									}
 							
 								else
 									{
-										jQuery(this).parent().parent().parent().find('label').removeClass('warning');
+										$(this).parent().parent().parent().find('label').removeClass('warning');
 										
 									}
 					
@@ -64,18 +56,17 @@ function datediff(ds1,ds2) {
 								 var tsv = tsel.options[tsel.selectedIndex].value;
 								  if(tsv == '')
 									{ 
-									jQuery.alerts.dialogClass = 'alert-danger';
-									jAlert('Select City', 'error', function(){
-                          		    jQuery.alerts.dialogClass = null; // reset to default
-                                    });
-									jQuery('#t_city').parent().addClass('warning');
-									jQuery('#t_city').focus();											
-									return false;
+									        alert('Select City');
+											$('#t_city').parent().addClass('warning');
+											/*$('#t_city').parent().css('height','32px');
+											$('#t_city').parent().css('margin-top','0px');*/
+											$('#t_city').focus();											
+											return false;
 										
 									}
 									else
 									{
-											jQuery('#t_city').parent().removeClass('warning');
+											$('#t_city').parent().removeClass('warning');
 										
 									}	
 					
@@ -83,36 +74,32 @@ function datediff(ds1,ds2) {
 							else if( whichStep == 't-third-step' )
 							{
 								
-								  if (jQuery("#DateTime").val()=="")
+								 if($('#DateTime').val()=='')
 									{   
-										jQuery('#DateTime').parent().addClass('warning');
-										jQuery('#DateTime').parent().focus();
+										$('#DateTime').parent().addClass('warning');
+										$('#DateTime').parent().focus();
 										return false;
 									}
 								else
 									{
-											jQuery('#DateTime').parent().removeClass('warning');
+											$('#DateTime').parent().removeClass('warning');
 										
 									}
 							}
 							
 							else if( whichStep == 't-fourth-step' )
 							{
-								if(jQuery('#t_ticket_no').val().match(/^[A-Z][A-Z][0-9]{6}$/i) || jQuery('#t_ticket_no').val().match(/^[0-9]{8}$/i))
+								if($('#t_ticket_no').val().match(/^[A-Z][A-Z][0-9]{6}$/i) || $('#t_ticket_no').val().match(/^[0-9]{8}$/i))
 								{
 			
-									jQuery('#t_ticket_no').parent().removeClass('warning');/*alert('Enter Your Ticket Number');*/
+									$('#t_ticket_no').parent().removeClass('warning');/*alert('Enter Your Ticket Number');*/
 			
 								}
 								else
 									{
-										jQuery.alerts.dialogClass = 'alert-danger';
-			                            jAlert('Enter Valid Ticket No', 'error', function(){
-                                        jQuery.alerts.dialogClass = null; // reset to default
-										jQuery('#t_ticket_no').parent().addClass('warning');
-										jQuery('#t_ticket_no').focus();
-                                        });
-										
+										alert('Enter Valid Ticket No');
+										$('#t_ticket_no').parent().addClass('warning');
+										$('#t_ticket_no').focus();
 										return false;
 											
 										
@@ -120,22 +107,18 @@ function datediff(ds1,ds2) {
 							}
 							else if(whichStep == 't-fourth-step-license')
 							{
-								/*if(jQuery('#t_license_no').val().match(/^(?=.*?[a-z])(?=.*?\d)(?=.*?[- ])/i) || $('#t_license_no').val().match(/^[0-9]{8}$/i) )*/
-									 if(!jQuery('#t_license_no').val()=='')
+								/*if($('#t_license_no').val().match(/^(?=.*?[a-z])(?=.*?\d)(?=.*?[- ])/i) || $('#t_license_no').val().match(/^[0-9]{8}$/i) )*/
+									 if(!$('#t_license_no').val()=='')
 		                            {
-									jQuery('#t_license_no').parent().removeClass('warning');
+									$('#t_license_no').parent().removeClass('warning');
 										
 								    }
 								else 
 								{
-									jQuery.alerts.dialogClass = 'alert-danger';
-			                            jAlert('Enter Valid Plate License No', 'error', function(){
-                                        jQuery.alerts.dialogClass = null; // reset to default
-										jQuery('#t_license_no').parent().addClass('warning');
+									alert('Enter Valid Plate License No');
+									$('#t_license_no').parent().addClass('warning');
 										
-										jQuery('#t_license_no').focus();
-                                        });
-									
+										$('#t_license_no').focus();
 										return false;
 									
 								}
@@ -143,41 +126,34 @@ function datediff(ds1,ds2) {
 							
 							else if(whichStep == 't-fourth-step-para')
 							{
-								if(jQuery('#t_checkbox_value_3').prop('checked') == true || jQuery('#t_checkbox_value_4').prop('checked') == true)
+								if($('#t_checkbox_value_3').prop('checked') == true || $('#t_checkbox_value_4').prop('checked') == true)
 								{
 									
 								}
 								 else
 								 {
-									 jQuery.alerts.dialogClass = 'alert-danger';
-			                            jAlert('Please Check Vehicle Type', 'error', function(){
-                                        jQuery.alerts.dialogClass = null; // reset to default
-                                        });
-									 console.log(jQuery('#t_checkbox_value_3').is(':checked'));
-										jQuery('#t_checkbox_value_4').parent().parent().find('label').addClass('warning');
-										jQuery('#t_checkbox_value_3').parent().parent().find('label').addClass('warning');
+									 alert('Please Check Vehicle Type');
+									 console.log($('#t_checkbox_value_3').is(':checked'));
+										$('#t_checkbox_value_4').parent().parent().find('label').addClass('warning');
+										$('#t_checkbox_value_3').parent().parent().find('label').addClass('warning');
 										return false;
 								 }
 								
 
-								if (jQuery('#t_checkbox_value_4').is(':checked'))
+								if ($('#t_checkbox_value_4').is(':checked'))
 								{
 									
 									
-								if(jQuery('#t_company_name').val()=='')
+								if($('#t_company_name').val()=='')
 								{
-									 jQuery.alerts.dialogClass = 'alert-danger';
-									jAlert('Enter Company Name', 'error', function(){
-                                        jQuery.alerts.dialogClass = null; // reset to default
-										jQuery('#t_company_name').parent().addClass('warning');
-									jQuery('#t_company_name').focus();
-                                        });
-									
+									alert('Enter Company Name');
+									$('#t_company_name').parent().addClass('warning');
+									$('#t_company_name').focus();
 										return false;	
 								}
 								else 
 								{
-									jQuery('#t_company_name').parent().removeClass('warning');
+									$('#t_company_name').parent().removeClass('warning');
 										
 								}
 								}
@@ -186,37 +162,29 @@ function datediff(ds1,ds2) {
 					
 							else if( whichStep == 't-fifth-step' )
 							{
-								if(jQuery('#t_owner_fst_name').val()=='')
+								if($('#t_owner_fst_name').val()=='')
 									{
-										jQuery.alerts.dialogClass = 'alert-danger';
-										jAlert('Enter Your First Name', 'error', function(){
-                                        jQuery.alerts.dialogClass = null; // reset to default
-										jQuery('#t_owner_fst_name').parent().addClass('warning');
-										jQuery('#t_owner_fst_name').focus();
-                                        });
-										
+									alert('Enter Your First Name');
+										$('#t_owner_fst_name').parent().addClass('warning');
+										$('#t_owner_fst_name').focus();
 										return false;
 									}
 									else
 									{
-											jQuery('#t_owner_fst_name').parent().removeClass('warning');
+											$('#t_owner_fst_name').parent().removeClass('warning');
 										
 									}
 									
-									if(jQuery('#t_owner_lst_name').val()=='')
+									if($('#t_owner_lst_name').val()=='')
 									{
-										jQuery.alerts.dialogClass = 'alert-danger';
-										jAlert('Enter Your Last Name', 'error', function(){
-                                        jQuery.alerts.dialogClass = null; // reset to default
-										jQuery('#t_owner_lst_name').parent().addClass('warning');
-										jQuery('#t_owner_lst_name').focus();
-                                        });
-										
+										alert('Enter Your Last Name');
+										$('#t_owner_lst_name').parent().addClass('warning');
+										$('#t_owner_lst_name').focus();
 										return false;
 									}
 									else
 									{
-											jQuery('#t_owner_lst_name').parent().removeClass('warning');
+											$('#t_owner_lst_name').parent().removeClass('warning');
 										
 									}
 							        
@@ -236,20 +204,16 @@ function datediff(ds1,ds2) {
 							else if( whichStep == 't-six-step' )
 							{
 								
-								if(jQuery('#t_Street_add').val()=='')
+								if($('#t_Street_add').val()=='')
 								{
-									jQuery.alerts.dialogClass = 'alert-danger';
-									jAlert('Enter Street Address', 'error', function(){
-                                        jQuery.alerts.dialogClass = null; // reset to default
-										jQuery('#t_Street_add').parent().addClass('warning');
-									jQuery('#t_Street_add').focus();
-                                        });
-									
+									alert('Enter Street Address');
+									$('#t_Street_add').parent().addClass('warning');
+									$('#t_Street_add').focus();
 									return false;
 								}
 								else
 								{
-									jQuery('#t_Street_add').parent().removeClass('warning');
+									$('#t_Street_add').parent().removeClass('warning');
 									
 								}
 								
@@ -257,19 +221,15 @@ function datediff(ds1,ds2) {
 								 var tsv2 = tsel2.options[tsel2.selectedIndex].value;
 								  if(tsv2 == '')
 									{
-										jQuery.alerts.dialogClass = 'alert-danger';
-										jAlert('Select Province', 'error', function(){
-                                        jQuery.alerts.dialogClass = null; // reset to default
-										jQuery('#t_owner_province').parent().addClass('warning');
-											jQuery('#t_owner_province').focus();
-                                        });
-											
+											alert('Select Province');
+											$('#t_owner_province').parent().addClass('warning');
+											$('#t_owner_province').focus();
 											return false;
 										
 									}
 									else
 									{
-										jQuery('#t_owner_province').parent().removeClass('warning');
+										$('#t_owner_province').parent().removeClass('warning');
 										
 									}
 								
@@ -277,20 +237,15 @@ function datediff(ds1,ds2) {
 								 var tsv1 = tsel1.options[tsel1.selectedIndex].value;
 								  if(tsv1 == '')
 									{
-										jQuery.alerts.dialogClass = 'alert-danger';
-										jAlert('Select City', 'error', function(){
-                                        jQuery.alerts.dialogClass = null; // reset to default
-										jQuery('#t_owner_city').parent().addClass('warning');
-											jQuery('#t_owner_city').focus();
-                                        });
-											
-											
+											alert('Select City');
+											$('#t_owner_city').parent().addClass('warning');
+											$('#t_owner_city').focus();
 											return false;
 										
 									}
 									else
 									{
-										jQuery('#t_owner_city').parent().removeClass('warning');
+										$('#t_owner_city').parent().removeClass('warning');
 										
 									}
 								/*if($('#t_Zip_code').val().match(/^([ABCEGHJKLMNPRSTVXY]\d[ABCEGHJKLMNPRSTVWXYZ])\ {0,1}(\d[ABCEGHJKLMNPRSTVWXYZ]\d)$/) || $('#t_Zip_code').val().match(/^([abceghjklmnprstvxy]\d[abceghjklmnprstvwxyz])\ {0,1}(\d[abceghjklmnprstvwxyz]\d)$/) )
@@ -306,21 +261,17 @@ function datediff(ds1,ds2) {
 									return false;
 								
 									}*/
-									if(jQuery('#t_Zip_code').val()=='')
+									if($('#t_Zip_code').val()=='')
 									{
-										jQuery.alerts.dialogClass = 'alert-danger';
-										jAlert('Enter Zipcode', 'error', function(){
-                                        jQuery.alerts.dialogClass = null; // reset to default
-										jQuery('#t_Zip_code').parent().addClass('warning');
-								    jQuery('#t_Zip_code').focus();
-                                        });
-									
+								    alert('Enter Zipcode');
+									$('#t_Zip_code').parent().addClass('warning');
+								    $('#t_Zip_code').focus();
 								    return false;
 										
 									}
 									else
 									{
-										jQuery('#t_Zip_code').parent().removeClass('warning');	
+										$('#t_Zip_code').parent().removeClass('warning');	
 										
 									}
 							}
@@ -328,15 +279,11 @@ function datediff(ds1,ds2) {
 							else if( whichStep == 't-email-step' )
 							{
 								
-									if(jQuery('#t_owner_email').val()=="")
+									if($('#t_owner_email').val()=="")
 									{
-										jQuery.alerts.dialogClass = 'alert-danger';
-										jAlert('Enter Your Email', 'error', function(){
-                                        jQuery.alerts.dialogClass = null; // reset to default
-										jQuery('#t_owner_email').parent().addClass('warning');
-										jQuery('#t_owner_email').focus();
-                                        });
-										
+										alert("Enter Your Email");
+										$('#t_owner_email').parent().addClass('warning');
+										$('#t_owner_email').focus();
 										return false;
 									}
 									
@@ -344,18 +291,14 @@ function datediff(ds1,ds2) {
 									{
 										if(!emailInvalid($('#t_owner_email').val()))
 										{
-											jQuery.alerts.dialogClass = 'alert-danger';
-											jAlert('Please Enter Valid Email Address', 'error', function(){
-                                        jQuery.alerts.dialogClass = null; // reset to default
-										jQuery('#t_owner_email').parent().addClass('warning');
-											jQuery('#t_owner_email').focus();
-                                        });
-											
+											alert("Please Enter Valid Email Address");
+											$('#t_owner_email').parent().addClass('warning');
+											$('#t_owner_email').focus();
 											return false;
 										}
 										else
 										{
-											jQuery('#t_owner_email').parent().removeClass('warning');
+											$('#t_owner_email').parent().removeClass('warning');
 											
 										}
 									}
@@ -373,54 +316,45 @@ function datediff(ds1,ds2) {
 							
 							else if( whichStep == 't-seven-step' )
 							{
-								if(jQuery('#t_owner_phno').val()=='')
+								if($('#t_owner_phno').val()=='')
 								{
-									jQuery.alerts.dialogClass = 'alert-danger';
-									jAlert('Enter Your Contact Number', 'error', function(){
-                                        jQuery.alerts.dialogClass = null; // reset to default
-										jQuery('#t_owner_phno').parent().addClass('warning');
-									jQuery('#t_owner_phno').focus();
-                                        });
-									
+									alert('Enter Your Contact Number');
+									$('#t_owner_phno').parent().addClass('warning');
+									$('#t_owner_phno').focus();
 									return false;
 								}
-								else if(!jQuery("#t_owner_phno").val().match(/^\(\d{3}\) \d{3}\-\d{4}( x\d{1,6})?$/))
+								else if(!$("#t_owner_phno").val().match(/^\(\d{3}\) \d{3}\-\d{4}( x\d{1,6})?$/))
 								{
-									jQuery.alerts.dialogClass = 'alert-danger';
-									jAlert('Enter Valid Contact Number', 'error', function(){
-                                        jQuery.alerts.dialogClass = null; // reset to default
-										jQuery('#t_owner_phno').parent().addClass('warning');
-									jQuery('#t_owner_phno').focus();
-                                        });
 									
+									alert('Enter Valid Contact Number');
+									$('#t_owner_phno').parent().addClass('warning');
+									$('#t_owner_phno').focus();
 									return false;
 								}
 								else
 									{
-										jQuery('#t_owner_phno').parent().removeClass('warning');
+										$('#t_owner_phno').parent().removeClass('warning');
 										
 									}
 							}
 							else if( whichStep == 't-nine-step' )
 							{
-							if (!jQuery("#t_checkbox_value_1").is(":checked")) 
+							if (!$("#t_checkbox_value_1").is(":checked")) 
 								{
-									jQuery.alerts.dialogClass = 'alert-danger';
-									jAlert('Please Check The Checkbox for further proceed', 'error', function(){
-                                        jQuery.alerts.dialogClass = null; // reset to default
-                                        });	
-									jQuery('#t_checkbox_value_1').parent().find('label').addClass('warning');
-									jQuery('#t_checkbox_value_1').focus();
+										
+									alert('Please Check The Checkbox for further proceed');
+									$('#t_checkbox_value_1').parent().find('label').addClass('warning');
+									$('#t_checkbox_value_1').focus();
 									return false;
 								}
 								else
 								{
-								    jQuery('#t_checkbox_value_1').parent().find('label').removeClass('warning');
+								    $('#t_checkbox_value_1').parent().find('label').removeClass('warning');
 										
 								}
 								
 							
-							if (jQuery('#t_checkbox_value_4').is(':checked'))
+							if ($('#t_checkbox_value_4').is(':checked'))
 								{
 	//summary	
 	       	var tcname = $('#t_company_name').val();
@@ -518,21 +452,18 @@ function datediff(ds1,ds2) {
 							
 							if( whichStep == 't-ten-step' )
 							{
-								if (!jQuery("#t_checkbox_value_2").is(":checked")) {
+								if (!$("#t_checkbox_value_2").is(":checked")) {
 									
 										var fname = $('#t_owner_fst_name').val();
 			                            var lname=$('#t_owner_lst_name').val();
-										jQuery.alerts.dialogClass = 'alert-danger';
-										jAlert('I, '+fname+' '+lname+' confirm that all information is accurate', function(){
-                                        jQuery.alerts.dialogClass = null; // reset to default
-                                        });
-										jQuery('#t_checkbox_value_2').parent().find('label').addClass('warning');
-										jQuery('#t_checkbox_value_2').focus();
+									alert('I, '+fname+' '+lname+' confirm that all information is accurate');
+										$('#t_checkbox_value_2').parent().find('label').addClass('warning');
+										$('#t_checkbox_value_2').focus();
 										return false;
 									}
 									else
 									{
-										jQuery('#t_checkbox_value_2').parent().find('label').removeClass('warning');
+										$('#t_checkbox_value_2').parent().find('label').removeClass('warning');
 													var str = $("form#register1").serialize();
 	  fsubmit(decodeURIComponent(str));
 
@@ -545,6 +476,7 @@ function datediff(ds1,ds2) {
 			url: 'http://wordpress-guru.net/ticket/m/mprocessing.php',
 			cache: false,
 			success: function(response) {
+            alert("Thanks for your patience you will be taken to our next step!");
 			window.location.href ='social.html?id='+response+'&t_type=traffic';
         },
           error: function(response) {
@@ -562,7 +494,6 @@ function datediff(ds1,ds2) {
 							}
 							
             });
-			});
  
             $('a.prev').click(function(){
                 $(this).parent().parent().hide().prev().trigger('create').show();

@@ -18,8 +18,8 @@
             $('#first-step').show();
 			//$('option:selected', 'select#PUT').removeAttr('selected').next('option').attr('selected', 'selected');
 			
-
-            $('a.next').click(function(){
+            jQuery(document).ready(function(){
+            jQuery('a.next').click(function(){
 				
 
                 var whichStep = $(this).parent().parent().attr('id');
@@ -28,17 +28,20 @@
 							{
 								 
 								// validate first-step
-								if (!$("#checkbox_value_0").is(":checked")) 
+								if (!jQuery("#checkbox_value_0").is(":checked")) 
 									{	
 									    /*alert('Please Check The Checkbox for further proceed');*/
-										alert('Please Accept To Proceed');																
-										$(this).parent().parent().parent().find('label').addClass('warning');
-										$('#checkbox_value_0').focus();
+										jQuery.alerts.dialogClass = 'alert-danger';
+									jAlert('Please Check The Checkbox for further proceed', 'error', function(){
+                          		    jQuery.alerts.dialogClass = null; // reset to default
+                                    });															
+										jQuery(this).parent().parent().parent().find('label').addClass('warning');
+										jQuery('#checkbox_value_0').focus();
 										return false;
 									}	
 								else
 									{
-										$(this).parent().parent().parent().find('label').removeClass('warning');
+										jQuery(this).parent().parent().parent().find('label').removeClass('warning');
 										
 									}	
 								
@@ -51,18 +54,21 @@
 								 var tsv = tsel.options[tsel.selectedIndex].value;
 								  if(tsv == '')
 									{ 
-									      alert('Select City');
-											$('#p_city').parent().addClass('warning');
+									     jQuery.alerts.dialogClass = 'alert-danger';
+									jAlert('Select City', 'error', function(){
+                          		    jQuery.alerts.dialogClass = null; // reset to default
+                                    });
+											jQuery('#p_city').parent().addClass('warning');
 											/*$('#p_city').parent().css('height','32px');
 											$('#p_city').parent().css('margin-top','3px');*/
 											
-											$('#p_city').focus();											
+											jQuery('#p_city').focus();											
 											return false;
 										
 									}
 									else
 									{
-											$('#p_city').parent().removeClass('warning');
+											jQuery('#p_city').parent().removeClass('warning');
 										
 									}	
 					
@@ -74,16 +80,16 @@
 								
 	                            
 							
-		                        if($('#pDateTime').val()=='')
+		                        if(jQuery('#pDateTime').val()=='')
 									{   
 									    /*alert('Select Date');*/
-										$('#pDateTime').parent().addClass('warning');
-										$('#pDateTime').parent().focus();
+										jQuery('#pDateTime').parent().addClass('warning');
+										jQuery('#pDateTime').parent().focus();
 										return false;
 									}
 								else
 									{
-											$('#pDateTime').parent().removeClass('warning');
+											jQuery('#pDateTime').parent().removeClass('warning');
 										
 									}
 	                            
@@ -94,18 +100,24 @@
 							else if(whichStep == 'fourth-step' )
 							{
 								
-								if($('#Ticket_no').val().match(/^[A-Z][A-Z][0-9]{6}$/i) || $('#Ticket_no').val().match(/^[0-9]{8}$/i))
+								if(jQuery('#Ticket_no').val().match(/^[A-Z][A-Z][0-9]{6}$/i) || jQuery('#Ticket_no').val().match(/^[0-9]{8}$/i))
 								{
 			
-									$('#Ticket_no').parent().removeClass('warning');/*alert('Enter Your Ticket Number');*/
+									jQuery('#Ticket_no').parent().removeClass('warning');/*alert('Enter Your Ticket Number');*/
 			
 								}
 								else
 									{
-										alert('Enter Valid Ticket No');
-										$('#Ticket_no').parent().addClass('warning');
-										$('#Ticket_no').focus();
-										return false;										
+										jQuery.alerts.dialogClass = 'alert-danger';
+										jAlert('Enter Valid Ticket No', 'error', function(){
+                                        jQuery.alerts.dialogClass = null; // reset to default
+										jQuery('#Ticket_no').focus();
+										jQuery('#Ticket_no').parent().addClass('warning');
+											
+                                        });
+										return false;
+										
+																			
 									}
 								
 							}
@@ -113,19 +125,23 @@
 							{
 								
 									 /*if($('#license_no').val().match(/^(?=.*?[a-z])(?=.*?\d)(?=.*?[- ])/i) || $('#license_no').val().match(/^[0-9]{8}$/i) )*/
-									 if(!$('#license_no').val()=='')
+									 if(!jQuery('#license_no').val()=='')
 									
 		                            {
-									$('#license_no').parent().removeClass('warning');
+									jQuery('#license_no').parent().removeClass('warning');
 										
 								    }
 								else 
 								{
-									alert('Enter Valid Plate License No');
-									$('#license_no').parent().addClass('warning');
+									jQuery.alerts.dialogClass = 'alert-danger';
+			                            jAlert('Enter Valid Plate License No', 'error', function(){
+                                        jQuery.alerts.dialogClass = null; // reset to default
+										jQuery('#license_no').parent().addClass('warning');
 										
-										$('#license_no').focus();
-										return false;
+										jQuery('#license_no').focus();
+										
+                                        });
+									return false;
 									
 								}
 							
@@ -135,33 +151,40 @@
 							else if(whichStep == 'fourth-step-para')
 							{
 								
-								 if($('#p_checkbox_value_3').prop('checked') == true || $('#p_checkbox_value_4').prop('checked') == true)
+								 if(jQuery('#p_checkbox_value_3').prop('checked') == true || jQuery('#p_checkbox_value_4').prop('checked') == true)
 								{
-								$('#p_checkbox_value_4').parent().parent().find('label').removeClass('warning');
-								$('#p_checkbox_value_3').parent().parent().find('label').removeClass('warning');	
+								jQuery('#p_checkbox_value_4').parent().parent().find('label').removeClass('warning');
+								jQuery('#p_checkbox_value_3').parent().parent().find('label').removeClass('warning');	
 								}
 								 else
 								 {
-									 alert('Please Check Vehicle Type');
-									 console.log($('#p_checkbox_value_3').is(':checked'));
-										$('#p_checkbox_value_4').parent().parent().find('label').addClass('warning');
-										$('#p_checkbox_value_3').parent().parent().find('label').addClass('warning');
+									  jQuery.alerts.dialogClass = 'alert-danger';
+			                            jAlert('Please Check Vehicle Type', 'error', function(){
+                                        jQuery.alerts.dialogClass = null; // reset to default
+                                        });
+									 console.log(jQuery('#p_checkbox_value_3').is(':checked'));
+										jQuery('#p_checkbox_value_4').parent().parent().find('label').addClass('warning');
+										jQuery('#p_checkbox_value_3').parent().parent().find('label').addClass('warning');
 										return false;
 								 }
 	
-									if ($('#p_checkbox_value_4').is(':checked'))
+									if (jQuery('#p_checkbox_value_4').is(':checked'))
 									{
 								
-										if($('#p_company_name').val()=='')
+										if(jQuery('#p_company_name').val()=='')
 										{
-											alert('Enter Company Name');
-											$('#p_company_name').parent().addClass('warning');
-											$('#p_company_name').focus();
-												return false;	
+											jQuery.alerts.dialogClass = 'alert-danger';
+									jAlert('Enter Company Name', 'error', function(){
+                                        jQuery.alerts.dialogClass = null; // reset to default
+										jQuery('#p_company_name').parent().addClass('warning');
+											jQuery('#p_company_name').focus();
+												
+                                        });
+										return false;		
 										}
 										else 
 										{
-											$('#p_company_name').parent().removeClass('warning');
+											jQuery('#p_company_name').parent().removeClass('warning');
 												
 										}
 									}
@@ -169,31 +192,39 @@
 							}
 							else if( whichStep == 'fifth-step' )
 							{
-								if($('#p_owner_fst_name').val()=='')
+								if(jQuery('#p_owner_fst_name').val()=='')
 									{
-										alert('Enter Your First Name');
-										/*alert('Enter Your First Name');*/
-										$('#p_owner_fst_name').parent().addClass('warning');
-										$('#p_owner_fst_name').focus();
+										jQuery.alerts.dialogClass = 'alert-danger';
+										jAlert('Enter Your First Name', 'error', function(){
+                                        jQuery.alerts.dialogClass = null; // reset to default
+										jQuery('#p_owner_fst_name').parent().addClass('warning');
+										jQuery('#p_owner_fst_name').focus();
+										
+                                        });
 										return false;
+										
 									}
 									else
 									{
-											$('#p_owner_fst_name').parent().removeClass('warning');
+											jQuery('#p_owner_fst_name').parent().removeClass('warning');
 										
 									}
 									
-									if($('#p_owner_lst_name').val()=='')
+									if(jQuery('#p_owner_lst_name').val()=='')
 									{
 										/*alert('Enter Your Last Name');*/
-										alert('Enter Your Last Name');
-										$('#p_owner_lst_name').parent().addClass('warning');
-										$('#p_owner_lst_name').focus();
+										jQuery.alerts.dialogClass = 'alert-danger';
+										jAlert('Enter Your Last Name', 'error', function(){
+                                        jQuery.alerts.dialogClass = null; // reset to default
+										jQuery('#p_owner_lst_name').parent().addClass('warning');
+										jQuery('#p_owner_lst_name').focus();
+										
+                                        });
 										return false;
 									}
 									else
 									{
-											$('#p_owner_lst_name').parent().removeClass('warning');
+											jQuery('#p_owner_lst_name').parent().removeClass('warning');
 										
 									}
 
@@ -213,16 +244,20 @@
 							{
 								
 								
-								if($('#Street_add').val()=='')
+								if(jQuery('#Street_add').val()=='')
 								{
-									alert('Enter Street Address');
-									$('#Street_add').parent().addClass('warning');
-									$('#Street_add').focus();
+									jQuery.alerts.dialogClass = 'alert-danger';
+									jAlert('Enter Street Address', 'error', function(){
+                                        jQuery.alerts.dialogClass = null; // reset to default
+										jQuery('#Street_add').parent().addClass('warning');
+									jQuery('#Street_add').focus();
+									
+                                        });
 									return false;
 								}
 								else
 								{
-									$('#Street_add').parent().removeClass('warning');
+									jQuery('#Street_add').parent().removeClass('warning');
 									
 								}
 		
@@ -230,15 +265,19 @@
 								 var sv2 = sel2.options[sel2.selectedIndex].value;
 								  if(sv2 == '')
 									{
-											alert('Select Province');
-											$('#p_owner_province').parent().addClass('warning');
-											$('#p_owner_province').focus();
-											return false;
+										jQuery.alerts.dialogClass = 'alert-danger';
+											jAlert('Select Province', 'error', function(){
+                                        jQuery.alerts.dialogClass = null; // reset to default
+										jQuery('#p_owner_province').parent().addClass('warning');
+											jQuery('#p_owner_province').focus();
+											
+                                        });
+										return false;	
 										
 									}
 									else
 									{
-										$('#p_owner_province').parent().removeClass('warning');
+										jQuery('#p_owner_province').parent().removeClass('warning');
 										
 									}
 								
@@ -246,15 +285,19 @@
 								 var sv1 = sel1.options[sel1.selectedIndex].value;
 								  if(sv1 == '')
 									{
-											alert('Select City');
-											$('#p_owner_city').parent().addClass('warning');
-											$('#p_owner_city').focus();
-											return false;
+										jQuery.alerts.dialogClass = 'alert-danger';
+											jAlert('Select City', 'error', function(){
+                                        jQuery.alerts.dialogClass = null; // reset to default
+										jQuery('#p_owner_city').parent().addClass('warning');
+											jQuery('#p_owner_city').focus();
+											
+                                        });
+										return false;	
 										
 									}
 									else
 									{
-										$('#p_owner_city').parent().removeClass('warning');
+										jQuery('#p_owner_city').parent().removeClass('warning');
 										
 									}
 								/*if($('#Zip_code').val().match(/^([ABCEGHJKLMNPRSTVXY]\d[ABCEGHJKLMNPRSTVWXYZ])\ {0,1}(\d[ABCEGHJKLMNPRSTVWXYZ]\d)$/) || $('#Zip_code').val().match(/^([abceghjklmnprstvxy]\d[abceghjklmnprstvwxyz])\ {0,1}(\d[abceghjklmnprstvwxyz]\d)$/) )
@@ -269,43 +312,55 @@
 									$('#Zip_code').focus();
 									return false;
 									}*/
-									if($('#Zip_code').val()=='')
+									if(jQuery('#Zip_code').val()=='')
 									{
-								    alert('Enter Valid Zipcode');
-									$('#Zip_code').parent().addClass('warning');
-								    $('#Zip_code').focus();
-								    return false;
+										jQuery.alerts.dialogClass = 'alert-danger';
+								   jAlert('Enter Zipcode', 'error', function(){
+                                        jQuery.alerts.dialogClass = null; // reset to default
+										jQuery('#Zip_code').parent().addClass('warning');
+								    jQuery('#Zip_code').focus();
+								    
+                                        });
+									return false;
 										
 									}
 									else
 									{
-										$('#Zip_code').parent().removeClass('warning');	
+										jQuery('#Zip_code').parent().removeClass('warning');	
 										
 									}
 							}
 								else if( whichStep == 'email-step' )
 							{
 								
-									if($('#p_owner_email').val()=="")
+									if(jQuery('#p_owner_email').val()=="")
 									{
-										alert("Enter Your Email");
-										$('#p_owner_email').parent().addClass('warning');
-										$('#p_owner_email').focus();
+										jQuery.alerts.dialogClass = 'alert-danger';
+										jAlert('Enter Your Email', 'error', function(){
+                                        jQuery.alerts.dialogClass = null; // reset to default
+										jQuery('#p_owner_email').parent().addClass('warning');
+										jQuery('#p_owner_email').focus();
+										
+                                        });
 										return false;
 									}
 									
 									else 
 									{
-										if(!emailInvalid($('#p_owner_email').val()))
+										if(!emailInvalid(jQuery('#p_owner_email').val()))
 										{
-											alert("Please Enter Valid Email Address");
-											$('#p_owner_email').parent().addClass('warning');
-											$('#p_owner_email').focus();
-											return false;
+											jQuery.alerts.dialogClass = 'alert-danger';
+											jAlert('Please Enter Valid Email Address', 'error', function(){
+                                        jQuery.alerts.dialogClass = null; // reset to default
+										jQuery('#p_owner_email').parent().addClass('warning');
+											jQuery('#p_owner_email').focus();
+											
+                                        });
+										return false;	
 										}
 										else
 										{
-											$('#p_owner_email').parent().removeClass('warning');
+											jQuery('#p_owner_email').parent().removeClass('warning');
 											
 										}
 									}
@@ -322,47 +377,58 @@
 							}
 							else if( whichStep == 'seven-step' )
 							{
-								if($('#p_owner_phno').val()=='' )
+								if(jQuery('#p_owner_phno').val()=='' )
 								{
-									alert('Enter Your Contact Number');
-									$('#p_owner_phno').parent().addClass('warning');
-									$('#p_owner_phno').focus();
+									jQuery.alerts.dialogClass = 'alert-danger';
+									jAlert('Enter Your Contact Number', 'error', function(){
+                                        jQuery.alerts.dialogClass = null; // reset to default
+										jQuery('#p_owner_phno').parent().addClass('warning');
+									jQuery('#p_owner_phno').focus();
+									
+                                        });
 									return false;
 								}
-								else if(!$("#p_owner_phno").val().match(/^\(\d{3}\) \d{3}\-\d{4}( x\d{1,6})?$/))
+								else if(!jQuery("#p_owner_phno").val().match(/^\(\d{3}\) \d{3}\-\d{4}( x\d{1,6})?$/))
 								{
-									alert('Enter Valid Contact Number');
-									$('#p_owner_phno').parent().addClass('warning');
-									$('#p_owner_phno').focus();
+									jQuery.alerts.dialogClass = 'alert-danger';
+									jAlert('Enter Valid Contact Number', 'error', function(){
+                                        jQuery.alerts.dialogClass = null; // reset to default
+										jQuery('#p_owner_phno').parent().addClass('warning');
+									jQuery('#p_owner_phno').focus();
+									
+                                        });
 									return false;
 								}
 								
 								else
 									{
-										$('#p_owner_phno').parent().removeClass('warning');
+										jQuery('#p_owner_phno').parent().removeClass('warning');
 										
 									}
 							}
 						else if( whichStep == 'eight-step' )
 							{
-								if (!$("#checkbox_value_1").is(":checked")) 
+								if (!jQuery("#checkbox_value_1").is(":checked")) 
 								{
+									jQuery.alerts.dialogClass = 'alert-danger';
+									jAlert('Please Check The Checkbox for further proceed', 'error', function(){
+                                        jQuery.alerts.dialogClass = null; // reset to default
+										jQuery('#checkbox_value_1').parent().find('label').addClass('warning');
+									jQuery('#checkbox_value_1').focus();
 									
-									alert('Please Check The Checkbox for further proceed');
-									$('#checkbox_value_1').parent().find('label').addClass('warning');
-									$('#checkbox_value_1').focus();
+                                        });	
 									return false;
 								}
 								else
 								{
-								    $('#checkbox_value_1').parent().find('label').removeClass('warning');
+								   jQuery('#checkbox_value_1').parent().find('label').removeClass('warning');
 										
 								}	
 								
 			               
 							
 							
-			if ($('#p_checkbox_value_4').is(':checked'))
+			if (jQuery('#p_checkbox_value_4').is(':checked'))
 			{
 				
 			var notice_no = $('#Ticket_no').val();
@@ -465,19 +531,22 @@
 							
 							if( whichStep == 'nine-step' )
 							{
-								if (!$("#checkbox_value_2").is(":checked")) 
+								if (!jQuery("#checkbox_value_2").is(":checked")) 
 									{
 										var fname = $('#p_owner_fst_name').val();
 										var lname=$('#p_owner_lst_name').val();
-										alert('I, '+fname+' '+lname+' confirm that all information is accurate');
-										$('#checkbox_value_2').parent().find('label').addClass('warning');
-										$('#checkbox_value_2').focus();
+										jQuery.alerts.dialogClass = 'alert-danger';
+										jAlert('I, '+fname+' '+lname+' confirm that all information is accurate', function(){
+                                        jQuery.alerts.dialogClass = null; // reset to default
+                                        });
+										jQuery('#checkbox_value_2').parent().find('label').addClass('warning');
+										jQuery('#checkbox_value_2').focus();
 										return false;
 									}
 									else
 									{
-										$("#citywrong-step").hide();
-										$('#checkbox_value_2').parent().find('label').removeClass('warning');
+										jQuery("#citywrong-step").hide();
+										jQuery('#checkbox_value_2').parent().find('label').removeClass('warning');
 										
 										var str = $("form#register").serialize();
 			/*	alert(str);*/
@@ -497,7 +566,6 @@
 			<!--alert(response);-->
         },
           error: function(response) {
-          alert(response);
         }
 			});
 	  }//Submit function end
@@ -508,6 +576,7 @@
                 $(this).parent().parent().hide().next().trigger('create').show();
 							}
             });
+			});
             $('a.prev').click(function(){
                 $(this).parent().parent().hide().prev().trigger('create').show();
             });
