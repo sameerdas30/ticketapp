@@ -162,6 +162,10 @@
 	 }
    });
 	  }
+	  else 
+	  {
+		   $("#check_sw").hide();
+	  }
 });
 });
 </script>
@@ -284,10 +288,10 @@ $('#t_owner_province').load('http://wordpress-guru.net/ticket/m/t_owner_province
 					$.mobile.ajaxEnabled=false
 					
                 });
-				$('#t_language11').load('http://wordpress-guru.net/ticket/m/tlanguage1.php', '', function(response, status, xhr) {
+				/*$('#t_language11').load('http://wordpress-guru.net/ticket/m/tlanguage1.php', '', function(response, status, xhr) {
 					$.mobile.ajaxEnabled=false
 					
-                });
+                });*/
 				
 	function datediff(ds1,ds2) {
 	console.log(ds1);

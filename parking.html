@@ -158,7 +158,12 @@
 		 $("#pcheck_sw").hide();
 		
 	 }
+	 
    });
+	  }
+	   else 
+	  {
+		   $("#pcheck_sw").hide();
 	  }
 });
 });
@@ -300,10 +305,10 @@ function ajaxd(p_id) {
 					$.mobile.ajaxEnabled=false
 					
                 });
-				$('#p_language11').load('http://wordpress-guru.net/ticket/m/p_language1.php', '', function(response, status, xhr) {
+				/*$('#p_language11').load('http://wordpress-guru.net/ticket/m/p_language1.php', '', function(response, status, xhr) {
 					$.mobile.ajaxEnabled=false
 					
-                });
+                });*/
 				
 		function datediff(ds1,ds2) {
 	console.log(ds1);
