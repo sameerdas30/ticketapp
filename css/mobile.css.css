@@ -441,7 +441,7 @@ select.styled-select:disabled{
 	width: 100%;
 	height: 66px;
 	overflow: hidden;
-	background: url(../images/arrow_select.jpg) no-repeat 98% #d84949 !important;
+	background: url(../images/arrow_select.jpg) no-repeat 98% #fff;
 	margin-right: 6px;
 	border-radius: 6px;
 	-webkit-border-radius: 6px;
@@ -512,9 +512,6 @@ height:304px;
 }
 .mlc1 {
 height:304px;
-}
-.thank_you {
-	height:304px;
 }
 .note p{
 	color: #FFF;
@@ -592,11 +589,11 @@ div.note_text{
 	text-transform: uppercase;
 }
 .thanku_button {
-	width: 84%;
+	width: 100%;
 	float: left;
 	text-align: center;
-	margin-left: 8%;
-	margin-right: 8%;
+	margin-left: 0%;
+	margin-right: 0%;
 	margin-top: 0px;
 	margin-bottom: 0px;
 }
@@ -609,7 +606,12 @@ div.note_text{
 	padding: 0px;
 	float:left;
 }
-
+.thank_you {
+	width: 100%;
+	float: left;
+	height: auto;
+	margin-bottom: 115px;
+}
 .check_box_text1 {
 	width: 88%;
 	float: left;
@@ -1388,8 +1390,7 @@ div.note_text{
 	color: #fff;
 	cursor:pointer;
 }
-
-
+	
 	
 	
 }
@@ -1399,10 +1400,10 @@ div.note_text{
 	.city {height:424px !important;}
 	.tn {height:424px !important;}
 	.ln {height:424px !important;}
-	.on {height:424px !important;}
+	.content_div.on {height:424px !important;}
 	.vch {height:424px !important;}
-	.tc {height:460px !important;}
-	.city_bt {width:100%; background:#000; padding:10px 0px; -webkit-border-radius: 3px;
+	.tc {height:460px;}
+.city_bt {width:100%; background:#000; padding:10px 0px; -webkit-border-radius: 3px;
 	-moz-border-radius: 3px;
 	border-radius: 3px; font-family: 'helvetica_ceregular';
 	text-transform:uppercase; 
@@ -1412,10 +1413,18 @@ div.note_text{
 	color:#fff;
 	font-size:33px;
 }
-.adrs {height:424px !important;}
-.eml {height:424px !important;}
-.pn {height:424px !important;}
-.tl {height:424px !important;}
+.adrs {
+margin-bottom: 62px;
+}
+.eml {
+margin-bottom: 162px;
+}
+.pn {
+margin-bottom: 162px;
+}
+.tl {
+margin-bottom: 90px;
+}
 .pc {
 margin-bottom: 28px;
 }
@@ -1425,9 +1434,6 @@ margin-bottom: 28px;
 .mlc1 {
 margin-bottom: 28px;
 }
-
-.thank_you { height:424px !important;
-margin-bottom:0px;}
 .profile_left_div1 h4 {
 	padding: 0px;
 	margin: 0px;
@@ -1438,16 +1444,6 @@ margin-bottom:0px;}
 }
 h1 {
 	font-size:33px;}
-	
-.check_box_text1 {
-	width: 85%;
-	float: left;
-	margin-left: 56px !important;
-	font-family: 'helvetica_ceregular';
-	font-size: 18px;
-	color: #fff;
-	margin-top: -14px;
-	}	
 #pcompany h1 {
 	color: #FFF;
 	font-family: 'helvetica_ceregular';
@@ -1793,11 +1789,11 @@ div.termcon p {
 div.header_text_top_div h1 {
 	color: #FFF;
 	font-family: 'helvetica_ceregular';
-	font-size: 31px;
+	font-size: 33px;
 	font-weight: bold;
 	margin: 0px;
 	padding: 0px;
-	margin-bottom: 35px;
+	margin-bottom: 38px;
 	text-transform: uppercase;
 }	
 .header_text_top_div h2{
@@ -2419,13 +2415,13 @@ div.thank_you p {
 	font-size: 33px !important;
 }
 .thanku_button {
-	width: 84%;
+	width: 100%;
 	float: left;
 	text-align: center;
-	margin-left: 8%;
-	margin-right: 8%;
-	margin-top: 0px;
-	margin-bottom:0px;
+	margin-left: 0%;
+	margin-right: 0%;
+	margin-top: 25px;
+	margin-bottom: 30px;
 }
 .thanku_next_bt {
 	width: 48%;
@@ -3386,11 +3382,11 @@ margin-bottom: 28px;
 	margin-bottom: 15px;
 }
 .thanku_button {
-	width: 84% !important;
+	width: 100%;
 	float: left;
 	text-align: center;
-	margin-left: 8%;
-	margin-right: 8%;
+	margin-left: 0%;
+	margin-right: 0%;
 	margin-top: 25px;
 	margin-bottom: 30px;
 }

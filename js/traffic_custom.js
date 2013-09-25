@@ -252,7 +252,24 @@ function datediff(ds1,ds2) {
 									jQuery('#t_Street_add').parent().removeClass('warning');
 									
 								}
-								
+								if(jQuery('#t_owner_city').val()=='')
+									{
+										jQuery.alerts.dialogClass = 'alert-danger';
+										jAlert('Enter City', 'error', function(){
+                                        jQuery.alerts.dialogClass = null; // reset to default
+										jQuery('#t_owner_city').parent().addClass('warning');
+											jQuery('#t_owner_city').focus();
+                                        });
+											
+											
+											return false;
+										
+									}
+									else
+									{
+										jQuery('#t_owner_city').parent().removeClass('warning');
+										
+									}
 								var tsel2 = document.getElementById('t_owner_province');
 								 var tsv2 = tsel2.options[tsel2.selectedIndex].value;
 								  if(tsv2 == '')
@@ -273,26 +290,7 @@ function datediff(ds1,ds2) {
 										
 									}
 								
-								var tsel1 = document.getElementById('t_owner_city');
-								 var tsv1 = tsel1.options[tsel1.selectedIndex].value;
-								  if(tsv1 == '')
-									{
-										jQuery.alerts.dialogClass = 'alert-danger';
-										jAlert('Select City', 'error', function(){
-                                        jQuery.alerts.dialogClass = null; // reset to default
-										jQuery('#t_owner_city').parent().addClass('warning');
-											jQuery('#t_owner_city').focus();
-                                        });
-											
-											
-											return false;
-										
-									}
-									else
-									{
-										jQuery('#t_owner_city').parent().removeClass('warning');
-										
-									}
+								 
 								/*if($('#t_Zip_code').val().match(/^([ABCEGHJKLMNPRSTVXY]\d[ABCEGHJKLMNPRSTVWXYZ])\ {0,1}(\d[ABCEGHJKLMNPRSTVWXYZ]\d)$/) || $('#t_Zip_code').val().match(/^([abceghjklmnprstvxy]\d[abceghjklmnprstvwxyz])\ {0,1}(\d[abceghjklmnprstvwxyz]\d)$/) )
 									{
 									$('#t_Zip_code').parent().removeClass('warning');	
@@ -403,14 +401,39 @@ function datediff(ds1,ds2) {
 							}
 							else if( whichStep == 't-nine-step' )
 							{
-							if (!jQuery("#t_checkbox_value_1").is(":checked")) 
+								if(jQuery('#t_language').val()=='')
+									{
+										jQuery.alerts.dialogClass = 'alert-danger';
+										jAlert('Select Language', 'error', function(){
+                                        jQuery.alerts.dialogClass = null; // reset to default
+										jQuery('#t_language').parent().addClass('warning');
+											jQuery('#t_language').focus();
+                                        });
+											
+											
+											return false;
+										
+									}
+									else
+									{
+										jQuery('#t_language').parent().removeClass('warning');
+										
+									}
+							
+								var langid = $("#t_language").children(":selected").attr("id");
+								if($(langid)=='N') {
+							 $("#t_checkbox_value_1").attr('checked','checked');
+								} else {
+									if (!jQuery("#t_checkbox_value_1").is(":checked")) 
 								{
 									jQuery.alerts.dialogClass = 'alert-danger';
 									jAlert('Please Check The Checkbox for further proceed', 'error', function(){
                                         jQuery.alerts.dialogClass = null; // reset to default
                                         });	
 									jQuery('#t_checkbox_value_1').parent().find('label').addClass('warning');
+								
 									jQuery('#t_checkbox_value_1').focus();
+									
 									return false;
 								}
 								else
@@ -419,6 +442,9 @@ function datediff(ds1,ds2) {
 										
 								}
 								
+								}
+								
+							 
 							
 							if (jQuery('#t_checkbox_value_4').is(':checked'))
 								{
@@ -433,7 +459,7 @@ function datediff(ds1,ds2) {
 			var mail=$('#t_owner_email').val();
 			var language = $('#t_language').val();			
            var streetadd=$('#t_Street_add').val();
-			var city=$('#t_owner_city option:selected').text(); 
+			var city=$('#t_owner_city').val(); 
 			var province=$('#t_owner_province option:selected').text(); 
 		    var zipcode=$('#t_Zip_code').val();
 			var phn=$('#t_owner_phno').val();
@@ -481,7 +507,7 @@ function datediff(ds1,ds2) {
 			var mail=$('#t_owner_email').val();
 			var language = $('#t_language').val();			
             var streetadd=$('#t_Street_add').val();
-			var city=$('#t_owner_city option:selected').text(); 
+			var city=$('#t_owner_city').val(); 
 			var province=$('#t_owner_province option:selected').text(); 
 		    var zipcode=$('#t_Zip_code').val();
 			var phn=$('#t_owner_phno').val();

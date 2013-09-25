@@ -913,17 +913,16 @@ border-top-left-radius: 0px !important;
 
 	}
 .thanku_button {
-	width: 92%;
+	width: 82%;
 	float: left;
 	text-align: center;
-	margin-left: 4%;
-	margin-right: 4%;
 	margin-top: 25px;
 	margin-bottom: 30px;
+	margin: 9% 9%;
 }
 .thanku_next_bt {
-	width: 48%;
-	font-size: 24px;
+	width: 49%;
+	font-size: 95px;
 	background: #000;
 	padding: 11px 0px;
 	float: right;
@@ -942,8 +941,8 @@ border-top-left-radius: 0px !important;
 	cursor:pointer;
 }
 .thanku_back_bt {
-	width: 48%;
-	font-size: 24px;
+	width: 49%;
+	font-size: 95px;
 	background: #000;
 	padding: 11px 0px;
 	float: left;
@@ -964,9 +963,9 @@ border-top-left-radius: 0px !important;
 	float: right;
 	padding: 15px 30px;
 	background: #fff;
-	-webkit-border-radius: 4px;
-	-moz-border-radius: 4px;
-	border-radius: 4px;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
 	cursor: pointer;
 	outline: none;
 	text-align: center;
@@ -980,6 +979,10 @@ border-top-left-radius: 0px !important;
 	font-size: 35px;
 	font-weight: bold;	
 }
+.wrapper-dropdown-5 a{
+	color:#d84949;
+	text-decoration:none;
+	}
 
 .wrapper-dropdown-5:after { /* Little arrow */
     content: "";
@@ -1370,7 +1373,7 @@ select.styled-select:disabled{
 	width: 100%;
 	height: 36px;
 	overflow: hidden;
-	background: url(../images/arrow_select.jpg) no-repeat 99% #fff;
+	background: #fff url(../images/arrow_select.jpg) no-repeat 99%;
 	margin-right: 6px;
 	border-radius: 6px;
 	-webkit-border-radius: 6px;
@@ -1944,8 +1947,8 @@ margin: 0;
 .t_checkbox_value_1 label {
 	cursor: pointer;
 	position: absolute;
-	width: 30px;
-	height: 30px;
+	width: 121px;
+	height: 121px;
 	top: 0;
 	border-radius: 4px;
 	background: #fff;
@@ -1958,12 +1961,12 @@ margin: 0;
 	opacity: 0;
 	content: '';
 	position: absolute;
-	width: 15px;
-	height: 8px;
+	width: 35px;
+	height: 20px;
 	background: transparent;
-	top: 7px;
-	left: 5px;
-	border: 3px solid #d84949;
+	top: 42px;
+	left: 33px;
+	border: 15px solid #d84949;
 	border-top: none;
 	border-right: none;
 	-webkit-transform: rotate(-45deg);
@@ -2074,13 +2077,13 @@ margin: 0;
 }
 
 .check_box_text1 {
-	width: 75%;
-	float: left;
-	margin-left: 38px;
-	font-family: 'helvetica_ceregular';
-	font-size: 18px;
-	color: #fff;
-	margin-top: -8px;
+	width: 82%;
+float: left;
+margin-left: 138px;
+font-family: 'helvetica_ceregular';
+font-size: 36px;
+color: #fff;
+margin-top: -15px;
 }
 #last{
 	border:none;}
@@ -2113,15 +2116,13 @@ margin: 0;
 
 }
 .thank_you {
-	width: 100%;
-	float: left;
 	height: auto;
 	margin-bottom: 115px;
 }
 .thank_you p{
 	color: #FFF;
 	font-family: 'helvetica_ceregular';
-	font-size: 12px !important;
+	font-size: 53px !important;
 	line-height: normal;
 	margin: 0px;
 	padding: 0px;
@@ -2245,9 +2246,8 @@ a:hover .ticket_lefticn{
 	padding-right: 2%;
 	font-family: 'helvetica_ceregular';
 	background-color: #fff;
-	background-image: url(../images/arrow_select.jpg);
-	background-repeat: no-repeat;
-	background-position: 96%;
+	background: url(../images/arrow1.jpg) no-repeat 94% #fff;
+
 	background-size: 80px;
 	margin-bottom:50px;
 }

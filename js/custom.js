@@ -260,7 +260,23 @@
 									jQuery('#Street_add').parent().removeClass('warning');
 									
 								}
-		
+		                        if(jQuery('#p_owner_city').val()=='')
+									{
+										jQuery.alerts.dialogClass = 'alert-danger';
+											jAlert('Enter City', 'error', function(){
+                                        jQuery.alerts.dialogClass = null; // reset to default
+										jQuery('#p_owner_city').parent().addClass('warning');
+											jQuery('#p_owner_city').focus();
+											
+                                        });
+										return false;	
+										
+									}
+									else
+									{
+										jQuery('#p_owner_city').parent().removeClass('warning');
+										
+									}
 								 var sel2 = document.getElementById('p_owner_province');
 								 var sv2 = sel2.options[sel2.selectedIndex].value;
 								  if(sv2 == '')
@@ -281,25 +297,7 @@
 										
 									}
 								
-									 var sel1 = document.getElementById('p_owner_city');
-								 var sv1 = sel1.options[sel1.selectedIndex].value;
-								  if(sv1 == '')
-									{
-										jQuery.alerts.dialogClass = 'alert-danger';
-											jAlert('Select City', 'error', function(){
-                                        jQuery.alerts.dialogClass = null; // reset to default
-										jQuery('#p_owner_city').parent().addClass('warning');
-											jQuery('#p_owner_city').focus();
-											
-                                        });
-										return false;	
-										
-									}
-									else
-									{
-										jQuery('#p_owner_city').parent().removeClass('warning');
-										
-									}
+									 
 								/*if($('#Zip_code').val().match(/^([ABCEGHJKLMNPRSTVXY]\d[ABCEGHJKLMNPRSTVWXYZ])\ {0,1}(\d[ABCEGHJKLMNPRSTVWXYZ]\d)$/) || $('#Zip_code').val().match(/^([abceghjklmnprstvxy]\d[abceghjklmnprstvwxyz])\ {0,1}(\d[abceghjklmnprstvwxyz]\d)$/) )
 									{
 									$('#Zip_code').parent().removeClass('warning');	
@@ -408,25 +406,47 @@
 							}
 						else if( whichStep == 'eight-step' )
 							{
-								if (!jQuery("#checkbox_value_1").is(":checked")) 
+								if(jQuery('#p_language').val()=='')
+									{
+										jQuery.alerts.dialogClass = 'alert-danger';
+										jAlert('Select Language', 'error', function(){
+                                        jQuery.alerts.dialogClass = null; // reset to default
+										jQuery('#t_language').parent().addClass('warning');
+											jQuery('#t_language').focus();
+                                        });
+											
+											
+											return false;
+										
+									}
+									else
+									{
+										jQuery('#p_language').parent().removeClass('warning');
+										
+									}
+								var langid = $("#p_language").children(":selected").attr("id");
+								if($(langid)=='N') {
+							 $("#checkbox_value_1").attr('checked','checked');
+								} else {
+									if (!jQuery("#checkbox_value_1").is(":checked")) 
 								{
 									jQuery.alerts.dialogClass = 'alert-danger';
 									jAlert('Please Check The Checkbox for further proceed', 'error', function(){
                                         jQuery.alerts.dialogClass = null; // reset to default
-										jQuery('#checkbox_value_1').parent().find('label').addClass('warning');
+                                        });	
+									jQuery('#checkbox_value_1').parent().find('label').addClass('warning');
+								
 									jQuery('#checkbox_value_1').focus();
 									
-                                        });	
 									return false;
 								}
 								else
 								{
-								   jQuery('#checkbox_value_1').parent().find('label').removeClass('warning');
+								    jQuery('#checkbox_value_1').parent().find('label').removeClass('warning');
 										
-								}	
+								}
 								
-			               
-							
+								}
 							
 			if (jQuery('#p_checkbox_value_4').is(':checked'))
 			{
@@ -441,7 +461,7 @@
 			var mail=$('#p_owner_email').val();
 			var language = $('#p_language').val();		
 			var streetadd=$('#Street_add').val();
-			var city=$('#p_owner_city option:selected').text();
+			var city=$('#p_owner_city').val();
 			var province=$('#p_owner_province option:selected').text();  
 		    var zipcode=$('#Zip_code').val();
 			var phn=$('#p_owner_phno').val();
@@ -488,7 +508,7 @@
 			var mail=$('#p_owner_email').val();
 			var language = $('#p_language').val();		
             var streetadd=$('#Street_add').val();
-			var city=$('#p_owner_city option:selected').text();
+			var city=$('#p_owner_city').val();
 			var province=$('#p_owner_province option:selected').text(); 
 		    var zipcode=$('#Zip_code').val();
 			var phn=$('#p_owner_phno').val();
