@@ -227,7 +227,7 @@ jQuery(document).ready(function() {
 				jQuery.alerts.dialogClass = null; // reset to default
 				});
 				/*$('#mce-error-response').css('display','none');*/
-				jQuery('#mce-EMAIL').parent().addClass('warning');
+				jQuery('#mce-EMAIL').css("border","black solid 2px");
 				var lab=jQuery(this).parent().parent().parent().find('label').addClass('warning');
 				console.log(lab);									
 			/*	$('#mce-EMAIL').focus();*/
@@ -241,7 +241,7 @@ jQuery(document).ready(function() {
 				jAlert('Please Accept To Proceed', 'error', function(){
 				jQuery.alerts.dialogClass = null; // reset to default
 				});
-				jQuery('#mce-EMAIL').parent().removeClass('warning');
+				jQuery('#mce-EMAIL').css("border","none");
 				jQuery(this).parent().parent().parent().find('label').addClass('warning');
 			}
 			else if(!jQuery("#mce-EMAIL").val().match(/^[\w]+([_|\.-][\w]{1,})*@[\w]{2,}([_|\.-][\w]{1,})*\.([a-z]{2,4})+$/i))

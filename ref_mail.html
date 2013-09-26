@@ -74,13 +74,13 @@
 		jQuery.alerts.dialogClass = null; // reset to default
 		jQuery('#email1').focus();
 		});
-		jQuery('#email1').parent().addClass('warning');
+		jQuery('#email1').css("border","black solid 2px");
 		
 		return false;
 	}
 	else
 	{
-		jQuery('#email1').parent().removeClass('warning');
+		jQuery('#email1').css("border","none");
 	}
 	if(!emailInvalid(jQuery('#email1').val()))
 	{
@@ -90,13 +90,13 @@
 		jQuery('#email1').focus();
 		});
 											
-		jQuery('#email1').parent().addClass('warning');
+		jQuery('#email1').css("border","black solid 2px");
 		
 		return false;
 	}
 	else
 	{
-		jQuery('#email1').parent().removeClass('warning');
+		jQuery('#email1').css("border","none");
 	}
 	
 	if(jQuery('#email2').val()=='')
@@ -106,13 +106,13 @@
 		jQuery.alerts.dialogClass = null; // reset to default
 		jQuery('#email2').focus();
 		});
-		jQuery('#email2').parent().addClass('warning');
+		jQuery('#email2').css("border","black solid 2px");
 		
 		return false;
 	}
 	else
 	{
-		jQuery('#email2').parent().removeClass('warning');
+		jQuery('#email2').css("border","none");
 	}
 	if(!emailInvalid(jQuery('#email2').val()))
 	{
@@ -121,13 +121,13 @@
 		jQuery.alerts.dialogClass = null; // reset to default
 			jQuery('#email2').focus();
 		});
-		jQuery('#email2').parent().addClass('warning');
+		jQuery('#email2').css("border","black solid 2px");
 	
 		return false;
 	}
 	else
 	{
-		jQuery('#email2').parent().removeClass('warning');
+		jQuery('#email2').css("border","none");
 	}
 	if(jQuery('#email3').val()=='')
 	{
@@ -136,13 +136,13 @@
 		jQuery.alerts.dialogClass = null; // reset to default
 		jQuery('#email3').focus();
 		});
-		jQuery('#email3').parent().addClass('warning');
+		jQuery('#email3').css("border","black solid 2px");
 		
 		return false;
 	}
 	else
 	{
-		jQuery('#email3').parent().removeClass('warning');
+		jQuery('#email3').parent().css("border","none");
 	}
 	if(!emailInvalid(jQuery('#email3').val()))
 		{
@@ -151,7 +151,7 @@
 		jQuery.alerts.dialogClass = null; // reset to default
 			jQuery('#email3').focus();
 		});
-		jQuery('#email3').parent().addClass('warning');
+		jQuery('#email3').css("border","black solid 2px");
 		
 			return false;
 		}
@@ -233,7 +233,7 @@
     <div class="header_main">
     <div class="header_content_inner_div">
      <div class="hdr_innrtop_left">
-       <p><a href="home.html" class="ui-link"><img src="images/parking_top_icon.png" width="285" height="47" alt=""></a></p>
+       <p><a href="home.html" rel="external" class="ui-link"><img src="images/parking_top_icon.png" width="285" height="47" alt=""></a></p>
      </div>
      <div class="hdrtop_right">
      <div id="dd" class="wrapper-dropdown-5" tabindex="1"><a href="home.html">MENU</a> 

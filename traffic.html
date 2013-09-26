@@ -209,7 +209,7 @@ function ajaxd(t_id) {
 					$.mobile.ajaxEnabled=false
 					
                 });
-				$('#t_city').load('http://wordpress-guru.net/ticket/m/t_city.php', '', function(response, status, xhr) {
+				$('#t_city').load('http://wordpress-guru.net/ticket/m/city.php', '', function(response, status, xhr) {
 					/*$.mobile.ajaxEnabled=false*/
 					jQuery("#t_city").selectmenu('refresh');
 					
@@ -226,10 +226,13 @@ function ajaxd(t_id) {
 		 $(".next").show();
 	     $("#t-second-step").hide();
 		 $("#t-third-step").show();
-		  $("#t-second-step a.next").click(function() {			 
+		  $("#t-second-step a.next").click(function() {
+			  if($('#t_city').val())
+		 {			 
 			 $("#t-second-step").hide();
 			$("#t-citywrong-step").hide();
 			$("#t-third-step").show();
+		 }
 		 });
 	 }
 	 else
@@ -258,10 +261,13 @@ function ajaxd(t_id) {
 			$(".next").show();
 		});
 		$("#t-second-step a.next").click(function() {
+			 if($('#t_city').val())
+		 {
 			$("#t-third-step").hide();
 			$("#t-second-step").hide();
 			$("#t-citywrong-step").show();
 			$("#t-citywrong-step a.next").hide();
+		 }
 		});
 	 }
    });
@@ -272,10 +278,10 @@ $('#t_owner_province').load('http://wordpress-guru.net/ticket/m/t_owner_province
 					
                 });
 				
-				$('#t_owner_province1').load('http://wordpress-guru.net/ticket/m/t_owner_province.php', '', function(response, status, xhr) {
+				/*$('#t_owner_province1').load('http://wordpress-guru.net/ticket/m/t_owner_province.php', '', function(response, status, xhr) {
 					$.mobile.ajaxEnabled=false
 					
-                });
+                });*/
 				/*$('#t_owner_city').load('http://wordpress-guru.net/ticket/m/tcity.php', '', function(response, status, xhr) {
 					$.mobile.ajaxEnabled=false
 					
@@ -796,7 +802,7 @@ information is correct. </h2>
 <input type="text" name="t_owner_city1" id="t_owner_city1" value="" class="textfield_style" disabled="" >
 </div>
 <div class="content_inner_div">
-<div class="profile_left_div1"><h4>Provience:</h4></div>
+<div class="profile_left_div1"><h4>Province:</h4></div>
  <div class="content_inner_div">
 
     <div class="styled-select">

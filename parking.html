@@ -243,10 +243,13 @@ function ajaxd(p_id) {
 		$(".next").show();
 	 	$("#second-step").hide();
 		 $("#third-step").show();
-		 $("#second-step a.next").click(function() {			 
+		 $("#second-step a.next").click(function() {	
+		 if($('#p_city').val())
+		 {		 
 			 $("#second-step").hide();
 			$("#citywrong-step").hide();
 			$("#third-step").show();
+		 }
 		 });
 	 }
 	 else
@@ -276,10 +279,13 @@ function ajaxd(p_id) {
 			$(".next").show();
 		});
 		$("#second-step a.next").click(function() {
+			 if($('#p_city').val())
+		 {
 			$("#third-step").hide();
 			$("#second-step").hide();
 			$("#citywrong-step").show();
 			$("#citywrong-step a.next").hide();
+		 }
 		});
 	 }
    });
@@ -289,11 +295,11 @@ function ajaxd(p_id) {
 					$.mobile.ajaxEnabled=false
 					
                 });
-				$('#p_owner_province1').load('http://wordpress-guru.net/ticket/m/p_owner_province1.php', '', function(response, status, xhr) {
+				/*$('#p_owner_province1').load('http://wordpress-guru.net/ticket/m/p_owner_province1.php', '', function(response, status, xhr) {
 					$.mobile.ajaxEnabled=false
 					
                 });
-				/*$('#p_owner_city').load('http://wordpress-guru.net/ticket/m/p_city.php', '', function(response, status, xhr) {
+				$('#p_owner_city').load('http://wordpress-guru.net/ticket/m/p_city.php', '', function(response, status, xhr) {
 					$.mobile.ajaxEnabled=false
 					
                 });
@@ -824,7 +830,7 @@ they need to contact you regarding your court date.
 <input type="text" name="p_owner_city1" id="p_owner_city1" value="" class="textfield_style" disabled="" >
 </div>
 <div class="content_inner_div">
-<div class="profile_left_div1"><h4>Provience:</h4></div>
+<div class="profile_left_div1"><h4>Province:</h4></div>
 <div class="styled-select">
 <select name="p_owner_province1"  id="p_owner_province1" data-theme="c"  disabled="" class="textfield_style" selected="selected">
 </select>

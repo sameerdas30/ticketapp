@@ -26,7 +26,7 @@ h1 {
 .profile_left_div1 h4 {
 	padding: 0px;
 	margin: 0px;
-	color: #ff9999;
+	color: #fff;
 	font-family: 'helvetica_ceregular';
 	font-size: 14px;
 	font-weight: bold;
@@ -54,14 +54,14 @@ h1 {
 }
 .header_content_ticket_div {
 	width: 90%;
-	padding-left: 15px;
-	padding-right: 15px;
+	padding-left: 5%;
+	padding-right: 5%;
 	padding-top: 20px;
 	float: left;
 	padding-bottom: 15px;
 }
 .hdrtop_right {
-	width: 55%;
+	width: 54%;
 	float: right;
 	height: auto;
 	text-transform: none;
@@ -157,7 +157,7 @@ a:hover .ticket_lefticn{
 }
 
 p.pimage a img {
-	width: 270px;
+	width: 266px;
 	height:auto;
 }
 .check_box_text {
@@ -226,16 +226,16 @@ p {
 }
 
 .header_content_inner_div {
-	width: 90%;
-	padding-left: 15px;
-	padding-right: 15px;
+	width: 84%;
+	padding-left: 8%;
+	padding-right: 8%;
 	padding-top: 15px;
 	text-transform: uppercase;
 	float: left;
 	padding-bottom: 8px;
 }
 .hdr_innrtop_left {
-	width: 36%;
+	width: 46%;
 	float: left;
 	height: auto;
 }
@@ -286,19 +286,19 @@ div.wrapper-dropdown-5 .dropdown  {
 	font-size: 9px;
 }
 .content_div{
-	width: 85%;
+	width: 84%;
 	height: auto;
 	float: left;
 	padding-top: 50px;
-	padding-left:24px;
-	padding-right:24px;
+	padding-left:8%;
+	padding-right:8%;
 }
 .prev-next {
-	width: 85%;
+	width: 84%;
 	float: left;
 	text-align: center;
-	margin-left: 24px;
-	margin-right: 24px;
+	margin-left: 8%;
+	margin-right: 8%;
 	margin-bottom:30px !important;
 	margin-top: 0px;
 }
@@ -484,37 +484,37 @@ select.styled-select:disabled{
 	height:auto;
 
 	}
-	.date{height:304px;}
-	.city{ height:304px;}
-	.tn{ height:304px;}
-	.ln{ height:304px;}
-	.tc{height:328px;}
-	.vch {height:304px !important;}
-	.on {height:304px;}
+	.date{min-height:304px;}
+	.city{ min-height:304px;}
+	.tn{ min-height:304px;}
+	.ln{ min-height:304px;}
+	.tc{min-height:328px;}
+	.vch {min-height:304px !important;}
+	.on {min-height:304px;}
 	
 .adrs {
-height:304px;
+min-height:304px;
 }
 .eml {
-height:304px;
+min-height:304px;
 }
 .pn {
-height:304px;
+min-height:304px;
 }
 .tl {
-height:304px;
+min-height:304px;
 }
 .pc {
-height:304px;
+min-height:304px;
 }
 .mlc {
-height:304px;
+min-height:304px;
 }
 .mlc1 {
-height:304px;
+min-height:304px;
 }
 .thank_you {
-	height:304px;
+	min-height:204px;
 }
 .note p{
 	color: #FFF;
@@ -1350,7 +1350,7 @@ div.note_text{
 	margin-bottom:10px;
 	}
 .check_main2 {
-	margin-bottom:5px;
+	margin-bottom:13px;
 	}	
 .thanku_next_bt {
 	width: 48%;
@@ -1388,20 +1388,34 @@ div.note_text{
 	color: #fff;
 	cursor:pointer;
 }
-
-
-	
-	
+.ui-loader {
+	display: none;
+	z-index: 9999999;
+	position: fixed;
+	top: 50%;
+	left: 8% !important;
+	border: 0;
+}
+.ui-loader-verbose {
+	width: 250px;
+	filter: Alpha(Opacity=18);
+	opacity: .18;
+	box-shadow: 0 1px 1px -1px #fff;
+	height: auto;
+	margin-left: 0px;
+	margin-top: 0px;
+	padding: 10px;
+}
 }
 
 @media only screen and (min-width: 480px) and (max-width: 767px) {
-	.date {height:424px !important;}
-	.city {height:424px !important;}
-	.tn {height:424px !important;}
-	.ln {height:424px !important;}
-	.on {height:424px !important;}
-	.vch {height:424px !important;}
-	.tc {height:460px !important;}
+	.date {min-height:424px !important;}
+	.city {min-height:424px !important;}
+	.tn {min-height:424px !important;}
+	.ln {min-height:424px !important;}
+	.on {min-height:424px !important;}
+	.vch {min-height:424px !important;}
+	.tc {min-height:460px !important;}
 	.city_bt {width:100%; background:#000; padding:10px 0px; -webkit-border-radius: 3px;
 	-moz-border-radius: 3px;
 	border-radius: 3px; font-family: 'helvetica_ceregular';
@@ -1412,10 +1426,10 @@ div.note_text{
 	color:#fff;
 	font-size:33px;
 }
-.adrs {height:424px !important;}
-.eml {height:424px !important;}
-.pn {height:424px !important;}
-.tl {height:424px !important;}
+.adrs {min-height:424px !important;}
+.eml {min-height:424px !important;}
+.pn {min-height:424px !important;}
+.tl {min-height:424px !important;}
 .pc {
 margin-bottom: 28px;
 }
@@ -1426,12 +1440,12 @@ margin-bottom: 28px;
 margin-bottom: 28px;
 }
 
-.thank_you { height:424px !important;
+.thank_you { min-height:424px !important;
 margin-bottom:0px;}
 .profile_left_div1 h4 {
 	padding: 0px;
 	margin: 0px;
-	color: #ff9999;
+	color: #fff;
 	font-family: 'helvetica_ceregular';
 	font-size: 17px;
 	font-weight: bold;
@@ -1463,6 +1477,11 @@ h1 {
 	}
 .check_main2 {
 	margin-bottom:15px;
+	}
+	.note {
+	width:100%;
+	float:left;
+	height:auto;
 	}	
 .note p{
 	color: #FFF;
@@ -1902,11 +1921,6 @@ select.styled-select:disabled{
 	-moz-border-radius: 6px;
 	}
 
-.note {
-	width:100%;
-	float:left;
-	height:auto;
-	}
 div.note p{
 	color: #FFF;
 	font-family: 'helvetica_ceregular';
@@ -1981,16 +1995,17 @@ div.warning {
 	border: 2px solid #000;
 	-webkit-border-radius: 6px;
 	-moz-border-radius: 6px;
-	width:83.4%;
-	position:absolute;
+	width:100%;
+
 	
 }
 .note.date {
 	margin-bottom: 55px;
 }
 div.content_inner_div {
-	margin-bottom:10px;
-	}
+margin-top: 0px;
+margin-bottom: 5px;
+}
 div.p_checkbox_value_3 label {
 	cursor: pointer;
 	position: absolute;
@@ -2397,14 +2412,14 @@ div.thank_you p {
 	text-align:justify;
 }
 .checkout_1 {
-	width: 98%;
+	width: 100%;
 	background: #000;
 	padding: 10px 0px;
 	float: left;
 	-webkit-border-radius: 3px;
 	-moz-border-radius: 3px;
 	border-radius: 3px;
-	margin-left: 1%;
+	margin-left: 0%;
 	font-family: 'helvetica_ceregular';
 	font-weight: bold;
 	text-transform: uppercase;
@@ -2463,11 +2478,49 @@ div.thank_you p {
 	color: #fff;
 	cursor:pointer;
 }
+.ui-loader {
+	display: none;
+	z-index: 9999999;
+	position: fixed;
+	top: 50%;
+	left: 25%;
+	border: 0;
+}
+.ui-loader-verbose {
+	width: 250px;
+	filter: Alpha(Opacity=18);
+	opacity: .18;
+	box-shadow: 0 1px 1px -1px #fff;
+	height: auto;
+	margin-left: 0px;
+	margin-top: 0px;
+	padding: 10px;
+}
+
 
 
 }
 
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
+.ui-loader {
+	display: none;
+	z-index: 9999999;
+	position: fixed;
+	top: 50%;
+	left: 30%;
+	border: 0;
+}
+.ui-loader-verbose {
+	width: 250px;
+	filter: Alpha(Opacity=18);
+	opacity: .18;
+	box-shadow: 0 1px 1px -1px #fff;
+	height: auto;
+	margin-left: 0px;
+	margin-top: 0px;
+	padding: 10px;
+}
+
 	body {
 overflow-x: hidden;
 }
@@ -2510,7 +2563,7 @@ h1 {
 .profile_left_div1 h4 {
 	padding: 0px;
 	margin: 0px;
-	color: #ff9999;
+	color: #fff;
 	font-family: 'helvetica_ceregular';
 	font-size: 17px;
 	font-weight: bold;
@@ -3275,7 +3328,7 @@ p {
 .city_bt {
 	width: 100%;
 	background: #000;
-	padding: 0px 0px;
+	padding: 31px 0px;
 	-webkit-border-radius: 3px;
 	-moz-border-radius: 3px;
 	border-radius: 3px;
@@ -3286,8 +3339,8 @@ p {
 	margin-bottom: 2%;
 	text-decoration: none;
 	color: #fff;
-	height: 100px;
-	line-height: 100px;
+	height: auto;
+	line-height: normal;
 	font-size: 48px;
 }
 .content_terms_div {
@@ -3299,37 +3352,40 @@ p {
 	padding-right: 60px;
 }
 .select_div{
-	margin-bottom:20px;
+	margin-bottom:0px;
 	}
-.date{margin-bottom:250px;}
-	.city{ margin-bottom:170px;}
-	.tn{ margin-bottom:125px;}
-	.ln{ margin-bottom:56px;}
-	.tc{margin-bottom:20px;}
-	.vch {margin-bottom: 76px;}
+.date{min-height: 832px;}
+	.city{ min-height: 832px;}
+	.tn{ min-height: 832px;}
+	.ln{ min-height: 832px;}
+	.tc{min-height: 715px;}
+
 	.content_div.vch {
-margin-bottom: 76px;
+min-height: 832px;
 }
 .adrs {
-margin-bottom: 44px;
+min-height: 832px;
 }
 .eml {
-margin-bottom: 60px;
+min-height: 832px;
 }
 .pn {
-margin-bottom: 104px;
+min-height: 832px;
 }
 .tl {
-margin-bottom: 60px;
+min-height: 832px;
 }
 .pc {
-margin-bottom: 28px;
+min-height: 832px;
 }
 .mlc {
-margin-bottom: 28px;
+min-height: 832px;
 }
 .mlc1 {
-margin-bottom: 28px;
+min-height: 832px;
+}
+.thank_you {
+	min-height: 540px;
 }
 .textfield_style_date {
 	width: 96%;
@@ -3371,12 +3427,7 @@ margin-bottom: 28px;
 	color: #fff;
 	margin-top: -15px;
 }
-.thank_you {
-	width: 100%;
-	float: left;
-	height: auto;
-	margin-bottom: 275px;
-}
+
 .thank_you p {
 	font-family: 'helvetica_lightregular';
 	font-size: 28px !important;
@@ -3396,9 +3447,9 @@ margin-bottom: 28px;
 }
 .thanku_back_bt {
 	width: 49%;
-	font-size: 31px;
+	font-size: 53px;
 	background: #000;
-	padding: 11px 0px;
+	padding: 20px 0px;
 	float: left;
 	-webkit-border-radius: 3px;
 	-moz-border-radius: 3px;
@@ -3412,9 +3463,9 @@ margin-bottom: 28px;
 }
 .thanku_next_bt {
 		width: 49%;
-	font-size: 31px;
+	font-size: 53px;
 	background: #000;
-	padding: 11px 0px;
+	padding: 20px 0px;
 	float: right;
 	-webkit-border-radius: 3px;
 	-moz-border-radius: 3px;
@@ -3475,10 +3526,10 @@ div.wrapper-dropdown-5 .dropdown  {
 	color: #fff;
 }
 .check_main {
-	margin-bottom:10px;
+	margin-bottom:20px;
 	}
 .check_main2 {
-	margin-bottom:5px;
+	margin-bottom:20px;
 	}
 }
 

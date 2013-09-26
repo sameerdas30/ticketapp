@@ -58,7 +58,7 @@
 									jAlert('Select City', 'error', function(){
                           		    jQuery.alerts.dialogClass = null; // reset to default
                                     });
-											jQuery('#p_city').parent().addClass('warning');
+											jQuery('#p_city').css("border","black solid 2px");
 											/*$('#p_city').parent().css('height','32px');
 											$('#p_city').parent().css('margin-top','3px');*/
 											
@@ -68,7 +68,7 @@
 									}
 									else
 									{
-											jQuery('#p_city').parent().removeClass('warning');
+											jQuery('#p_city').css("border","none");
 										
 									}	
 					
@@ -83,13 +83,13 @@
 		                        if(jQuery('#pDateTime').val()=='')
 									{   
 									    /*alert('Select Date');*/
-										jQuery('#pDateTime').parent().addClass('warning');
+										jQuery('#pDateTime').css("border","black solid 2px");
 										jQuery('#pDateTime').parent().focus();
 										return false;
 									}
 								else
 									{
-											jQuery('#pDateTime').parent().removeClass('warning');
+											jQuery('#pDateTime').css("border","none");
 										
 									}
 	                            
@@ -103,7 +103,7 @@
 								if(jQuery('#Ticket_no').val().match(/^[A-Z][A-Z][0-9]{6}$/i) || jQuery('#Ticket_no').val().match(/^[0-9]{8}$/i))
 								{
 			
-									jQuery('#Ticket_no').parent().removeClass('warning');/*alert('Enter Your Ticket Number');*/
+									jQuery('#Ticket_no').css("border","none");/*alert('Enter Your Ticket Number');*/
 			
 								}
 								else
@@ -112,7 +112,7 @@
 										jAlert('Enter Valid Ticket No', 'error', function(){
                                         jQuery.alerts.dialogClass = null; // reset to default
 										jQuery('#Ticket_no').focus();
-										jQuery('#Ticket_no').parent().addClass('warning');
+										jQuery('#Ticket_no').css("border","black solid 2px");
 											
                                         });
 										return false;
@@ -128,7 +128,7 @@
 									 if(!jQuery('#license_no').val()=='')
 									
 		                            {
-									jQuery('#license_no').parent().removeClass('warning');
+									jQuery('#license_no').css("border","none");
 										
 								    }
 								else 
@@ -136,7 +136,7 @@
 									jQuery.alerts.dialogClass = 'alert-danger';
 			                            jAlert('Enter Valid Plate License No', 'error', function(){
                                         jQuery.alerts.dialogClass = null; // reset to default
-										jQuery('#license_no').parent().addClass('warning');
+										jQuery('#license_no').css("border","black solid 2px");
 										
 										jQuery('#license_no').focus();
 										
@@ -176,7 +176,7 @@
 											jQuery.alerts.dialogClass = 'alert-danger';
 									jAlert('Enter Company Name', 'error', function(){
                                         jQuery.alerts.dialogClass = null; // reset to default
-										jQuery('#p_company_name').parent().addClass('warning');
+										jQuery('#p_company_name').css("border","black solid 2px");
 											jQuery('#p_company_name').focus();
 												
                                         });
@@ -184,7 +184,7 @@
 										}
 										else 
 										{
-											jQuery('#p_company_name').parent().removeClass('warning');
+											jQuery('#p_company_name').css("border","none");
 												
 										}
 									}
@@ -197,7 +197,7 @@
 										jQuery.alerts.dialogClass = 'alert-danger';
 										jAlert('Enter Your First Name', 'error', function(){
                                         jQuery.alerts.dialogClass = null; // reset to default
-										jQuery('#p_owner_fst_name').parent().addClass('warning');
+										jQuery('#p_owner_fst_name').css("border","black solid 2px");
 										jQuery('#p_owner_fst_name').focus();
 										
                                         });
@@ -206,7 +206,7 @@
 									}
 									else
 									{
-											jQuery('#p_owner_fst_name').parent().removeClass('warning');
+											jQuery('#p_owner_fst_name').css("border","none");
 										
 									}
 									
@@ -216,7 +216,7 @@
 										jQuery.alerts.dialogClass = 'alert-danger';
 										jAlert('Enter Your Last Name', 'error', function(){
                                         jQuery.alerts.dialogClass = null; // reset to default
-										jQuery('#p_owner_lst_name').parent().addClass('warning');
+										jQuery('#p_owner_lst_name').css("border","black solid 2px");
 										jQuery('#p_owner_lst_name').focus();
 										
                                         });
@@ -224,7 +224,7 @@
 									}
 									else
 									{
-											jQuery('#p_owner_lst_name').parent().removeClass('warning');
+											jQuery('#p_owner_lst_name').css("border","none");
 										
 									}
 
@@ -249,7 +249,7 @@
 									jQuery.alerts.dialogClass = 'alert-danger';
 									jAlert('Enter Street Address', 'error', function(){
                                         jQuery.alerts.dialogClass = null; // reset to default
-										jQuery('#Street_add').parent().addClass('warning');
+										jQuery('#Street_add').css("border","black solid 2px");
 									jQuery('#Street_add').focus();
 									
                                         });
@@ -257,7 +257,7 @@
 								}
 								else
 								{
-									jQuery('#Street_add').parent().removeClass('warning');
+									jQuery('#Street_add').css("border","none");
 									
 								}
 		                        if(jQuery('#p_owner_city').val()=='')
@@ -265,7 +265,7 @@
 										jQuery.alerts.dialogClass = 'alert-danger';
 											jAlert('Enter City', 'error', function(){
                                         jQuery.alerts.dialogClass = null; // reset to default
-										jQuery('#p_owner_city').parent().addClass('warning');
+										jQuery('#p_owner_city').css("border","black solid 2px");
 											jQuery('#p_owner_city').focus();
 											
                                         });
@@ -274,7 +274,7 @@
 									}
 									else
 									{
-										jQuery('#p_owner_city').parent().removeClass('warning');
+										jQuery('#p_owner_city').css("border","none");
 										
 									}
 								 var sel2 = document.getElementById('p_owner_province');
@@ -284,7 +284,7 @@
 										jQuery.alerts.dialogClass = 'alert-danger';
 											jAlert('Select Province', 'error', function(){
                                         jQuery.alerts.dialogClass = null; // reset to default
-										jQuery('#p_owner_province').parent().addClass('warning');
+										jQuery('#p_owner_province').css("border","black solid 2px");
 											jQuery('#p_owner_province').focus();
 											
                                         });
@@ -293,7 +293,7 @@
 									}
 									else
 									{
-										jQuery('#p_owner_province').parent().removeClass('warning');
+										jQuery('#p_owner_province').css("border","none");
 										
 									}
 								
@@ -315,7 +315,7 @@
 										jQuery.alerts.dialogClass = 'alert-danger';
 								   jAlert('Enter Zipcode', 'error', function(){
                                         jQuery.alerts.dialogClass = null; // reset to default
-										jQuery('#Zip_code').parent().addClass('warning');
+										jQuery('#Zip_code').css("border","black solid 2px");
 								    jQuery('#Zip_code').focus();
 								    
                                         });
@@ -324,7 +324,7 @@
 									}
 									else
 									{
-										jQuery('#Zip_code').parent().removeClass('warning');	
+										jQuery('#Zip_code').css("border","none");
 										
 									}
 							}
@@ -336,7 +336,7 @@
 										jQuery.alerts.dialogClass = 'alert-danger';
 										jAlert('Enter Your Email', 'error', function(){
                                         jQuery.alerts.dialogClass = null; // reset to default
-										jQuery('#p_owner_email').parent().addClass('warning');
+										jQuery('#p_owner_email').css("border","black solid 2px");
 										jQuery('#p_owner_email').focus();
 										
                                         });
@@ -350,7 +350,7 @@
 											jQuery.alerts.dialogClass = 'alert-danger';
 											jAlert('Please Enter Valid Email Address', 'error', function(){
                                         jQuery.alerts.dialogClass = null; // reset to default
-										jQuery('#p_owner_email').parent().addClass('warning');
+										jQuery('#p_owner_email').css("border","black solid 2px");
 											jQuery('#p_owner_email').focus();
 											
                                         });
@@ -358,7 +358,7 @@
 										}
 										else
 										{
-											jQuery('#p_owner_email').parent().removeClass('warning');
+											jQuery('#p_owner_email').css("border","none");
 											
 										}
 									}
@@ -380,7 +380,7 @@
 									jQuery.alerts.dialogClass = 'alert-danger';
 									jAlert('Enter Your Contact Number', 'error', function(){
                                         jQuery.alerts.dialogClass = null; // reset to default
-										jQuery('#p_owner_phno').parent().addClass('warning');
+										jQuery('#p_owner_phno').css("border","black solid 2px");
 									jQuery('#p_owner_phno').focus();
 									
                                         });
@@ -391,7 +391,7 @@
 									jQuery.alerts.dialogClass = 'alert-danger';
 									jAlert('Enter Valid Contact Number', 'error', function(){
                                         jQuery.alerts.dialogClass = null; // reset to default
-										jQuery('#p_owner_phno').parent().addClass('warning');
+										jQuery('#p_owner_phno').css("border","black solid 2px");
 									jQuery('#p_owner_phno').focus();
 									
                                         });
@@ -400,19 +400,19 @@
 								
 								else
 									{
-										jQuery('#p_owner_phno').parent().removeClass('warning');
+										jQuery('#p_owner_phno').css("border","black solid 2px");
 										
 									}
 							}
-						else if( whichStep == 'eight-step' )
+						else if( whichStep == 'eight-step')
 							{
 								if(jQuery('#p_language').val()=='')
 									{
 										jQuery.alerts.dialogClass = 'alert-danger';
 										jAlert('Select Language', 'error', function(){
                                         jQuery.alerts.dialogClass = null; // reset to default
-										jQuery('#t_language').parent().addClass('warning');
-											jQuery('#t_language').focus();
+										jQuery('#p_language').css("border","black solid 2px");
+											jQuery('#p_language').focus();
                                         });
 											
 											
@@ -421,7 +421,7 @@
 									}
 									else
 									{
-										jQuery('#p_language').parent().removeClass('warning');
+										jQuery('#p_language').css("border","black solid 2px");
 										
 									}
 								var langid = $("#p_language").children(":selected").attr("id");
@@ -474,13 +474,19 @@
 			 <!--$("#p_owner_lst_name1").val(lname);-->
 			 $("#p_owner_email_one").val(mail);
 		     <!--$('#p_language1 option[value=' + language + ']').attr('selected', true);-->
+			 $("#p_language11 option").remove();
 		     $("#p_language11").append($('<option>', { 
 		     value: language,
 		     text : language 
 		     }));
 			 $("#Street_add1").val(streetadd);
-			 $("#p_owner_province1").val(province);
+			 $("#p_owner_province1 option").remove();
+			  $("#p_owner_province1").append($('<option>', { 
+		     value: province,
+		     text : province 
+		     }));
 			$("#p_owner_city1").val(city);
+			$("#city11 option").remove();
 		    $("#city11").append($('<option>', { 
 		value: city1,
 		text : city1 
@@ -521,14 +527,19 @@
 			/* $("#p_owner_lst_name1").val(lname);*/
 			 $("#p_owner_email_one").val(mail);
 		     <!--$('#p_language1 option[value=' + language + ']').attr('selected', true);-->
-		     
+		      $("#p_language11 option").remove();
 			 $("#p_language11").append($('<option>', { 
 		     value: language,
 		     text : language 
 		     }));
 			  $("#Street_add1").val(streetadd);
-			 $("#p_owner_province1").val(province);
+			   $("#p_owner_province1 option").remove();
+			  $("#p_owner_province1").append($('<option>', { 
+		     value: province,
+		     text : province 
+		     }));
 			$("#p_owner_city1").val(city);
+			 $("#city11 option").remove();
 		     $("#city11").append($('<option>', { 
 		     value: city1,
 		     text : city1 
