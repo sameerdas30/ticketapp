@@ -62,7 +62,7 @@
 											/*$('#p_city').parent().css('height','32px');
 											$('#p_city').parent().css('margin-top','3px');*/
 											
-											jQuery('#p_city').focus();											
+																		
 											return false;
 										
 									}
@@ -285,7 +285,7 @@
 											jAlert('Select Province', 'error', function(){
                                         jQuery.alerts.dialogClass = null; // reset to default
 										jQuery('#p_owner_province').css("border","black solid 2px");
-											jQuery('#p_owner_province').focus();
+										
 											
                                         });
 										return false;	
@@ -412,7 +412,7 @@
 										jAlert('Select Language', 'error', function(){
                                         jQuery.alerts.dialogClass = null; // reset to default
 										jQuery('#p_language').css("border","black solid 2px");
-											jQuery('#p_language').focus();
+											
                                         });
 											
 											

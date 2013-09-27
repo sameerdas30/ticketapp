@@ -28,7 +28,7 @@ h1 {
 	margin: 0px;
 	color: #fff;
 	font-family: 'helvetica_ceregular';
-	font-size: 14px;
+	font-size: 17px;
 	font-weight: bold;
 }
 .personal_vehicle {
@@ -2496,7 +2496,18 @@ div.thank_you p {
 	margin-top: 0px;
 	padding: 10px;
 }
-
+#email_hide {
+	width: 100%;
+	padding: 0%;
+	float: left;
+}
+.check_box_div1 {
+	width: 100%;
+	height: auto;
+	float: left;
+	margin-bottom: 10px;
+	margin-left: 0px;
+}
 
 
 }
@@ -2565,7 +2576,7 @@ h1 {
 	margin: 0px;
 	color: #fff;
 	font-family: 'helvetica_ceregular';
-	font-size: 17px;
+	font-size: 33px;
 	font-weight: bold;
 }
 #pcompany h1 {
@@ -3382,6 +3393,9 @@ min-height: 832px;
 min-height: 832px;
 }
 .mlc1 {
+min-height: 832px;
+}
+.on {
 min-height: 832px;
 }
 .thank_you {

@@ -69,7 +69,7 @@ function datediff(ds1,ds2) {
                           		    jQuery.alerts.dialogClass = null; // reset to default
                                     });
 									jQuery('#t_city').css("border","black solid 2px");
-									jQuery('#t_city').focus();											
+																			
 									return false;
 										
 									}
@@ -278,7 +278,7 @@ function datediff(ds1,ds2) {
 										jAlert('Select Province', 'error', function(){
                                         jQuery.alerts.dialogClass = null; // reset to default
 										jQuery('#t_owner_province').css("border","black solid 2px");
-											jQuery('#t_owner_province').focus();
+										
                                         });
 											
 											return false;
@@ -407,7 +407,7 @@ function datediff(ds1,ds2) {
 										jAlert('Select Language', 'error', function(){
                                         jQuery.alerts.dialogClass = null; // reset to default
 										jQuery('#t_language').css("border","black solid 2px");
-											jQuery('#t_language').focus();
+											
 											
                                         });
 											
