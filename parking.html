@@ -106,9 +106,23 @@
         
         </script>
        	<script type="text/javascript" src="js/modernizr.custom.79639.js"></script> 
+        <script type="text/javascript">
+
+//  tried this in place of the onload event in the <body> tag
+//  document.onload = hideDiv; 
+
+// also tried this 
+// window.onload = hideDiv;
+
+    function hideDiv() {
+      $('#register > div')
+                .hide();
+				 $('#first-step').show();
+    }  
+</script>
         
 </head> 
-<body> 
+<body onload="hideDiv()"> 
 		<script type="text/javascript">
 
 			function DropDown(el) {
