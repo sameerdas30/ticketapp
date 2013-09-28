@@ -115,7 +115,7 @@
 // also tried this 
 // window.onload = hideDiv;
 
-    function hideDiv() {
+  $(window).load(function() {
 	 document.getElementById("t-first-step").style.display = 'inline';
      document.getElementById("t-second-step").style.display = 'none';
 	 document.getElementById("t-third-step").style.display = 'none';
@@ -129,11 +129,11 @@
 	 document.getElementById("t-nine-step").style.display = 'none';
 	 document.getElementById("t-ten-step").style.display = 'none';
 	 document.getElementById("t-citywrong-step").style.display = 'none';
-    }  
+  });
 </script>
         
 </head> 
-<body onload="hideDiv()"> 
+<body> 
 		<script type="text/javascript">
 
 			function DropDown(el) {
