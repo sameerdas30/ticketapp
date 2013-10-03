@@ -41,6 +41,7 @@
     <script src="phonegap.js"></script>
     <script src="cordova.js"></script>
     <script type="text/javascript">
+	$(document).ready(function() {
 	document.addEventListener("deviceready", function(e) {
 	
 		navigator.splashscreen.hide();
@@ -74,6 +75,7 @@
   
 			
 }, "false");
+	});
   /*$(function() {
     var progressbar = $( "#progressbar" ),
       progressLabel = $( ".progress-label" );
