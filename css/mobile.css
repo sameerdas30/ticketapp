@@ -639,12 +639,12 @@ div.note_text{
 	float: left;
 	margin-top: 0px;
 	margin-right:0px;
-	margin-bottom: 0px;
-	width:49%;
+	margin-bottom: 10px;
+	width: 100%;
 	}
 .cutecat1_button a{
-	width: 98%;
-	font-size: 12px;
+	width: 100%;
+	font-size: 22px;
 	background: #000;
 	padding: 8px 0px;
 	float: left;
@@ -658,7 +658,7 @@ div.note_text{
 	color: #fff;
 }
 .nsfw_button {
-	width:49%;
+	width:100%;
 	height: auto;
 	float: right;
 	margin-top: 0px;
@@ -667,8 +667,8 @@ div.note_text{
 	}
 	
 .nsfw_button a{
-	width: 98%;
-	font-size: 12px;
+	width: 100%;
+	font-size: 22px;
 	background: #000;
 	padding: 8px 0px;
 	float: left;

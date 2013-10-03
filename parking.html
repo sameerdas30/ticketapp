@@ -1,25 +1,19 @@
 <!DOCTYPE html>
 <html><head>
 	<meta charset="utf-8">
-	<title>Ticket Filer Mobile App Store</title> 
+	<title>File Toronto Parking and Traffic Tickets Online For Free!</title> 
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 	<link rel="icon" href="favicon.ico" type="image/x-icon"> 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content='True' name='HandheldFriendly' />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />    
     <meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-     <meta name="application-name" content="Ticketfiler.com"/>
-    <meta name="msapplication-TileColor" content="#d84949"/>
-    <meta name="msapplication-square70x70logo" content="tiny.png"/>
-    <meta name="msapplication-square150x150logo" content="square.png"/>
-    <meta name="msapplication-wide310x150logo" content="wide.png"/>
-    <meta name="msapplication-square310x310logo" content="large.png"/>
+     
     <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
     <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
     <link rel="apple-touch-icon" href="images/apple-touch-icon-57x57.png">
-    <link rel="apple-touch-startup-image" href="images/splash-startup.png">	
+    <link rel="apple-touch-startup-image" href="images/320.png">	
     
     <!-- Custom CSS -->  
     <link href="css/style.css" rel="stylesheet" type="text/css">
@@ -105,9 +99,7 @@
         }
         
         </script>
-       	<script type="text/javascript" src="js/modernizr.custom.79639.js"></script> 
-        
-        
+       	<script type="text/javascript" src="js/modernizr.custom.79639.js"></script>
 </head> 
 <body> 
 		<script type="text/javascript">
@@ -328,7 +320,7 @@ function ajaxd(p_id) {
 		var pickdate=$('#pDateTime').mobiscroll( "getDate" );
 		var dtval = $('#pDateTime').mobiscroll({ dateFormat: 'yyyy-mm-dd' }).val();
 		console.log(datediff(pickdate,curdate));
-		if(datediff(pickdate,curdate)>30)
+		if(datediff(pickdate,curdate)>28)
 		{
 			$("#third-step").hide('fast');			
 			$("#third-stepw").show();
@@ -374,7 +366,7 @@ function ajaxd(p_id) {
 		var pickdate=$('#pDateTime').mobiscroll( "getDate" );
 		var dtval = $('#pDateTime').mobiscroll({ dateFormat: 'yyyy-mm-dd' }).val();
 		console.log(datediff(pickdate,curdate));
-		if(datediff(pickdate,curdate)>30)
+		if(datediff(pickdate,curdate)>28)
 		{
 			$("#third-step").hide('fast');
 			$("#fourth-step").hide();			
@@ -535,7 +527,7 @@ from the drop down and tell us to get a move on!
 
     </div>   
 <div class="note"><p>Note: Ticket Filer can ONLY submit a ticket on your 
-behalf if it was received within 30 days.</p>
+behalf if it was received within 28 days.</p>
 </div>
 </div>
 </div>
@@ -915,7 +907,7 @@ us to stop watching YouTube and get to work!</p> </div></div>
 <div class="header_text_top_div">
                                 <h1>SORRY! WE CAN'T SUBMIT PAST DUE TICKETS.</h1></div>
 
-<h2>We can only file parking tickets you have received within the last 30 days.</h2>
+<h2>We can only file parking tickets you have received within the last 28 days.</h2>
 <div class="content_inner_div"> 
 <div class="select_div">
         <input type="text" class="textfield_style" name="pDateTimew" id="pDateTimew" value="">
