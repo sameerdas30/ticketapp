@@ -13,7 +13,7 @@ text-align:center; float:left;
 margin-bottom:2%;
 text-decoration:none;
 color:#fff;
-font-size:14px;
+font-size:18px;
 }
 h1 {
 	font-size:18px;
@@ -511,6 +511,9 @@ min-height:304px;
 min-height:304px;
 }
 .mlc1 {
+min-height:304px;
+}
+.about {
 min-height:304px;
 }
 .thank_you {
@@ -1437,7 +1440,10 @@ margin-bottom: 28px;
 margin-bottom: 28px;
 }
 .mlc1 {
-margin-bottom: 28px;
+min-height:424px !important;
+}
+.about {
+min-height:424px !important;
 }
 
 .thank_you { min-height:424px !important;
@@ -1458,7 +1464,7 @@ h1 {
 	float: left;
 	margin-left: 56px !important;
 	font-family: 'helvetica_ceregular';
-	font-size: 18px;
+	font-size: 16px;
 	color: #fff;
 	margin-top: -14px;
 	}	
@@ -1681,9 +1687,9 @@ p {
 }
 
 div.header_content_inner_div {
-	width: 85%;
-	padding-left:35px;
-	padding-right: 35px;
+	width: 84%;
+	padding-left:8%;
+	padding-right: 8%;
 	padding-top: 26px;
 	text-transform: uppercase;
 	float: left;
@@ -1742,15 +1748,15 @@ div.content_div{
 	height: auto;
 	float: left;
 	padding-top: 74px;
-	padding-left:37px;
-	padding-right:37px;
+	padding-left:8%;
+	padding-right:8%;
 }
 div.prev-next {
 	width: 84%;
 	float: left;
 	text-align: center;
-	margin-left: 35px;
-	margin-right: 35px;
+	margin-left: 8%;
+	margin-right: 8%;
 	margin-bottom:65px !important;
 	margin-top:0px;
 	}
@@ -2680,9 +2686,9 @@ p.pimage a img {
 	padding-top: 62px;
 }
 .header_content_inner_div {
-	width: 85%;
-	padding-left: 55px;
-	padding-right: 60px;
+	width: 84%;
+	padding-left: 8%;
+	padding-right: 8%;
 	padding-top: 36px;
 	text-transform: uppercase;
 	float: left;
@@ -2730,19 +2736,19 @@ p.pimage a img {
 	font-size: 12px;
 }
 .content_div{
-	width: 85%;
+	width: 84%;
 	height: auto;
 	float: left;
-	padding-top: 0px;
-	padding-left:55px;
-	padding-right:60px;
+	padding-top: 120px;
+	padding-left:8%;
+	padding-right:8%;
 }
 .prev-next {
-	width: 85%;
+	width: 84%;
 	float: left;
 	text-align: center;
-	margin-left: 55px;
-	margin-right: 60px;
+	margin-left: 8%;
+	margin-right: 8%;
 	margin-top: 25px;
 	margin-bottom: 30px;
 }
@@ -2846,7 +2852,7 @@ p.pimage a img {
 	background-repeat: no-repeat;
 	background-position: left top;
 	padding-top: 20px;
-	margin-top: 120px;
+
 	background-size:45px;
 }
 .header_text_top_div h1 {
@@ -3398,8 +3404,12 @@ min-height: 832px;
 .on {
 min-height: 832px;
 }
+.about {
+min-height: 832px;
+}
 .thank_you {
 	min-height: 540px;
+	margin-bottom:0px;
 }
 .textfield_style_date {
 	width: 96%;
