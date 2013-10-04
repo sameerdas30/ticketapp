@@ -69,7 +69,9 @@
   });
   </script>--> 
   <script type="text/JavaScript">
-<!--
+$( document ).ready(function() {
+  return timedRedirect();
+});
 redirectTime = "15000";
 redirectURL = "home.html";
 function timedRedirect() {
@@ -83,10 +85,10 @@ function timedRedirect() {
 			});
 	setTimeout("location.href = redirectURL;",redirectTime);
 }
-//   -->
+
 </script>
 </head> 
-<body onLoad="timedRedirect();">
+<body>
 <div data-role="content">
 <div class="warpper_div">
 <div class="main_header_logo_div">
