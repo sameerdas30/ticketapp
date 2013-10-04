@@ -1,10 +1,10 @@
 @media only screen and (min-width: 300px) and (max-width: 479px) {
 	.meter { 
-			height: 20px;  /* Can be anything */margin-top: 81px;
+			height: 9px;  /* Can be anything */
 			border: solid 1px #fff;
 			float:left;
-		
-			
+			margin-top:59px;
+			width:100%;
 		}
 .header_main {
 	border-bottom: solid 2px #f8e0e0;
@@ -1472,6 +1472,13 @@ margin-bottom:0px;}
 }
 h1 {
 	font-size:33px;}
+.meter { 
+			height: 14px;  /* Can be anything */
+			border: solid 1px #fff;
+			float:left;
+			margin-top:59px;
+			width:100%;
+		}
 	
 .check_box_text1 {
 	width: 85%;
@@ -2535,6 +2542,13 @@ div.thank_you p {
 }
 
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
+	.meter { 
+			height: 14px;  /* Can be anything */
+			border: solid 1px #fff;
+			float:left;
+			margin-top:59px;
+			width:100%;
+		}
 #email_hide {
 	width: 100%;
 	padding: 0%;
