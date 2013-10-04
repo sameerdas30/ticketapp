@@ -61,11 +61,11 @@
       progressbar.progressbar( "value", val + 1 );
  
       if ( val < 99 ) {
-        window.setTimeout( progress, 150 );
+        setInterval( progress, 150 );
       }
     }
  
-    window.setTimeout( progress, 1500 );
+    setInterval( progress, 1500 );
   });
   </script> 
   <!--<script type="text/JavaScript">
