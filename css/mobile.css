@@ -1,4 +1,11 @@
 @media only screen and (min-width: 300px) and (max-width: 479px) {
+	.meter { 
+			height: 20px;  /* Can be anything */margin-top: 81px;
+			border: solid 1px #fff;
+			float:left;
+		
+			
+		}
 .header_main {
 	border-bottom: solid 2px #f8e0e0;
 	width: 100%;

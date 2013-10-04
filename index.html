@@ -38,7 +38,7 @@
     <!--  Jquery progress bar --> 
     <link rel="stylesheet" href="css/jquery-ui.css" />
     <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-    <!--<script type="text/javascript">
+    <script type="text/javascript">
   $(function() {
     var progressbar = $( "#progressbar" ),
       progressLabel = $( ".progress-label" );
@@ -50,7 +50,7 @@
       },
       complete: function() {
         progressLabel.text();
-		window.location.assign("home.html");
+		document.location.href="home.html";
 		
       } 
     });
@@ -61,14 +61,14 @@
       progressbar.progressbar( "value", val + 1 );
  
       if ( val < 99 ) {
-        setTimeout( progress, 15 );
+        setTimeout( progress, 150 );
       }
     }
  
-    setTimeout( progress, 150 );
+    setTimeout( progress, 1500 );
   });
-  </script>--> 
-  <script type="text/JavaScript">
+  </script> 
+  <!--<script type="text/JavaScript">
 $( document ).ready(function() {
   return timedRedirect();
 });
@@ -86,7 +86,7 @@ function timedRedirect() {
 	setTimeout("location.href = redirectURL;",redirectTime);
 }
 
-</script>
+</script>-->
 </head> 
 <body>
 <div data-role="content">
@@ -96,9 +96,12 @@ function timedRedirect() {
 <div class="content_inner_div">
   <div class="logo_right">WE STAND IN LINE FOR YOU!</div>
 	</div>
-<div class="meter">
+<!--<div class="meter">
 			<span style="width: 100%"></span>
-		</div> </div>
+		</div>--> </div>
+        <div class="main_progressbar_div">
+  <div id="progressbar"><div class="progress-label"><!--Loading...--></div></div>
+</div> 
 </div>     
   <!-- /content -->
   </div>
