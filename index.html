@@ -38,7 +38,7 @@
     <!--  Jquery progress bar --> 
     <link rel="stylesheet" href="css/jquery-ui.css" />
     <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-    <script type="text/javascript">
+    <!--<script type="text/javascript">
   $(function() {
     var progressbar = $( "#progressbar" ),
       progressLabel = $( ".progress-label" );
@@ -67,19 +67,36 @@
  
     setTimeout( progress, 150 );
   });
-  </script> 
+  </script>--> 
+  <script type="text/JavaScript">
+<!--
+redirectTime = "15000";
+redirectURL = "home.html";
+function timedRedirect() {
+	$(".meter > span").each(function() {
+				$(this)
+					.data("origWidth", $(this).width())
+					.width(0)
+					.animate({
+						width: $(this).data("origWidth")
+					}, 1200);
+			});
+	setTimeout("location.href = redirectURL;",redirectTime);
+}
+//   -->
+</script>
 </head> 
-<body>
+<body onLoad="timedRedirect();">
 <div data-role="content">
 <div class="warpper_div">
 <div class="main_header_logo_div">
 <p align="center"><a href="index.html"><img src="images/logo_index.png" alt=""></a></p>
 <div class="content_inner_div">
   <div class="logo_right">WE STAND IN LINE FOR YOU!</div>
-	</div></div>
-<div class="main_progressbar_div">
-  <div id="progressbar"><div class="progress-label"><!--Loading...--></div></div>
-</div> 
+	</div>
+<div class="meter">
+			<span style="width: 100%"></span>
+		</div> </div>
 </div>     
   <!-- /content -->
   </div>
