@@ -34,6 +34,8 @@
      <script src="js/mobiscroll.custom-2.5.0.min.js" type="text/javascript"></script>
      <script src="js/jquery.maskedinput.js" type="text/javascript"></script>
      <script src="js/jquery.alerts.js" type="text/javascript"></script>
+      <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+	      <script type="text/javascript" charset="utf-8" src="phonegap.js"></script>
      <script type="text/javascript">
 	  $( document ).bind( "mobileinit", function() {
     // Make your jQuery Mobile framework configuration changes here!
@@ -489,9 +491,6 @@ $("#t_owner_phno").mask("(999) 999-9999");
 	</div>
     
 <!--step1 completed-->
-
-
-
 <!--step2 starts-->
 <div id="t-second-step" style="display:none;">
 <div data-role="content">
@@ -516,7 +515,7 @@ us to stop watching YouTube and get to work!</p></div>
 </div>
 <!--step2 completed-->
 <!--step3 starts--> 
-<div id="t-third-step"> 
+<div id="t-third-step" style="display:none;"> 
 <div data-role="content">
 <div class="content_div date">  
 <div class="header_text_top_div"><h1>02 - Date Ticketed</h1></div>
@@ -535,13 +534,10 @@ behalf if it was received within 28 days.</p></div>
 </div> 
 </div>
 </div>
-   
 <!--step3 completed--> 
-
- 
  
  <!--step4 starts-->
-<div id="t-fourth-step"> 
+<div id="t-fourth-step" style="display:none;"> 
 <div data-role="content" >
 <div class="content_div tn">
 <div class="header_text_top_div"><h1>03 - Ticket Number</h1></div>
@@ -564,7 +560,7 @@ to find the traffic ticket number.</p></div>
   </div>
   </div>
 <!--step4 completed-->
-<div id="t-fourth-step-license"> 
+<div id="t-fourth-step-license" style="display:none;"> 
 <div data-role="content">
 <div class="content_div ln">
 <div class="header_text_top_div"><h1>04 - License Number</h1></div>
@@ -588,7 +584,7 @@ to find the traffic ticket number.</p></div>
   </div>
 </div>
 
-<div id="t-fourth-step-para"> 
+<div id="t-fourth-step-para" style="display:none;"> 
 <div data-role="content" >
 <div class="content_div vch">
 <div class="header_text_top_div"><h1>05 - vehicle</h1></div>
@@ -633,13 +629,8 @@ to find the traffic ticket number.</p></div>
 </div>
     </div>  
   </div>
-
-
-
-
-
 <!--step5 starts-->
-<div id="t-fifth-step"> 
+<div id="t-fifth-step" style="display:none;"> 
 <div data-role="content">
 <div class="content_div on">
 <div class="header_text_top_div"><h1>06 - DRIVER’s Name</h1></div>
@@ -661,7 +652,7 @@ proper name of the driver of the car.</p></div></div>
 	
 <!--step5 completed-->
 <!--step6 starts-->
-<div id="t-six-step"> 
+<div id="t-six-step" style="display:none;"> 
 <div data-role="content">
 <div class="content_div adrs">
 <div class="header_text_top_div"><h1>07 - Driver's Address</h1></div>
@@ -690,7 +681,7 @@ proper address of the owner of the car.</p></div>
   </div>
 	
 <!--step6 completed-->
-<div id="t-email-step">
+<div id="t-email-step" style="display:none;">
 <div data-role="content">
 <div class="content_div eml">
 <div class="header_text_top_div"><h1>08 - Email</h1></div>
@@ -705,7 +696,7 @@ Our guess is that you are going to tell our friends about us anyway.</p>
   </div>
 
 <!--step7 starts-->
-<div id="t-seven-step">
+<div id="t-seven-step" style="display:none;">
 <div data-role="content">
 <div class="content_div pn">
 <div class="header_text_top_div"><h1>09 - Phone Number</h1></div>
@@ -723,7 +714,7 @@ they need to contact you regarding your court date
   </div>
   
 <!--step7 completed-->
-<div id="t-nine-step">
+<div id="t-nine-step" style="display:none;">
 <div data-role="content">
 <div class="content_div tl">
 <div class="header_text_top_div"><h1>10 - TRIAL lANGUAGE</h1></div>
@@ -752,7 +743,7 @@ they need to contact you regarding your court date
     </div>
 </div></div></div>
 <!--step9 starts-->
-<div id="t-ten-step">
+<div id="t-ten-step" style="display:none;">
 <div data-role="content">
 <div class="content_div smry">
 <div class="header_text_top_div"><h1>11 - Summary</h1></div>
@@ -870,9 +861,7 @@ all information is accurate.</div>
  </div>
   
 <!--step9 completed-->
-
-
-<div id="t-citywrong-step">
+<div id="t-citywrong-step" style="display:none;">
 <div data-role="content">
 <div class="content_div mlc">	
 <div class="header_text_top_div"><h1>SORRY! WE AREN'T IN <a id="t_wcity"></a></h1></div>
@@ -892,7 +881,7 @@ all information is accurate.</div>
 <div class="note"><p>If you would like to see TicketFiler come to your home 
 town, click the please come to my city! button, tell 
 us to stop watching YouTube and get to work!</p> </div></div></div></div>
-<div id="t-third-stepw"> 
+<div id="t-third-stepw" style="display:none;"> 
 <div data-role="content">
 <div class="content_div pdt">
 <div class="header_text_top_div">
