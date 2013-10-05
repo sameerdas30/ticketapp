@@ -39,7 +39,7 @@
     <preference name="stay-in-webview"            value="false" />          <!-- ios: external links should open in the default browser, 'true' would use the webview the app lives in -->
     <preference name="ios-statusbarstyle"         value="black-opaque" />   <!-- ios: black-translucent will appear black because the PhoneGap webview doesn't go beneath the status bar -->
     <preference name="detect-data-types"          value="true" />           <!-- ios: controls whether data types (such as phone no. and dates) are automatically turned into links by the system -->
-    <preference name="exit-on-suspend"            value="false" />          <!-- ios: if set to true, app will terminate when home button is pressed -->
+    <preference name="exit-on-suspend"            value="true" />          <!-- ios: if set to true, app will terminate when home button is pressed -->
     <preference name="show-splash-screen-spinner" value="true" />           <!-- ios: if set to false, the spinner won't appear on the splash screen during app loading -->
     <preference name="auto-hide-splash-screen"    value="true" />           <!-- ios: if set to false, the splash screen must be hidden using a JavaScript API -->
     <preference name="disable-cursor"             value="false" />          <!-- blackberry: prevents a mouse-icon/cursor from being displayed on the app -->
@@ -54,36 +54,32 @@
     -->
 
     <!-- Define app icon for each platform. -->
-	<icon src="images/icon.png" />
-    <icon src="images/36ldpi.png"   gap:platform="android"    gap:density="ldpi" />
-    <icon src="images/48mdpi.png"   gap:platform="android"    gap:density="mdpi" />
-    <icon src="images/72hdpi.png"   gap:platform="android"    gap:density="hdpi" />
-    <icon src="images/96xhdpi.png"  gap:platform="android"    gap:density="xhdpi" />
-    <icon src="images/80.png"     gap:platform="blackberry" />
-    <icon src="images/80.png"     gap:platform="blackberry" gap:state="hover"/>
-    <icon src="images/apple-touch-icon-57x57.png"            gap:platform="ios"        width="57" height="57" />
-    <icon src="images/apple-touch-icon-72x72.png"            gap:platform="ios"        width="72" height="72" />
-    <icon src="images/apple-touch-icon-114x114.png"         gap:platform="ios"        width="114" height="114" />
-    <icon src="images/144.png"         gap:platform="ios"        width="144" height="144" />
-    <icon src="images/64.png"          gap:platform="webos" />
-    <icon src="images/48.png"  gap:platform="winphone" />
-    <icon src="images/173.png" gap:platform="winphone"   gap:role="background" />
+    <icon src="icon.png" />
+    <icon gap:density="ldpi" gap:platform="android" src="res/icon/android/icon-36-ldpi.png" />
+    <icon gap:density="mdpi" gap:platform="android" src="res/icon/android/icon-48-mdpi.png" />
+    <icon gap:density="hdpi" gap:platform="android" src="res/icon/android/icon-72-hdpi.png" />
+    <icon gap:density="xhdpi" gap:platform="android" src="res/icon/android/icon-96-xhdpi.png" />
+    <icon gap:platform="blackberry" src="res/icon/blackberry/icon-80.png" />
+    <icon gap:platform="blackberry" gap:state="hover" src="res/icon/blackberry/icon-80.png" />
+    <icon gap:platform="ios" height="57" src="res/icon/ios/icon-57.png" width="57" />
+    <icon gap:platform="ios" height="72" src="res/icon/ios/icon-72.png" width="72" />
+    <icon gap:platform="ios" height="114" src="res/icon/ios/icon-57-2x.png" width="114" />
+    <icon gap:platform="ios" height="144" src="res/icon/ios/icon-72-2x.png" width="144" />
+    <icon gap:platform="webos" src="res/icon/webos/icon-64.png" />
+    <icon gap:platform="winphone" src="res/icon/windows-phone/icon-48.png" />
+    <icon gap:platform="winphone" gap:role="background" src="res/icon/windows-phone/icon-173.png" />
 
     <!-- Define app splash screen for each platform. -->
-    <gap:splash src="images/screen-ldpi-portrait.png"  gap:platform="android" gap:density="ldpi" />
-	<gap:splash src="images/screen-ldpi-landscape.png"  gap:platform="android" gap:density="ldpi" />
-    <gap:splash src="images/screen-mdpi-portrait.png"  gap:platform="android" gap:density="mdpi" />
-	<gap:splash src="images/screen-mdpi-landscape.png"  gap:platform="android" gap:density="mdpi" />
-    <gap:splash src="images/screen-hdpi-portrait.png"  gap:platform="android" gap:density="hdpi" />
-	<gap:splash src="images/screen-hdpi-landscape.png"  gap:platform="android" gap:density="hdpi" />
-    <gap:splash src="images/screen-xhdpi-portrait.png" gap:platform="android" gap:density="xhdpi" />
-	<gap:splash src="images/screen-xhdpi-landscape.png" gap:platform="android" gap:density="xhdpi" />
-    <gap:splash src="images/250x250.png"         gap:platform="blackberry" />
-    <gap:splash src="images/screen-mdpi-portrait.png.png"    gap:platform="ios"     width="320" height="480" />
-    <gap:splash src="images/screen-iphone-portrait-2x.png" gap:platform="ios"     width="640" height="960" />
-    <gap:splash src="images/768x1024.png"      gap:platform="ios"     width="768" height="1024" />
-    <gap:splash src="images/1024x768.png"     gap:platform="ios"     width="1024" height="768" />
-    <gap:splash src="images/screen-hdpi-portrait.png" gap:platform="winphone" />
+        <gap:splash gap:density="ldpi" gap:platform="android" src="res/screen/android/screen-ldpi-portrait.png" />
+    <gap:splash gap:density="mdpi" gap:platform="android" src="res/screen/android/screen-mdpi-portrait.png" />
+    <gap:splash gap:density="hdpi" gap:platform="android" src="res/screen/android/screen-hdpi-portrait.png" />
+    <gap:splash gap:density="xhdpi" gap:platform="android" src="res/screen/android/screen-xhdpi-portrait.png" />
+    <gap:splash gap:platform="blackberry" src="res/screen/blackberry/screen-225.png" />
+    <gap:splash gap:platform="ios" height="480" src="res/screen/ios/screen-iphone-portrait.png" width="320" />
+    <gap:splash gap:platform="ios" height="960" src="res/screen/ios/screen-iphone-portrait-2x.png" width="640" />
+    <gap:splash gap:platform="ios" height="1024" src="res/screen/ios/screen-ipad-portrait.png" width="768" />
+    <gap:splash gap:platform="ios" height="768" src="res/screen/ios/screen-ipad-landscape.png" width="1024" />
+    <gap:splash gap:platform="winphone" src="res/screen/windows-phone/screen-portrait.jpg" />
 
     <!--
         Define access to external domains.
