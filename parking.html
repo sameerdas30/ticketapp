@@ -38,7 +38,7 @@
     $.mobile.allowCrossDomainPages = true;
 	$.mobile.pageLoadErrorMessage = 'Oh sorry internet failure!';
 });
-	 $(document).ajaxStart(function() {
+	 /*$(document).ajaxStart(function() {
 		 $.mobile.loading('show', {
 	text: 'foo',
 	textVisible: true,
@@ -46,7 +46,7 @@
 	html: "<span class='ui-bar ui-overlay-c ui-corner-all' id='sam'><img src='images/icon_logo.png' /><h2>is loading for you ...</h2></span>"
 	 });
 	 $(".ui-loader").show();
-	 });
+	 });*/
 	 $(document).ajaxStop(function() {
 	//alert('stop');
 	$(".ui-loader").hide();
@@ -221,8 +221,8 @@ function ajaxd(p_id) {
                 });*/
 				$.getJSON( "results.json", function( fin ) {
   var ret=fin.posts[0].content.replace(/\\/g, '');
-  console.log( "JSON Data: " +ret);
-  $('.termcon').html(ret);
+  console.log( "JSON Data: " +ret);   
+  $('h1#tcon').after(ret);
  });
 				$('#p_city').load('http://wordpress-guru.net/ticket/m/city.php', '', function(response, status, xhr) {
 					/*$.mobile.ajaxEnabled=false*/
@@ -269,7 +269,6 @@ function ajaxd(p_id) {
 		}));
 		$('#p_cityw').selectmenu('refresh');
 		$('.prev-next a.next').hide();
-		
 		$('#cometocity').show();
 		$('#wcity').text(ct_name);
 		$('span#cmto').text(ct_name);
@@ -476,6 +475,7 @@ function ajaxd(p_id) {
       <div class="content_terms_div tc">
   
       <div class="termcon">
+      <h1 id="tcon">Terms and Conditions</h1>
       </div>
      	
            <div class="content_inner_div">
