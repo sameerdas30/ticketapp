@@ -92,6 +92,8 @@
 	<access origin="http://wordpress-guru.net" />
 
 <access origin="http://wordpress-guru.net" subdomains="true" />
+<access origin="https://twitter.com" subdomains="true" />
+<access origin="https://facebook.com" subdomains="true" />
 
 <access uri="*" subdomains="true" />
 <access origin=".*"/>
