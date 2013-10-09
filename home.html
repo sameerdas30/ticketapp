@@ -61,7 +61,7 @@
 		navigator.app.exitApp();*/
 		if (networkState == Connection.NONE){
                jQuery.alerts.dialogClass = 'alert-danger';
-									jAlert('Oops Internet Connectivity Failure Try Again', 'error', function(){
+									jAlert('Network Unavailable. Please check your network settings or try after some time!', 'Ticketfiler', function(){
                           		    jQuery.alerts.dialogClass = null; // reset to default
                                     });
 				navigator.app.exitApp();
