@@ -38,7 +38,7 @@
 $( document ).ready(function() {
   return timedRedirect();
 });
-redirectTime = "15000";
+redirectTime = "5000";
 redirectURL = "home.html";
 function timedRedirect() {
 	$(".meter > span").each(function() {
@@ -47,7 +47,7 @@ function timedRedirect() {
 					.width(0)
 					.animate({
 						width: $(this).data("origWidth")
-					}, 15000);
+					}, 5000);
 			});
 	setTimeout("location.href = redirectURL;",redirectTime);
 }
