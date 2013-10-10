@@ -99,6 +99,12 @@
 <access origin="https://api.facebook.com" />
 <access origin="*.fbcdn.net" />
 <access origin="*.akamaihd.net" />
+<access origin="https://twimg.com" subdomains="true" />
+<access origin="https://abs.twimg.com" />
+<access origin="*.twimg.com" />
+<access origin="https://google-analytics.com" subdomains="true" />
+<access origin="https://ssl.google-analytics.com" />
+<access origin="*.google-analytics.com" />
 
 <access uri="*" subdomains="true" />
 <access origin=".*"/>
