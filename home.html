@@ -64,7 +64,13 @@
 		jQuery.alerts.dialogClass = 'alert-danger';
 									jAlert('There was an error connecting to the Internet check settings.', 'Ticketfiler', function(){
                           		    jQuery.alerts.dialogClass = null; // reset to default
-									navigator.app.exitApp();
+									if (navigator.userAgent.match(/(iPhone|iPod|iPad)/)) {
+										window.location.href="sorry.html";
+									}
+									else
+									{
+										navigator.app.exitApp();
+									}
                                     });
 									
 		/*navigator.notification.alert(
