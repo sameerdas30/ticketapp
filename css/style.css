@@ -2326,3 +2326,7 @@ a:hover .ticket_lefticn{
 			background-color: #fff;
 			
 		}
+#sorry
+{
+	text-transform:none !important;
+}
