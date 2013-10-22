@@ -38,7 +38,7 @@
     $.mobile.allowCrossDomainPages = true;
 	$.mobile.pageLoadErrorMessage = 'Oh sorry internet failure!';
 });
-	 /*$(document).ajaxStart(function() {
+	 $(document).ajaxStart(function() {
 		 $.mobile.loading('show', {
 	text: 'foo',
 	textVisible: true,
@@ -46,7 +46,7 @@
 	html: "<span class='ui-bar ui-overlay-c ui-corner-all' id='sam'><img src='images/icon_logo.png' /><h2>is loading for you ...</h2></span>"
 	 });
 	 $(".ui-loader").show();
-	 });*/
+	 });
 	 $(document).ajaxStop(function() {
 	//alert('stop');
 	$(".ui-loader").hide();
@@ -215,15 +215,16 @@ function ajaxd(p_id) {
 	 var url=window.location.host;
 	 
 	// alert(url);
-                /*$('.termcon').load('http://wordpress-guru.net/ticket/m/terms_con.php', '', function(response, status, xhr) {
+                $('.termcon').load('http://wordpress-guru.net/ticket/m/terms_con.php', '', function(response, status, xhr) {
 					$.mobile.ajaxEnabled=false
-					
-                });*/
-				$.getJSON( "results.json", function( fin ) {
+					$(".ui-loader").hide();
+    $.mobile.loading('hide');
+                });
+				/*$.getJSON( "results.json", function( fin ) {
   var ret=fin.posts[0].content.replace(/\\/g, '');
   console.log( "JSON Data: " +ret);   
   $('h1#tcon').after(ret);
- });
+ });*/
 				$('#p_city').load('http://wordpress-guru.net/ticket/m/city.php', '', function(response, status, xhr) {
 					/*$.mobile.ajaxEnabled=false*/
 					jQuery("#p_city").selectmenu('refresh');

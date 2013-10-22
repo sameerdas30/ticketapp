@@ -78,20 +78,28 @@
 
 <script>
    function shareOnFacebook() {
-	   var nam=encodeURIComponent('Finally, it is now easier to fight your ticket than it is to pay it.');
+	   $.post("http://wordpress-guru.net/ticket/m/socmsg.php",{ social: 'fb' },
+		function(fbcon){
+			var fmsg=fbcon;
+		});
+	   var nam=encodeURIComponent(fmsg);
     var url=encodeURIComponent('http://wordpress-guru.net/ticket/m');
     var picture=encodeURIComponent('http://wordpress-guru.net/ticket/m/images/screen.png');
-    var caption=encodeURIComponent('Finally, it is now easier to fight your ticket than it is to pay it.');
-	var description=encodeURIComponent('Finally, it is now easier to fight your ticket than it is to pay it.');
+    var caption=encodeURIComponent(fmsg);
+	var description=encodeURIComponent(fmsg);
 	var redurl=encodeURIComponent('http://wordpress-guru.net/ticket/m/parking_paralegal.html?id='+idofparking+'&t_type='+t_type+'&social=Facebook');
 	
 	    document.location.href="https://www.facebook.com/dialog/feed?app_id=422443441198616&caption="+caption+"&description="+description+"&display=popup&link="+url+"&locale=en_US&name="+nam+"&picture="+picture+"&redirect_uri="+redurl;
    }
 
 	    function tws_click() {
+			$.post("http://wordpress-guru.net/ticket/m/socmsg.php",{ social: 'tw' },
+		function(tweetcon){
+			var tmsg=tweetcon;
+		});
 	     var redurl=encodeURIComponent('http://wordpress-guru.net/ticket/m/parking_paralegal.html?id='+idofparking+'&t_type='+t_type+'&social=Twitter&rid=success');
 	      var url = encodeURIComponent('http://wordpress-guru.net/ticket/m/');
-	      var title =  encodeURIComponent('Ticketapp');
+	      var title =  encodeURIComponent(tmsg);
 		  
 		  document.location.href="https://twitter.com/intent/tweet?original_referer="+redurl+"&text="+title+"&url="+url;
 	    }

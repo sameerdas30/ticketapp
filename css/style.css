@@ -2330,3 +2330,8 @@ a:hover .ticket_lefticn{
 {
 	text-transform:none !important;
 }
+.terms_content hgroup p a
+{
+color: #ff9999;
+text-decoration: none;
+}
