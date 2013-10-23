@@ -423,7 +423,8 @@ function datediff(ds1,ds2) {
 							
 								var langid = $("#t_language").children(":selected").attr("id");
 								if($(langid)=='N') {
-							 $("#t_checkbox_value_1").attr('checked','checked');
+									$("#t_checkbox_value_1").val('N');
+							 //$("#t_checkbox_value_1").attr('checked','checked');
 								} else {
 									if (!jQuery("#t_checkbox_value_1").is(":checked")) 
 								{

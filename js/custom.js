@@ -426,7 +426,8 @@
 									}
 								var langid = $("#p_language").children(":selected").attr("id");
 								if($(langid)=='N') {
-							 $("#checkbox_value_1").attr('checked','checked');
+							 //$("#checkbox_value_1").attr('checked','checked');
+							 $("#checkbox_value_1").val('N');
 								} else {
 									if (!jQuery("#checkbox_value_1").is(":checked")) 
 								{

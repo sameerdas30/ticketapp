@@ -156,12 +156,15 @@
 	  // alert(data);
      if(data==1)
 	 {
+		   jQuery("#t_checkbox_value_1").val('Y');
 		  jQuery("#t_checkbox_value_1").prop("checked",false);
+		  jQuery("#t_checkbox_value_1").checkboxradio('refresh');
 	 	$("#check_sw").show();
 	 }
 	 else
 	 {
-		 jQuery("#t_checkbox_value_1").attr("checked","checked");
+		 jQuery("#t_checkbox_value_1").val('N');
+		 //jQuery("#t_checkbox_value_1").attr("checked","checked");
 		 $("#check_sw").hide();
 		
 	 }
@@ -210,15 +213,15 @@ function ajaxd(t_id) {
 </script>
 <script type="text/javascript">
  $(document).ready(function(){
-                /*$('.termcon').load('http://wordpress-guru.net/ticket/m/terms_con.php', '', function(response, status, xhr) {
+                $('.termcon').load('http://wordpress-guru.net/ticket/m/terms_con.php', '', function(response, status, xhr) {
 					$.mobile.ajaxEnabled=false
 					
-                });*/
-								$.getJSON( "results.json", function( fin ) {
+                });
+								/*$.getJSON( "results.json", function( fin ) {
   var ret=fin.posts[0].content.replace(/\\/g, '');
   console.log( "JSON Data: " +ret);
   $('h1#tcon').after(ret);
- });
+ });*/
 				$('#t_city').load('http://wordpress-guru.net/ticket/m/city.php', '', function(response, status, xhr) {
 					/*$.mobile.ajaxEnabled=false*/
 					jQuery("#t_city").selectmenu('refresh');

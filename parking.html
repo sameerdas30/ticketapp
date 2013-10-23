@@ -147,12 +147,16 @@
 	  // alert(data);
      if(data==1)
 	 {
+		  jQuery("#checkbox_value_1").val('Y');
 		  jQuery("#checkbox_value_1").prop("checked",false);
+		  jQuery("#checkbox_value_1").checkboxradio('refresh');
 	 	$("#pcheck_sw").show();
 	 }
 	 else
 	 {
-		  jQuery("#checkbox_value_1").attr("checked","checked");
+		  jQuery("#checkbox_value_1").val('N');
+		  /*jQuery("#checkbox_value_1").prop("checked",true);
+		  jQuery("#checkbox_value_1").checkboxradio('refresh');*/
 		 $("#pcheck_sw").hide();
 		
 	 }

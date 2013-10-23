@@ -138,6 +138,14 @@ function getUrlVars()
 				}
 				else if(soc=='Email')
 				{
+					var m='esuccess';
+					$.post("http://wordpress-guru.net/ticket/m/upd_soc.php",{ social: soc, rid: m, t_type: ttype, id: ID },
+			function(data){
+					if(data==1)
+					{
+						/*alert('regd sent');*/
+					}
+					});
 				}
 
 				else
