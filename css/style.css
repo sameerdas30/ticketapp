@@ -1887,15 +1887,14 @@ width: 35px;
 
 
 .ui-loader-verbose {
-width: 250px;
-filter: Alpha(Opacity=18);
+/*filter: Alpha(Opacity=18);
 
 opacity: .18;
-box-shadow: 0 1px 1px -1px #fff;
+box-shadow: 0 1px 1px -1px #fff;*/
 height: auto;
-margin-left: -110px;
+/*margin-left: -110px;
 margin-top: -43px;
-padding: 10px;
+padding: 10px;*/
 }
 
 .ui-loader {
@@ -1920,11 +1919,11 @@ border-radius: 36px;
 background: url(../images/ajax-loader.gif);
 background-size: 46px 46px;
 }
-.ui-overlay-c {
+/*.ui-overlay-c {
 border: 1px solid #aaa /{c-body-border}/;
 color: #fff /{c-body-color}/;
 background-color: #444445;
-}
+}*/
 .ui-bar, .ui-body {
 position: relative;
 padding: .4em 15px;
@@ -2334,4 +2333,8 @@ a:hover .ticket_lefticn{
 {
 color: #ff9999;
 text-decoration: none;
+}
+#sam
+{
+	
 }

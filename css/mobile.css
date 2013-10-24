@@ -307,7 +307,7 @@ div.wrapper-dropdown-5 .dropdown  {
 	margin-left: 8%;
 	margin-right: 8%;
 	margin-bottom:30px;
-	margin-top: 0px;
+	margin-top: 25px;
 }
 .termcon h1 {
 	color: #FFF;
@@ -1403,18 +1403,18 @@ div.note_text{
 	z-index: 9999999;
 	position: fixed;
 	top: 50%;
-	left: 8% !important;
+	left: 35% !important;
 	border: 0;
 }
 .ui-loader-verbose {
 	width: 250px;
 	filter: Alpha(Opacity=18);
 	opacity: .18;
-	box-shadow: 0 1px 1px -1px #fff;
+	/*box-shadow: 0 1px 1px -1px #fff;
 	height: auto;
 	margin-left: 0px;
 	margin-top: 0px;
-	padding: 10px;
+	padding: 10px;*/
 }
 #email_hide {
 	width: 100%;
@@ -1779,7 +1779,7 @@ div.prev-next {
 	margin-left: 8%;
 	margin-right: 8%;
 	margin-bottom:65px !important;
-	margin-top:0px;
+	margin-top:25px;
 	}
 div.termcon h1 {
 	color: #FFF;
@@ -2510,7 +2510,7 @@ div.thank_you p {
 	z-index: 9999999;
 	position: fixed;
 	top: 50%;
-	left: 25%;
+	left: 40% !important;
 	border: 0;
 }
 .ui-loader-verbose {
@@ -2561,14 +2561,14 @@ div.thank_you p {
 	z-index: 9999999;
 	position: fixed;
 	top: 50%;
-	left: 30%;
+	left: 45%;
 	border: 0;
 }
 .ui-loader-verbose {
 	width: 250px;
 	filter: Alpha(Opacity=18);
 	opacity: .18;
-	box-shadow: 0 1px 1px -1px #fff;
+
 	height: auto;
 	margin-left: 0px;
 	margin-top: 0px;
