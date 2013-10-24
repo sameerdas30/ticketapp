@@ -607,7 +607,7 @@ function datediff(ds1,ds2) {
                 $(this).parent().parent().hide().prev().trigger('create').show();
             });
 			$('#t-first-step a.prev').click(function(){
-			   window.location.href ='home.html';
+			   window.location.href ='index.html';
                 
             });
         });

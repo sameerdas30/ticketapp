@@ -614,7 +614,7 @@
             });
 			                    
            $('#first-step a.prev').click(function(){
-			   window.location.href ='home.html';
+			   window.location.href ='index.html';
                 
             });
 		});
