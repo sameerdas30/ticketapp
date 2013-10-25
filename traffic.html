@@ -164,7 +164,8 @@
 	 else
 	 {
 		 jQuery("#t_checkbox_value_1").val('N');
-		 //jQuery("#t_checkbox_value_1").attr("checked","checked");
+		 jQuery("#t_checkbox_value_1").prop("checked",true);
+		  jQuery("#t_checkbox_value_1").checkboxradio('refresh');
 		 $("#check_sw").hide();
 		
 	 }

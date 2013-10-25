@@ -6,7 +6,7 @@
         id        = "com.phonegap.ticketfiler"
         version   = "1.0.0">
 
-    <name>Ticketfiler</name>
+    <name>TicketFiler</name>
 
     <description>
         File Toronto Parking and Traffic Tickets Online For Free!
