@@ -197,21 +197,6 @@
   
     </div><!-- /header -->
 <script src="js/traffic_custom.js" type="text/javascript"></script>  
-<script type="text/javascript" language="javascript">
-function ajaxd(t_id) { 
-  jQuery.ajax({
-   type: "GET",
-   url: "http://wordpress-guru.net/ticket/m/tmgetcity.php",
-   data:'t_owner_province='+t_id,
-   success: function(msg){
-	   jQuery('#t_owner_city option').remove();
-	   jQuery("#t_owner_city").selectmenu('refresh');
-     jQuery(msg).appendTo("#t_owner_city");
-	  jQuery("#t_owner_city").selectmenu('refresh');
-   }
- });
-}
-</script>
 <script type="text/javascript">
  $(document).ready(function(){
                 $('.termcon').load('http://wordpress-guru.net/ticket/m/terms_con.php', '', function(response, status, xhr) {

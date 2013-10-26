@@ -43,7 +43,7 @@
 	text: 'foo',
 	textVisible: true,
 	theme: 'a',
-	html: "<div class='ui-bar ui-overlay-c ui-corner-all' id='sam'><img src='images/ajax-loader.gif' /></div>"
+	html: "<div id='sam'><img src='images/ajax-loader.gif' /></div>"
 	 });
 	 $(".ui-loader").show();
 	 });
@@ -196,24 +196,6 @@ $(function(){
   
     </div><!-- /header -->
 <script src="js/custom.js" type="text/javascript"></script>
-    
-    
-    
-<script type="text/javascript" language="javascript">
-function ajaxd(p_id) { 
-  jQuery.ajax({
-   type: "GET",
-   url: "http://wordpress-guru.net/ticket/m/pmgetcity.php",
-   data:'p_owner_province='+p_id,
-   success: function(msg){
-	   jQuery('#p_owner_city option').remove();
-	   jQuery("#p_owner_city").selectmenu('refresh');
-     jQuery(msg).appendTo("#p_owner_city");
-	  jQuery("#p_owner_city").selectmenu('refresh');
-   }
- });
-}
-</script>
 <script type="text/javascript">
  $(document).ready(function(){
 	 var url=window.location.host;
