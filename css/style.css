@@ -2263,7 +2263,7 @@ a:hover .ticket_lefticn{
 	font-weight: bold;
 }
 .about{
-	min-height:600px;}
+	/*min-height:600px;*/}
 .meter { 
 			height: 20px;  /* Can be anything */margin-top: 81px;
 			border: solid 1px #fff;

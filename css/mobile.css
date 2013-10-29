@@ -521,7 +521,7 @@ min-height:304px;
 min-height:304px;
 }
 .about {
-min-height:304px;
+/*min-height:304px;*/
 }
 .thank_you {
 	min-height:204px;
@@ -1457,7 +1457,7 @@ margin-bottom: 28px;
 min-height:424px !important;
 }
 .about {
-min-height:424px !important;
+/*min-height:424px !important;*/
 }
 
 .thank_you { min-height:424px !important;
@@ -3441,9 +3441,9 @@ min-height: 832px;
 .on {
 min-height: 832px;
 }
-.about {
+/*.about {
 min-height: 832px;
-}
+}*/
 .thank_you {
 	min-height: 540px;
 	margin-bottom:0px;
