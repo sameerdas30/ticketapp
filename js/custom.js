@@ -80,16 +80,20 @@
 								
 	                            
 							
-		                        if(jQuery('#pDateTime').val()=='')
+		                        if(!jQuery('#pDateTime').val()=='')
 									{   
-									    /*alert('Select Date');*/
-										jQuery('#pDateTime').css("border","black solid 2px");
-										jQuery('#pDateTime').parent().focus();
-										return false;
+									    jQuery('#pDateTime').css("border","none");
 									}
 								else
 									{
-											jQuery('#pDateTime').css("border","none");
+										
+											jQuery.alerts.dialogClass = 'alert-danger';
+										jAlert('Pick Date', 'error', function(){
+                                        jQuery.alerts.dialogClass = null; // reset to default
+										jQuery('#pDateTime').focus();
+										jQuery('#pDateTime').css("border","black solid 2px");
+										 });
+										return false;	
 										
 									}
 	                            
@@ -168,10 +172,15 @@
 										return false;
 								 }
 	
-									if (jQuery('#p_checkbox_value_4').is(':checked'))
-									{
+									
 								
-										if(jQuery('#p_company_name').val()=='')
+										
+									
+									
+							}
+							else if( whichStep == 'fifth-step' )
+							{
+								if(jQuery('#p_company_name').val()=='')
 										{
 											jQuery.alerts.dialogClass = 'alert-danger';
 									jAlert('Enter Company Name', 'error', function(){
@@ -187,11 +196,6 @@
 											jQuery('#p_company_name').css("border","none");
 												
 										}
-									}
-									
-							}
-							else if( whichStep == 'fifth-step' )
-							{
 								if(jQuery('#p_owner_fst_name').val()=='')
 									{
 										jQuery.alerts.dialogClass = 'alert-danger';
@@ -425,12 +429,18 @@
 										
 									}
 								var langid = $("#p_language").children(":selected").attr("id");
-								if($(langid)=='N') {
-							 //$("#checkbox_value_1").attr('checked','checked');
-							 $("#checkbox_value_1").val('N');
-								} else {
+								
+								if(langid=='N') {
+									//alert('hidden');
+								$("#checkbox_value_1").val('N');
+							 /*$("#checkbox_value_1").prop("checked",true);
+							 $("#checkbox_value_1").checkboxradio('refresh');*/
+								} 
+								else
+								{
 									if (!jQuery("#checkbox_value_1").is(":checked")) 
 								{
+									//alert('not checked shown');
 									jQuery.alerts.dialogClass = 'alert-danger';
 									jAlert('Please Check The Checkbox for further proceed', 'error', function(){
                                         jQuery.alerts.dialogClass = null; // reset to default

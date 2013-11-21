@@ -163,7 +163,7 @@
 	 }
 	 else
 	 {
-		 jQuery("#t_checkbox_value_1").val('N');
+		  jQuery("#t_checkbox_value_1").val('N');
 		 jQuery("#t_checkbox_value_1").prop("checked",true);
 		  jQuery("#t_checkbox_value_1").checkboxradio('refresh');
 		 $("#check_sw").hide();
@@ -309,7 +309,7 @@ $('#t_owner_province').load('http://wordpress-guru.net/ticket/m/t_owner_province
 		var pickdate=$('#DateTime').mobiscroll( "getDate" );
 		var dtval = $('#DateTime').mobiscroll({ dateFormat: 'yyyy-mm-dd' }).val();
 		console.log(datediff(pickdate,curdate));
-		if(datediff(pickdate,curdate)>28)
+		if(datediff(pickdate,curdate)>25)
 		{
 			$("#t-third-step").hide('fast');			
 			$("#t-third-stepw").show();
@@ -355,7 +355,7 @@ $('#t_owner_province').load('http://wordpress-guru.net/ticket/m/t_owner_province
 		var pickdate=$('#DateTime').mobiscroll( "getDate" );
 		var dtval = $('#DateTime').mobiscroll({ dateFormat: 'yyyy-mm-dd' }).val();
 		console.log(datediff(pickdate,curdate));
-		if(datediff(pickdate,curdate)>28)
+		if(datediff(pickdate,curdate)>25)
 		{
 			$("#t-third-step").hide('fast');
 			$("#t-fourth-step").hide();			
@@ -408,7 +408,7 @@ $('#t_owner_province').load('http://wordpress-guru.net/ticket/m/t_owner_province
 				if($(this).val()=='TCV')
 				{	
 					if($(this).is(':checked')){
-						 $("#company").show();
+						 //$("#company").show();
 						 $(this).parent().parent().find('label').removeClass('warning');
 								  $('#t_check_hide1').hide();
 					}
@@ -416,7 +416,7 @@ $('#t_owner_province').load('http://wordpress-guru.net/ticket/m/t_owner_province
 					{
 						
 						$('#t_check_hide1').show();
-						 $("#company").hide();
+						// $("#company").hide();
 						 $('#t_checkbox_value_4').next().find('label').removeClass('warning');
 					}
 				}
@@ -520,7 +520,7 @@ us to stop watching YouTube and get to work!</p></div>
 
 <div class="note">
 <p>Note: Ticket Filer can ONLY submit a ticket on your 
-behalf if it was received within 28 days.</p></div>
+behalf if it was received within 25 days.</p></div>
 </div> 
 </div>
 </div>
@@ -531,7 +531,7 @@ behalf if it was received within 28 days.</p></div>
 <div data-role="content" >
 <div class="content_div tn">
 <div class="header_text_top_div"><h1>03 - Ticket Number</h1></div>
-<h2>What is your traffic ticket number?</h2>
+<h2>What is your Traffic Ticket Number?</h2>
 <div class="content_inner_div">
 <div class="select_div">
 <input type="text" name="t_ticket_no" id="t_ticket_no" maxlength="8" class="textfield_style" placeholder="AB123456"></div>
@@ -559,12 +559,9 @@ to find the traffic ticket number.</p></div>
 <div class="content_inner_div">
 <input type="text" name="t_license_no" id="t_license_no" maxlength="12" class="textfield_style" placeholder="ABCD 123"></div>
  </div>   
-<div class="note"><p>Your traffic license number is usually located in the 
-top right corner of your ticket and will look like 
-ABCD 123 or 87654321.<br>
+<div class="note"><p>Your License Plate Number is located on your vehicle registration card and on the vehicle license plate. It should match the License Plate Number on your traffic ticket<br>
 <br>
-<div class="note_text" id="t_licpic">Click on this text to see a picture of where 
-to find the traffic ticket number.</p></div>
+<div class="note_text" id="t_licpic">Click on this text to see where the License Plate Number should be on your traffic ticket.</p></div>
 <div id="t_liccontainer">
 <img src="images/toronto_sample2.jpg" alt="License" width="272" height="590">
 </div>
@@ -607,12 +604,12 @@ to find the traffic ticket number.</p></div>
       </div>
       </div>
       <div class="content_inner_div">
-    <div id="company" style="display:none;">
+    <!--<div id="company" style="display:none;">
   <h1> Company Name</h1>
   <div class="select_div">
 <input type="text" name="t_company_name" id="t_company_name" placeholder="COMPANY NAME" class="textfield_style">
 </div>
-</div>
+</div>-->
 </div>  
   
     
@@ -623,9 +620,10 @@ to find the traffic ticket number.</p></div>
 <div id="t-fifth-step" style="display:none;"> 
 <div data-role="content">
 <div class="content_div on">
-<div class="header_text_top_div"><h1>06 - DRIVER’s Name</h1></div>
-<h2>What is the name of the 
-Driver of the vehicle?</h2>
+<div class="header_text_top_div"><h1>06 - Company Name</h1></div>
+<div class="select_div"><div class="content_inner_div"><input type="text" name="t_company_name" class="textfield_style" id="t_company_name" placeholder="COMPANY NAME"></div></div>
+<div class="note"><p>Please verify the Company Name as listed on the vehicle registry</p></div>
+<h2>What is your name?</h2>
 <div class="select_div"><div class="content_inner_div"><input type="text" name="t_owner_fst_name" class="textfield_style" id="t_owner_fst_name" placeholder="FIRST NAME"></div></div>
 <div class="select_div"><div class="content_inner_div"><input type="text" name="t_owner_lst_name" class="textfield_style" id="t_owner_lst_name" placeholder="LAST NAME"></div></div>
 
@@ -869,7 +867,7 @@ all information is accurate.</div>
 
 <div class="cometo_button_ct" id="t_cometocity"><a class="city_bt" href="javascript:void(0)">Come to <span id="t_cmto">[city]</span>! </a></div>
 <div class="note"><p>If you would like to see TicketFiler come to your home 
-town, click the please come to my city! button, tell 
+town, click the please come to <span id="t_cmto">[city]</span>! button, tell 
 us to stop watching YouTube and get to work!</p> </div></div></div></div>
 <div id="t-third-stepw" style="display:none;"> 
 <div data-role="content">
@@ -883,7 +881,7 @@ us to stop watching YouTube and get to work!</p> </div></div></div></div>
         <input type="text" name="tDateTimew" id="tDateTimew" value="" class="textfield_style">
         </div>
     </div>
-<div class="note"><p>For tickets received outside this timeline, please talk to a Registered Paralegal to discuss your options. Click on the link below or, alternatively, consol yourself with cute cat videos. Hopefully we can help you next time!</p></div>
+<div class="note"><p><p>For tickets received earlier than 25 days from today, please talk to a <a href="https://www.google.co.in/search?q=ontario+traffic+ticket+paralegal&oq=ontario+traffic+ticket+paralegal&aqs=chrome..69i57.254j0j7&sourceid=chrome&espv=210&es_sm=93&ie=UTF-8">Registered Paralegal</a>about your options.</p></p></div>
 </div>
 </div></div>
 <input type="hidden" name="t_type" id="t_type" value="traffic" /><!--Ticket Type-->

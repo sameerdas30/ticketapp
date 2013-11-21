@@ -20,7 +20,7 @@
 			
             jQuery(document).ready(function(){
 			jQuery('a.next').click(function(){
-          
+         // $('select[name=t_city] option:eq(1)').attr('selected', 'selected');
 function datediff(ds1,ds2) {
  console.log(ds1);
  console.log(ds2);
@@ -160,8 +160,14 @@ function datediff(ds1,ds2) {
 								 }
 								
 
-								if (jQuery('#t_checkbox_value_4').is(':checked'))
-								{
+								
+								
+							}
+					
+							else if( whichStep == 't-fifth-step' )
+							{
+								
+						
 									
 									
 								if(jQuery('#t_company_name').val()=='')
@@ -180,12 +186,7 @@ function datediff(ds1,ds2) {
 									jQuery('#t_company_name').css("border","none");
 										
 								}
-								}
-								
-							}
-					
-							else if( whichStep == 't-fifth-step' )
-							{
+							
 								if(jQuery('#t_owner_fst_name').val()=='')
 									{
 										jQuery.alerts.dialogClass = 'alert-danger';
@@ -423,8 +424,8 @@ function datediff(ds1,ds2) {
 							
 								var langid = $("#t_language").children(":selected").attr("id");
 								if($(langid)=='N') {
-									$("#t_checkbox_value_1").val('N');
 							 //$("#t_checkbox_value_1").attr('checked','checked');
+							 $("#t_checkbox_value_1").val('N');
 								} else {
 									if (!jQuery("#t_checkbox_value_1").is(":checked")) 
 								{
@@ -605,6 +606,8 @@ function datediff(ds1,ds2) {
  
             $('a.prev').click(function(){
                 $(this).parent().parent().hide().prev().trigger('create').show();
+				
+				
             });
 			$('#t-first-step a.prev').click(function(){
 			   window.location.href ='index.html';
