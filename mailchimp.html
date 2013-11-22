@@ -220,7 +220,8 @@ jQuery(document).ready(function() {
 		});
 	
 	jQuery('#mc-embedded-subscribe').on('click',function(event){
-	
+
+		event.preventDefault();	
 		if(!jQuery("#checkbox_value_0").is(":checked") && !$("#mce-EMAIL").val().match(/^[\w]+([_|\.-][\w]{1,})*@[\w]{2,}([_|\.-][\w]{1,})*\.([a-z]{2,4})+$/i))
 		{
 			    jQuery.alerts.dialogClass = 'alert-danger';
@@ -298,7 +299,7 @@ jQuery(document).ready(function() {
 	        
 	        <div id="et"></div> 
         </div>
-        <div class="prev-next"><a href="javascript:;" class="next_bt"  id="mc-embedded-subscribe">SIGN UP</a></div>
+        <div class="prev-next"><a href="javascript:void(0)" class="next_bt"  id="mc-embedded-subscribe">SIGN UP</a></div>
         </div>
 	    
 	    <!--<div class="content_inner_div">
