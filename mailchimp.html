@@ -431,8 +431,8 @@ function mce_init_form(){
 }
 function mce_success_cb(resp){
  
-    $('#mce-success-response').hide();
-    $('#mce-error-response').hide();
+    $('#mce-success-response').show();
+    $('#mce-error-response').show();
     if (resp.result=="success"){
         $('#mce-'+resp.result+'-response').show();
         $('#mce-'+resp.result+'-response').html(resp.msg);
