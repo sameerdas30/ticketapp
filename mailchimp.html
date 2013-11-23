@@ -294,13 +294,13 @@ jQuery(document).ready(function() {
 					else
 					{
 						jQuery('#mc-embedded-subscribe-form').hide();
-						jQuery('#err').html('<h1>'+response+'</h1>').show();
+						jQuery('#err').html('<div class="content_div mlc1"><div class="header_text_top_div"><h1>'+response+'</h1></div></div>').show();
 					}
 				},
 				error: function(response) {
 					jQuery('#dmsg').hide();
 					jQuery('#mc-embedded-subscribe-form').hide();
-					jQuery('#err').html('<h1>Sorry, an error occurred.</h1>').show();
+					jQuery('#err').html('<div class="content_div mlc1"><div class="header_text_top_div"><h1>Sorry, an error occurred.</h1></div></div>').show();
 				}
 				});//ajax end
 			}
