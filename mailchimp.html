@@ -31,9 +31,9 @@
 	}
 	</style>
     <!-- Latest Jquery --> 
-     <script src="js/jquery.js"></script>
-     <!--<script src="js/jquery.mobile-1.3.2.min.js"></script>-->
+     <script src="js/jquery.js"></script>     
      <script type="text/javascript" src="js/jquery-migrate-1.2.1.min.js"></script>
+	 <script src="js/jquery.mobile-1.3.2.min.js"></script>
     <!-- <script src="js/mobiscroll.custom-2.5.0.min.js" type="text/javascript"></script>-->
           <script src="js/jquery.alerts.js" type="text/javascript"></script>
            <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
@@ -103,6 +103,22 @@
         }
         
         </script>-->
+        <script>
+		jQuery(document).ajaxStart(function() {
+		 jQuery.mobile.loading('show', {
+	text: 'foo',
+	textVisible: true,
+	theme: 'a',
+	html: "<div class='ui-bar ui-overlay-c ui-corner-all' id='sam'><img src='images/ajax-loader.gif' /></div>"
+	 });
+	 jQuery(".ui-loader").show();
+	 });
+	 jQuery(document).ajaxStop(function() {
+	//alert('stop');
+	jQuery(".ui-loader").hide();
+    jQuery.mobile.loading('hide');
+});
+		</script>
        	<script type="text/javascript" src="js/modernizr.custom.79639.js"></script> 
         
 </head> 
@@ -259,7 +275,34 @@ jQuery(document).ready(function() {
 			}
 			if(jQuery("#checkbox_value_0").is(":checked") && jQuery("#mce-EMAIL").val().match(/^[\w]+([_|\.-][\w]{1,})*@[\w]{2,}([_|\.-][\w]{1,})*\.([a-z]{2,4})+$/i))
 			{
-				jQuery('#mc-embedded-subscribe-form').submit();
+				//jQuery('#mc-embedded-subscribe-form').submit();
+				jQuery.ajax({
+				type: "POST", 
+				beforeSend: function() {  $(".ui-loader").show(); }, //Show spinner
+				complete: function() {  $(".ui-loader").hide(); }, //Hide spinn 
+				data: {
+					email: $('#mce-EMAIL').attr('value')
+				},
+				url: 'http://wordpress-guru.net/ticket/m/mailchimp.php',
+				cache: false,
+				success: function(response) {
+					if(response==1)
+					{
+						jQuery('#mc-embedded-subscribe-form').hide();
+						jQuery('#dmsg').show();
+					}
+					else
+					{
+						jQuery('#mc-embedded-subscribe-form').hide();
+						jQuery('#err').html('<h1>'+response+'</h1>').show();
+					}
+				},
+				error: function(response) {
+					jQuery('#dmsg').hide();
+					jQuery('#mc-embedded-subscribe-form').hide();
+					jQuery('#err').html('<h1>Sorry, an error occurred.</h1>').show();
+				}
+				});//ajax end
 			}
 		}
 				
@@ -270,7 +313,7 @@ jQuery(document).ready(function() {
 <!--Content Start-->
 
 	<div class="content_inner_div">
-	  <form action="http://facebook.us4.list-manage.com/subscribe?u=e606c4b054ccb16e2c4fedbdc&amp;id=8987162586" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" novalidate class="validate" target="_blank">
+	  <form action="" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" enctype="multipart/form-data" class="validate">
 	    
 	    <div data-role="content">
 	      <div class="content_div mlc1">
@@ -325,7 +368,7 @@ cute cat videos.</div>
         </div>
 	    
       </form>
-	  <script type="text/javascript">
+	  <!--<script type="text/javascript">
 var fnames = new Array();var ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';
 try {
     var jqueryLoaded=jQuery;
@@ -501,7 +544,7 @@ function mce_success_cb(resp){
     }
 }
 
-</script>
+</script>-->
 	  
 	  <div id="dmsg" style="display:none;">
       <div class="content_div mlc1">
@@ -529,6 +572,8 @@ function mce_success_cb(resp){
 </div>
         </div>
         
+      </div>
+      <div id="err" style="display:none;">
       </div>
 	  
 </div>
