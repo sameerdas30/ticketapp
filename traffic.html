@@ -176,6 +176,38 @@
 		   $("#check_sw").hide();
 	  }
 });
+
+$("#t_language11").change(function(){
+			var lang_name=$(this).val();
+		 if(lang_name)
+	  {
+	$.get("http://wordpress-guru.net/ticket/m/check_lang.php?lang="+lang_name+"",
+   function(data) {
+	  // alert(data);
+     if(data==1)
+	 {
+		   jQuery("#t_checkbox_value_1_L").val('Y');
+		  jQuery("#t_checkbox_value_1_L").prop("checked",false);
+		  jQuery("#t_checkbox_value_1_L").checkboxradio('refresh');
+	 	$("#check_sw_l").show();
+	 }
+	 else
+	 {
+		  jQuery("#t_checkbox_value_1_L").val('N');
+		 jQuery("#t_checkbox_value_1_L").prop("checked",true);
+		  jQuery("#t_checkbox_value_1_L").checkboxradio('refresh');
+		 $("#check_sw_l").hide();
+		
+	 }
+   });
+	  }
+	  else 
+	  {
+		   $("#check_sw_l").hide();
+	  }
+});
+
+
 });
 </script>
 <div data-role="page"  data-theme="b">
@@ -214,7 +246,7 @@
 					
                 });
 				$("#t_city").change(function(){
-	 var ct_name=$(this).val();
+	 var ct_name=$(this).val().toUpperCase();
       if(ct_name)
 	  {
 	$.get("http://wordpress-guru.net/ticket/m/users.php?city="+ct_name+"&type=city",
@@ -277,10 +309,10 @@ $('#t_owner_province').load('http://wordpress-guru.net/ticket/m/t_owner_province
 					
                 });
 				
-				/*$('#t_owner_province1').load('http://wordpress-guru.net/ticket/m/t_owner_province.php', '', function(response, status, xhr) {
+				$('#t_owner_province1').load('http://wordpress-guru.net/ticket/m/t_owner_province1.php', '', function(response, status, xhr) {
 					$.mobile.ajaxEnabled=false
 					
-                });*/
+                });
 				/*$('#t_owner_city').load('http://wordpress-guru.net/ticket/m/tcity.php', '', function(response, status, xhr) {
 					$.mobile.ajaxEnabled=false
 					
@@ -293,10 +325,10 @@ $('#t_owner_province').load('http://wordpress-guru.net/ticket/m/t_owner_province
 					$.mobile.ajaxEnabled=false
 					
                 });
-				/*$('#t_language11').load('http://wordpress-guru.net/ticket/m/tlanguage1.php', '', function(response, status, xhr) {
+				$('#t_language11').load('http://wordpress-guru.net/ticket/m/tlanguage1.php', '', function(response, status, xhr) {
 					$.mobile.ajaxEnabled=false
 					
-                });*/
+                });
 				
 	function datediff(ds1,ds2) {
 	console.log(ds1);
@@ -403,6 +435,24 @@ $('#t_owner_province').load('http://wordpress-guru.net/ticket/m/t_owner_province
 				width: 50
 				});
 			});
+			$('#t-fourth-step-para a.next').on('click', function() {
+		//alert($('.vtype:checked').val());
+		/*$( ".content_inner_div" ).html( $( "input:checked" ).val() + " is checked!" );*/
+		if($('.vtype:checked').val()=='TCV')
+		{
+			$('#idtcomp').hide();
+			$('#idtraf').hide();
+			$('#idtcomp').show();
+		}
+		else
+		{
+			$('#idtraf').hide();
+			$('#idtcomp').hide();
+			$('#idtraf').show();
+		}
+	});
+	
+			
 			$('.vtype').each(function() {
 				$('.vtype').on('change', function(){
 				if($(this).val()=='TCV')
@@ -443,6 +493,15 @@ $('#t_owner_province').load('http://wordpress-guru.net/ticket/m/t_owner_province
 			   function showlabelang()
 				{
 					$("#t_language1").html($('#t_language').val());
+				}
+				var languagel = $('#t_language11').val();
+                $("#t_language1_l").html(languagel);
+                $("#t_language11").change(function(){
+	            $("#t_language1_l").html($('#t_language11').val());
+               });
+			   function showlabelang1()
+				{
+					$("#t_language1_l").html($('#t_language11').val());
 				}
 	
 $("#t_owner_phno").mask("(999) 999-9999"); 			
@@ -534,7 +593,7 @@ behalf if it was received within 25 days.</p></div>
 <h2>What is your Traffic Ticket Number?</h2>
 <div class="content_inner_div">
 <div class="select_div">
-<input type="text" name="t_ticket_no" id="t_ticket_no" maxlength="8" class="textfield_style" placeholder="AB123456"></div>
+<input type="text" name="t_ticket_no" id="t_ticket_no" maxlength="8" class="textfield_style" placeholder="e.g. AB123456"></div>
  </div>   
 <div class="note"><p>Your traffic ticket number is usually located in the 
 top right corner of your ticket and will look like 
@@ -557,7 +616,7 @@ to find the traffic ticket number.</p></div>
 <h2>What is the License Plate Number of the ticketed vehicle?</h2>
 <div class="select_div">
 <div class="content_inner_div">
-<input type="text" name="t_license_no" id="t_license_no" maxlength="12" class="textfield_style" placeholder="ABCD 123"></div>
+<input type="text" name="t_license_no" id="t_license_no" maxlength="12" class="textfield_style" placeholder="e.g. ABCD 123"></div>
  </div>   
 <div class="note"><p>Your License Plate Number is located on your vehicle registration card and on the vehicle license plate. It should match the License Plate Number on your traffic ticket<br>
 <br>
@@ -618,11 +677,11 @@ to find the traffic ticket number.</p></div>
   </div>
 <!--step5 starts-->
 <div id="t-fifth-step" style="display:none;"> 
-<div data-role="content">
+<div data-role="content" id="idtcomp">
 <div class="content_div on">
 <div class="header_text_top_div"><h1>06 - Company Name</h1></div>
 <div class="select_div"><div class="content_inner_div"><input type="text" name="t_company_name" class="textfield_style" id="t_company_name" placeholder="COMPANY NAME"></div></div>
-<div class="note"><p>Please verify the Company Name as listed on the vehicle registry</p></div>
+<div class="note" style="margin-bottom:30px;"><p>Please verify the Company Name as listed on the vehicle registry</p></div>
 <h2>What is your name?</h2>
 <div class="select_div"><div class="content_inner_div"><input type="text" name="t_owner_fst_name" class="textfield_style" id="t_owner_fst_name" placeholder="FIRST NAME"></div></div>
 <div class="select_div"><div class="content_inner_div"><input type="text" name="t_owner_lst_name" class="textfield_style" id="t_owner_lst_name" placeholder="LAST NAME"></div></div>
@@ -636,6 +695,25 @@ car we need their name, not your's!<br>
 proper name of the driver of the car.</p></div></div>
  </div>     
  </div>
+ 
+ <div data-role="content" id="idtraf">
+<div class="content_div on">
+<div class="header_text_top_div"><h1>06 - owner's Name</h1></div>
+<h2>What is the name of the owner of the vehicle?</h2>
+<div class="select_div"><div class="content_inner_div"><input type="text" name="t_owner_fst_name" class="textfield_style" id="t_owner_fst_name" placeholder="FIRST NAME"></div></div>
+<div class="select_div"><div class="content_inner_div"><input type="text" name="t_owner_lst_name" class="textfield_style" id="t_owner_lst_name" placeholder="LAST NAME"></div></div>
+
+
+<div class="note"><p>Please verify the name of the DRIVER of the ticketed
+vehicle. Note, if you were driving a friend's or relative's 
+car we need their name, not your's!<br>
+<br>
+<div class="note_text">Check the vehicle registration to find the proper name of the owner of the car.</p></div></div>
+ </div>     
+ </div>
+ 
+ 
+ 
   </div>
 	
 <!--step5 completed-->
@@ -647,10 +725,10 @@ proper name of the driver of the car.</p></div></div>
 
 <h2>What is the address of the driver of the vehicle?</h2>
 <div class="content_inner_div">
-<div class="select_div"><input type="text" name="t_Street_add" id="t_Street_add" placeholder="Street Address" class="textfield_style"></div>
+<div class="select_div"><input type="text" name="t_Street_add" id="t_Street_add" placeholder="STREET ADDRESS" class="textfield_style"></div>
 </div>
 <div class="content_inner_div">
-<div class="select_div"><input type="text" class="textfield_style" name="t_owner_city" id="t_owner_city" placeholder="City"></div>
+<div class="select_div"><input type="text" class="textfield_style" name="t_owner_city" id="t_owner_city" placeholder="CITY"></div>
 </div>
 <div class="content_inner_div">
  <div class="select_div">
@@ -660,10 +738,9 @@ proper name of the driver of the car.</p></div></div>
 </div>
 
 <div class="content_inner_div">
-<div class="select_div"><input type="text" name="t_Zip_code" id="t_Zip_code" placeholder="Postal Code" class="textfield_style"></div>
+<div class="select_div"><input type="text" name="t_Zip_code" id="t_Zip_code" placeholder="POSTAL CODE" class="textfield_style"></div>
 </div>
-   <div class="note"><p>Check the vehicle registry to find the 
-proper address of the owner of the car.</p></div>
+   <div class="note"><p>Check the vehicle registration to find the proper address of the owner of the car.</p></div>
 </div>  
 </div>    
   </div>
@@ -673,11 +750,11 @@ proper address of the owner of the car.</p></div>
 <div data-role="content">
 <div class="content_div eml">
 <div class="header_text_top_div"><h1>08 - Email</h1></div>
-<h2>Please enter your email address so we can email you a receipt.</h2>
-<div class="content_inner_div"><div class="select_div"><input type="text" class="textfield_style" name="t_owner_email" id="t_owner_email"  placeholder="Email"></div></div>   
+<h2>Please enter your email so we can notify you when we have filed your ticket.</h2>
+<div class="content_inner_div"><div class="select_div"><input type="email" class="textfield_style" name="t_owner_email" id="t_owner_email"  placeholder="EMAIL"></div></div>   
 <div class="note">
-<p>We will not give away your email to anyone or send you spamy emails.
-Our guess is that you are going to tell our friends about us anyway.</p>
+<p>We will not sell or give your email away to anyone without our consent. We will only give it to one of our paralegal partners if you request a free consultation.</p>
+<p>We will not send you spammy emails. Our guess is that you are going to tell your friends about us anyway.</p>
 </div>
 </div>
 </div>      
@@ -691,7 +768,7 @@ Our guess is that you are going to tell our friends about us anyway.</p>
 <h2>What is the daytime 
 telephone number of the
 Driver ticketed?</h2>
-<div class="content_inner_div"><div class="select_div"><input type="text" class="textfield_style" name="t_owner_phno" id="t_owner_phno" placeholder="Phone number"></div>
+<div class="content_inner_div"><div class="select_div"><input type="text" class="textfield_style" name="t_owner_phno" id="t_owner_phno" placeholder="PHONE NUMBER"></div>
 </div>    
 <div class="note"><p>The City of Toronto requires this information in case 
 they need to contact you regarding your court date
@@ -706,7 +783,7 @@ they need to contact you regarding your court date
 <div data-role="content">
 <div class="content_div tl">
 <div class="header_text_top_div"><h1>10 - TRIAL lANGUAGE</h1></div>
-  <h2>What language would you like your trial to be held in?</h2>
+  <h2>In what language would you like your trial to be held?</h2>
   <div class="content_inner_div">
   <div class="select_div">
     <div class="styled-select">
@@ -752,24 +829,24 @@ information is correct. </h2>
 </div>
 <div class="content_inner_div">
 <div class="profile_left_div1"><h4>Date Of Submit:</h4></div>
-<input type="text" name="t_date_of_infraction" id="t_date_of_infraction" value="" class="textfield_style" readonly>
+<input type="text" name="t_date_of_infraction" id="t_date_of_infraction" value="" class="textfield_style">
 </div>
 <div class="content_inner_div">
 <div class="profile_left_div1"><h4>Notice Number:</h4></div>
-<input type="text" name="t_notice_no" id="t_notice_no" value="" class="textfield_style" readonly>
+<input type="text" name="t_notice_no" id="t_notice_no" value="" class="textfield_style">
 </div>
 <div class="content_inner_div">
 <div class="profile_left_div1"><h4>License Number:</h4></div>
-<input type="text" name="t_license_no_of_ticket" id="t_license_no_of_ticket" value="" class="textfield_style" readonly>
+<input type="text" name="t_license_no_of_ticket" id="t_license_no_of_ticket" value="" class="textfield_style">
 </div>
 <div class="content_inner_div" id="tcomp_hide">
 <div class="profile_left_div1"><h4>Company Name:</h4></div>
-<input type="text" name="tcm_name" id="tcm_name" value="" class="textfield_style" readonly>
+<input type="text" name="tcm_name" id="tcm_name" value="" class="textfield_style">
 </div>
 <div class="content_inner_div">
 <!--<input type="text" name="t_owner_fst_name" id="t_owner_fst_name1" >-->
 <div class="profile_left_div1"><h4>Full Name:</h4></div>
-<input type="text" name="t_owner_fst_name1" id="t_owner_fst_name1" value="" class="textfield_style" readonly>
+<input type="text" name="t_owner_fst_name1" id="t_owner_fst_name1" value="" class="textfield_style">
 </div>
 
 <!--<div class="content_inner_div">
@@ -781,19 +858,19 @@ information is correct. </h2>
 <div class="content_inner_div">
 <div class="profile_left_div1"><h4>Street Address:</h4></div>
 <!--<div class="profile_right_div1"><h4><div id="Street_name1"></div></h4></div>-->
-<input type="text" name="t_Street_add1" id="t_Street_add1" value="" class="textfield_style" readonly>
+<input type="text" name="t_Street_add1" id="t_Street_add1" value="" class="textfield_style">
 </div>
 <div class="content_inner_div">
 <div class="profile_left_div1"><h4>City:</h4></div>
 <!--<div class="profile_right_div1"><h4><div id="Street_name1"></div></h4></div>-->
-<input type="text" name="t_owner_city1" id="t_owner_city1" value="" class="textfield_style" readonly>
+<input type="text" name="t_owner_city1" id="t_owner_city1" value="" class="textfield_style">
 </div>
 <div class="content_inner_div">
 <div class="profile_left_div1"><h4>Province:</h4></div>
  <div class="content_inner_div">
 
     <div class="styled-select">
-<select name="t_owner_province1"  id="t_owner_province1" data-theme="c" disabled selected="selected">
+<select name="t_owner_province1"  id="t_owner_province1" data-theme="c"  selected="selected">
 
 </select>
 </div>
@@ -802,20 +879,20 @@ information is correct. </h2>
 </div>
 <div class="content_inner_div">
 <div class="profile_left_div1"><h4>Post Code:</h4></div>
-<input type="text" name="t_Zip_code1" id="t_Zip_code1" value="" class="textfield_style" readonly>
+<input type="text" name="t_Zip_code1" id="t_Zip_code1" value="" class="textfield_style">
 </div>
    
    
    <div class="content_inner_div">
 <!--<input type="text" name="t_owner_phno" id="t_owner_phno1" value="" >-->
 <div class="profile_left_div1"><h4> Email:</h4></div>
-<input type="text" name="t_owner_email1" id="t_owner_email1" value="" class="textfield_style" readonly>
+<input type="text" name="t_owner_email1" id="t_owner_email1" value="" class="textfield_style">
  </div>
 
  <div class="content_inner_div">
 <!--<input type="text" name="t_owner_phno" id="t_owner_phno1" value="" >-->
 <div class="profile_left_div1"><h4>Contact No:</h4></div>
-<input type="text" name="t_owner_phno1" id="t_owner_phno1" value="" class="textfield_style" readonly>
+<input type="text" name="t_owner_phno1" id="t_owner_phno1" value="" class="textfield_style">
  </div>  
  <div class="content_inner_div">
 
@@ -823,11 +900,29 @@ information is correct. </h2>
 
 
     <div class="styled-select">
-<select name="t_language11"  id="t_language11" data-theme="c" class="textfield_style" disabled selected="selected">
+<select name="t_language11"  id="t_language11" data-theme="c" class="textfield_style" selected="selected" onChange="return showlabelang1();">
 
 </select>
 </div>
 </div> 
+
+<div id="check_sw_l" style="display:none;">
+  <div class="note"><p>If you would like to request an interpreter for 
+    your trial please check the box below.</p></div>
+  <div class="content_inner_div">
+    <div class="check_box_div">
+    <div class="t_checkbox_value_1_L">	
+  
+  <input type="checkbox" name="t_checkbox_value_1_L" id="t_checkbox_value_1_L" data-iconpos="notext" data-theme="c" value="Y" />
+    <label for="t_checkbox_value_1_L" data="test"></label>
+    </div>
+      <div class="check_box_text">Request&nbsp;<a id="t_language1_l"></a> Interpreter </div>
+      
+      </div> 
+    
+    </div> 
+    </div>
+
 <div class="content_inner_div">
 <div class="check_box_div">	
                  <div class="t_checkbox_value_2">
@@ -867,7 +962,7 @@ all information is accurate.</div>
 
 <div class="cometo_button_ct" id="t_cometocity"><a class="city_bt" href="javascript:void(0)">Come to <span id="t_cmto">[city]</span>! </a></div>
 <div class="note"><p>If you would like to see TicketFiler come to your home 
-town, click the please come to <span id="t_cmto">[city]</span>! button, tell 
+town, click the please COME TO <span id="t_cmto">[city]</span>! button, tell 
 us to stop watching YouTube and get to work!</p> </div></div></div></div>
 <div id="t-third-stepw" style="display:none;"> 
 <div data-role="content">
@@ -875,7 +970,7 @@ us to stop watching YouTube and get to work!</p> </div></div></div></div>
 <div class="header_text_top_div">
 <h1>SORRY! WE CAN'T SUBMIT PAST DUE TICKETS.</h1></div>
 
-<h2>We can only file parking tickets you have received within the last 28 days.</h2>
+<h2>We can only file parking tickets you have received within the last 25 days.</h2>
 <div class="content_inner_div"> 
 <div class="select_div">
         <input type="text" name="tDateTimew" id="tDateTimew" value="" class="textfield_style">

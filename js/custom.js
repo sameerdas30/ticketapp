@@ -178,8 +178,15 @@
 									
 									
 							}
+							/*else if( whichStep == 'fifth-stepp' )
+							{
+								alert(whichStep);
+							}*/
 							else if( whichStep == 'fifth-step' )
 							{
+								if($('.vtype:checked').val()=='CV')
+								{
+									//alert('comp block');
 								if(jQuery('#p_company_name').val()=='')
 										{
 											jQuery.alerts.dialogClass = 'alert-danger';
@@ -196,13 +203,13 @@
 											jQuery('#p_company_name').css("border","none");
 												
 										}
-								if(jQuery('#p_owner_fst_name').val()=='')
+								if(jQuery('div#idcomp #p_owner_fst_name').val()=='')
 									{
 										jQuery.alerts.dialogClass = 'alert-danger';
 										jAlert('Enter Your First Name', 'error', function(){
                                         jQuery.alerts.dialogClass = null; // reset to default
-										jQuery('#p_owner_fst_name').css("border","black solid 2px");
-										jQuery('#p_owner_fst_name').focus();
+										jQuery('div#idcomp #p_owner_fst_name').css("border","black solid 2px");
+										jQuery('div#idcomp #p_owner_fst_name').focus();
 										
                                         });
 										return false;
@@ -210,38 +217,70 @@
 									}
 									else
 									{
-											jQuery('#p_owner_fst_name').css("border","none");
+											jQuery('div#idcomp #p_owner_fst_name').css("border","none");
 										
 									}
 									
-									if(jQuery('#p_owner_lst_name').val()=='')
+									if(jQuery('div#idcomp #p_owner_lst_name').val()=='')
 									{
 										/*alert('Enter Your Last Name');*/
 										jQuery.alerts.dialogClass = 'alert-danger';
 										jAlert('Enter Your Last Name', 'error', function(){
                                         jQuery.alerts.dialogClass = null; // reset to default
-										jQuery('#p_owner_lst_name').css("border","black solid 2px");
-										jQuery('#p_owner_lst_name').focus();
+										jQuery('div#idcomp #p_owner_lst_name').css("border","black solid 2px");
+										jQuery('div#idcomp #p_owner_lst_name').focus();
 										
                                         });
 										return false;
 									}
 									else
 									{
-											jQuery('#p_owner_lst_name').css("border","none");
+											jQuery('div#idcomp #p_owner_lst_name').css("border","none");
 										
 									}
-
-									function emailInvalid(s)
+								}//for company
+								else
+								{
+									//alert('park block');
+									//alert($('div#idpark #p_owner_fst_name').val());
+									//alert($('div#idcomp #p_owner_fst_name').val());
+									if(jQuery('div#idpark #p_owner_fst_name').val()=='')
 									{
-										if(!(s.match(/^[\w]+([_|\.-][\w]{1,})*@[\w]{2,}([_|\.-][\w]{1,})*\.([a-z]{2,4})$/i) ))
-											{
-											return false;
-											}
-										else
-											return true;
-									} 
-                
+										jQuery.alerts.dialogClass = 'alert-danger';
+										jAlert('Enter Your First Name', 'error', function(){
+                                        jQuery.alerts.dialogClass = null; // reset to default
+										jQuery('div#idpark #p_owner_fst_name').css("border","black solid 2px");
+										jQuery('div#idpark #p_owner_fst_name').focus();
+										
+                                        });
+										return false;
+										
+									}
+									else
+									{
+											jQuery('div#idpark #p_owner_fst_name').css("border","none");
+										
+									}
+									
+									if(jQuery('div#idpark #p_owner_lst_name').val()=='')
+									{
+										/*alert('Enter Your Last Name');*/
+										jQuery.alerts.dialogClass = 'alert-danger';
+										jAlert('Enter Your Last Name', 'error', function(){
+                                        jQuery.alerts.dialogClass = null; // reset to default
+										jQuery('div#idpark #p_owner_lst_name').css("border","black solid 2px");
+										jQuery('div#idpark #p_owner_lst_name').focus();
+										
+                                        });
+										return false;
+									}
+									else
+									{
+											jQuery('div#idpark #p_owner_lst_name').css("border","none");
+										
+									}
+								}//for parking
+               
 							}
 					
 							else if( whichStep == 'six-step' )
@@ -464,16 +503,26 @@
 				
 			var notice_no = $('#Ticket_no').val();
 			var license_no = $('#license_no').val();
-			var date_of = $('#pDateTime').val();					
-			var fname = $('#p_owner_fst_name').val();
-			var city1 = $('#p_city').val();
+			var date_of = $('#pDateTime').val();
+			var dt;
+			window.dt=date_of;					
+			var fname = $('div#idcomp #p_owner_fst_name').val();
+			var city1 = $('#p_city').val().toUpperCase();
 			var cname = $('#p_company_name').val();
-			var lname=$('#p_owner_lst_name').val();
+			var lname=$('div#idcomp #p_owner_lst_name').val();
 			var mail=$('#p_owner_email').val();
-			var language = $('#p_language').val();		
+			var language = $('#p_language').val();
+			if($("#p_language").children(":selected").attr("id")=='Y')
+			{
+				$('#pcheck_sw_p').show();
+				$("#p_language1_p").html(language);
+				$("#checkbox_value_1_p").val('Y');
+		  		$("#checkbox_value_1_p").prop("checked",false);
+		 		$("#checkbox_value_1_p").checkboxradio('refresh');				
+			}
 			var streetadd=$('#Street_add').val();
 			var city=$('#p_owner_city').val();
-			var province=$('#p_owner_province option:selected').text();  
+			var province=$('#p_owner_province').val();  
 		    var zipcode=$('#Zip_code').val();
 			var phn=$('#p_owner_phno').val();
 			
@@ -484,18 +533,19 @@
 			$("#p_owner_fst_name1").val(fname+" "+lname);
 			 <!--$("#p_owner_lst_name1").val(lname);-->
 			 $("#p_owner_email_one").val(mail);
-		     <!--$('#p_language1 option[value=' + language + ']').attr('selected', true);-->
-			 $("#p_language11 option").remove();
-		     $("#p_language11").append($('<option>', { 
+		    $('#p_language11 option[value=' + language + ']').attr('selected', true);
+			 //$("#p_language11 option").remove();
+		    /* $("#p_language11").append($('<option>', { 
 		     value: language,
 		     text : language 
-		     }));
+		     }));*/
 			 $("#Street_add1").val(streetadd);
-			 $("#p_owner_province1 option").remove();
+			 $('#p_owner_province1 [value=' + province + ']').attr('selected', true);
+			/* $("#p_owner_province1 option").remove();
 			  $("#p_owner_province1").append($('<option>', { 
 		     value: province,
 		     text : province 
-		     }));
+		     }));*/
 			$("#p_owner_city1").val(city);
 			$("#city11 option").remove();
 		    $("#city11").append($('<option>', { 
@@ -518,15 +568,25 @@
 							} else if ($('#p_checkbox_value_3').is(':checked')){ 
 									var notice_no = $('#Ticket_no').val();
 			var license_no = $('#license_no').val();
-			var city1 = $('#p_city').val();
-			var date_of = $('#pDateTime').val();					
-			var fname = $('#p_owner_fst_name').val();
-			var lname=$('#p_owner_lst_name').val();
+			var city1 = $('#p_city').val().toUpperCase();
+			var date_of = $('#pDateTime').val();	
+			var dt;
+			window.dt=date_of;				
+			var fname = $('div#idpark #p_owner_fst_name').val();
+			var lname=$('div#idpark #p_owner_lst_name').val();
 			var mail=$('#p_owner_email').val();
-			var language = $('#p_language').val();		
+			var language = $('#p_language').val();
+			if($("#p_language").children(":selected").attr("id")=='Y')
+			{
+				$('#pcheck_sw_p').show();
+				$("#p_language1_p").html(language);
+				$("#checkbox_value_1_p").val('Y');
+		  		$("#checkbox_value_1_p").prop("checked",false);
+		 		$("#checkbox_value_1_p").checkboxradio('refresh');				
+			}	
             var streetadd=$('#Street_add').val();
 			var city=$('#p_owner_city').val();
-			var province=$('#p_owner_province option:selected').text(); 
+			var province=$('#p_owner_province').val(); 
 		    var zipcode=$('#Zip_code').val();
 			var phn=$('#p_owner_phno').val();
 			
@@ -537,18 +597,19 @@
 			$("#p_owner_fst_name1").val(fname+" "+lname);
 			/* $("#p_owner_lst_name1").val(lname);*/
 			 $("#p_owner_email_one").val(mail);
-		     <!--$('#p_language1 option[value=' + language + ']').attr('selected', true);-->
-		      $("#p_language11 option").remove();
-			 $("#p_language11").append($('<option>', { 
+		   $('#p_language11 option[value=' + language + ']').attr('selected', true);
+		     //$("#p_language11 option").remove();
+			/* $("#p_language11").append($('<option>', { 
 		     value: language,
 		     text : language 
-		     }));
+		     }));*/
 			  $("#Street_add1").val(streetadd);
-			   $("#p_owner_province1 option").remove();
+			   $('#p_owner_province1 [value=' + province + ']').attr('selected', true);
+			   /*$("#p_owner_province1 option").remove();
 			  $("#p_owner_province1").append($('<option>', { 
 		     value: province,
 		     text : province 
-		     }));
+		     }));*/
 			$("#p_owner_city1").val(city);
 			 $("#city11 option").remove();
 		     $("#city11").append($('<option>', { 
@@ -573,6 +634,339 @@
 							
 							if( whichStep == 'nine-step' )
 							{
+								
+								//for date
+								   if(jQuery('#date_of_infraction').val()=='')
+									{
+										jQuery.alerts.dialogClass = 'alert-danger';
+											jAlert('Enter Date', 'error', function(){
+                                        jQuery.alerts.dialogClass = null; // reset to default
+										jQuery('#date_of_infraction').css("border","black solid 2px");
+											jQuery('#date_of_infraction').focus();
+											
+                                        });
+										return false;	
+										
+									}
+									else
+									{
+										function datediff(ds1,ds2) {
+	console.log(ds1);
+	console.log(ds2);
+	var oneday = 86400000;
+	return (ds2-ds1) / oneday;
+	}
+		var curdate= new Date();
+		var newdt=jQuery('#date_of_infraction').mobiscroll( "getDate" );
+		console.log(datediff(newdt,curdate));
+		if(datediff(newdt,curdate)>25)
+		{
+									jQuery.alerts.dialogClass = 'alert-danger';
+											jAlert('Sorry We Can not subbmit Past Due Ticket, File Tickets within last 25 days!Please Try Again', 'error', function(){
+                                        jQuery.alerts.dialogClass = null; // reset to default
+										jQuery('#date_of_infraction').css("border","black solid 2px");
+											//jQuery('#date_of_infraction').focus();
+											
+                                        });
+										return false;	
+											
+										
+									}
+									else
+									{
+									jQuery('#date_of_infraction').css("border","none");	
+									}
+									jQuery('#date_of_infraction').css("border","none");	
+									}
+									
+								//for ticket no
+								if(jQuery('#notice_no').val().match(/^[A-Z][A-Z][0-9]{6}$/i) || jQuery('#notice_no').val().match(/^[0-9]{8}$/i))
+								{
+			
+									jQuery('#notice_no').css("border","none");/*alert('Enter Your Ticket Number');*/
+			
+								}
+								else
+									{
+										jQuery.alerts.dialogClass = 'alert-danger';
+										jAlert('Enter Valid Ticket No', 'error', function(){
+                                        jQuery.alerts.dialogClass = null; // reset to default
+										jQuery('#notice_no').focus();
+										jQuery('#notice_no').css("border","black solid 2px");
+											
+                                        });
+										return false;
+										
+																			
+									}	
+									
+									
+									//for liceanse
+									
+								 if(!jQuery('#license_no_of_ticket').val()=='')
+									
+		                            {
+									jQuery('#license_no_of_ticket').css("border","none");
+										
+								    }
+								else 
+								{
+									jQuery.alerts.dialogClass = 'alert-danger';
+			                            jAlert('Enter Valid Plate License No', 'error', function(){
+                                        jQuery.alerts.dialogClass = null; // reset to default
+										jQuery('#license_no_of_ticket').css("border","black solid 2px");
+										
+										jQuery('#license_no_of_ticket').focus();
+										
+                                        });
+									return false;
+									
+								}
+								
+								//for company
+								if (jQuery('#p_checkbox_value_4').is(':checked'))
+			{
+				
+								if(jQuery('#cm_name').val()=='')
+										{
+											jQuery.alerts.dialogClass = 'alert-danger';
+									jAlert('Enter Company Name', 'error', function(){
+                                        jQuery.alerts.dialogClass = null; // reset to default
+										jQuery('#cm_name').css("border","black solid 2px");
+											jQuery('#cm_name').focus();
+												
+                                        });
+										return false;		
+										}
+										else 
+										{
+											jQuery('#cm_name').css("border","none");
+												
+										}
+										
+			}
+								//for full name
+									if(jQuery('#p_owner_fst_name1').val()=='')
+									{
+										jQuery.alerts.dialogClass = 'alert-danger';
+										jAlert('Enter Your Full Name', 'error', function(){
+                                        jQuery.alerts.dialogClass = null; // reset to default
+										jQuery('#p_owner_fst_name1').css("border","black solid 2px");
+										jQuery('#p_owner_fst_name1').focus();
+										
+                                        });
+										return false;
+										
+									}
+									else
+									{
+											jQuery('#p_owner_fst_name1').css("border","none");
+										
+									}
+								//for street address	
+								if(jQuery('#Street_add1').val()=='')
+								{
+									jQuery.alerts.dialogClass = 'alert-danger';
+									jAlert('Enter Street Address', 'error', function(){
+                                        jQuery.alerts.dialogClass = null; // reset to default
+										jQuery('#Street_add1').css("border","black solid 2px");
+									jQuery('#Street_add1').focus();
+									
+                                        });
+									return false;
+								}
+								else
+								{
+									jQuery('#Street_add1').css("border","none");
+									
+								}
+								
+								
+								//for owner city
+		                        if(jQuery('#p_owner_city1').val()=='')
+									{
+										jQuery.alerts.dialogClass = 'alert-danger';
+											jAlert('Enter City', 'error', function(){
+                                        jQuery.alerts.dialogClass = null; // reset to default
+										jQuery('#p_owner_city1').css("border","black solid 2px");
+											jQuery('#p_owner_city1').focus();
+											
+                                        });
+										return false;	
+										
+									}
+									else
+									{
+										jQuery('#p_owner_city1').css("border","none");
+										
+									}
+									
+								//for owner proviance
+								 var sel2 = document.getElementById('p_owner_province1');
+								 var sv2 = sel2.options[sel2.selectedIndex].value;
+								  if(sv2 == '')
+									{
+										jQuery.alerts.dialogClass = 'alert-danger';
+											jAlert('Select Province', 'error', function(){
+                                        jQuery.alerts.dialogClass = null; // reset to default
+										jQuery('#p_owner_province1').css("border","black solid 2px");
+										
+											
+                                        });
+										return false;	
+										
+									}
+									else
+									{
+										jQuery('#p_owner_province1').css("border","none");
+										
+									}
+									
+									//for postcode	
+									
+								if(jQuery('#Zip_code1').val()=='')
+									{
+										jQuery.alerts.dialogClass = 'alert-danger';
+								   jAlert('Enter Zipcode', 'error', function(){
+                                        jQuery.alerts.dialogClass = null; // reset to default
+										jQuery('#Zip_code1').css("border","black solid 2px");
+								    jQuery('#Zip_code1').focus();
+								    
+                                        });
+									return false;
+										
+									}
+									else
+									{
+										jQuery('#Zip_code1').css("border","none");
+										
+									}
+									
+									//	for email
+									if(jQuery('#p_owner_email_one').val()=="")
+									{
+										jQuery.alerts.dialogClass = 'alert-danger';
+										jAlert('Enter Your Email', 'error', function(){
+                                        jQuery.alerts.dialogClass = null; // reset to default
+										jQuery('#p_owner_email_one').css("border","black solid 2px");
+										jQuery('#p_owner_email_one').focus();
+										
+                                        });
+										return false;
+									}
+									
+									else 
+									{
+										if(!emailInvalid(jQuery('#p_owner_email_one').val()))
+										{
+											jQuery.alerts.dialogClass = 'alert-danger';
+											jAlert('Please Enter Valid Email Address', 'error', function(){
+                                        jQuery.alerts.dialogClass = null; // reset to default
+										jQuery('#p_owner_email_one').css("border","black solid 2px");
+											jQuery('#p_owner_email_one').focus();
+											
+                                        });
+										return false;	
+										}
+										else
+										{
+											jQuery('#p_owner_email_one').css("border","none");
+											
+										}
+									}
+									function emailInvalid(s)
+									{
+										if(!(s.match(/^[\w]+([_|\.-][\w]{1,})*@[\w]{2,}([_|\.-][\w]{1,})*\.([a-z]{2,4})$/i) ))
+											{
+											return false;
+											}
+										else
+											return true;
+									} 
+									
+								//for phone
+								if(jQuery('#p_owner_phno1').val()=='' )
+								{
+									jQuery.alerts.dialogClass = 'alert-danger';
+									jAlert('Enter Your Contact Number', 'error', function(){
+                                        jQuery.alerts.dialogClass = null; // reset to default
+										jQuery('#p_owner_phno1').css("border","black solid 2px");
+									jQuery('#p_owner_phno1').focus();
+									
+                                        });
+									return false;
+								}
+								else if(!jQuery("#p_owner_phno1").val().match(/^\(\d{3}\) \d{3}\-\d{4}( x\d{1,6})?$/))
+								{
+									jQuery.alerts.dialogClass = 'alert-danger';
+									jAlert('Enter Valid Contact Number', 'error', function(){
+                                        jQuery.alerts.dialogClass = null; // reset to default
+										jQuery('#p_owner_phno1').css("border","black solid 2px");
+									jQuery('#p_owner_phno1').focus();
+									
+                                        });
+									return false;
+								}
+								
+								else
+									{
+										jQuery('#p_owner_phno1').css("border","black solid 2px");
+										
+									}
+									
+								//for language	
+								if(jQuery('#p_language11').val()=='')
+									{
+										jQuery.alerts.dialogClass = 'alert-danger';
+										jAlert('Select Language', 'error', function(){
+                                        jQuery.alerts.dialogClass = null; // reset to default
+										jQuery('#p_language11').css("border","black solid 2px");
+											
+                                        });
+											
+											
+											return false;
+										
+									}
+									else
+									{
+										jQuery('#p_language11').css("border","black solid 2px");
+										
+									}
+								var langid = $("#p_language11").children(":selected").attr("id");
+								
+								if(langid=='N') {
+									//alert('hidden');
+								$("#checkbox_value_1_p").val('N');
+							 /*$("#checkbox_value_1").prop("checked",true);
+							 $("#checkbox_value_1").checkboxradio('refresh');*/
+								} 
+								else
+								{
+									if (!jQuery("#checkbox_value_1_p").is(":checked")) 
+								{
+									//alert('not checked shown');
+									jQuery.alerts.dialogClass = 'alert-danger';
+									jAlert('Please Check The Checkbox for further proceed', 'error', function(){
+                                        jQuery.alerts.dialogClass = null; // reset to default
+                                        });	
+									jQuery('#checkbox_value_1_p').parent().find('label').addClass('warning');
+								
+									jQuery('#checkbox_value_1_p').focus();
+									
+									return false;
+								}
+								else
+								{
+								    jQuery('#checkbox_value_1_p').parent().find('label').removeClass('warning');
+										
+								}
+								
+								}
+										
+									
+										
+								
 								if (!jQuery("#checkbox_value_2").is(":checked")) 
 									{
 										var fname = $('#p_owner_fst_name').val();
@@ -637,7 +1031,7 @@ $(function(){
     var nowd = new Date();
 		var mt= nowd.getMonth();
 		var yr= nowd.getFullYear();
-    $('#pDateTime').mobiscroll().date({
+    $('#pDateTime,#date_of_infraction').mobiscroll().date({
         theme: 'ios',
         display: 'bubble',
         mode: 'scroller',
