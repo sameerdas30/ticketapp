@@ -879,7 +879,7 @@ function datediff(ds1,ds2) {
 								
 								else
 									{
-										jQuery('#t_owner_phno1').css("border","black solid 2px");
+										jQuery('#t_owner_phno1').css("border","none");
 										
 									}
 									
@@ -899,7 +899,7 @@ function datediff(ds1,ds2) {
 									}
 									else
 									{
-										jQuery('#t_language11').css("border","black solid 2px");
+										jQuery('#t_language11').css("border","none");
 										
 									}
 								var langid = $("#t_language11").children(":selected").attr("id");
@@ -912,22 +912,22 @@ function datediff(ds1,ds2) {
 								} 
 								else
 								{
-									if (!jQuery("#checkbox_value_1_L").is(":checked")) 
+									if (!jQuery("#t_checkbox_value_1_L").is(":checked")) 
 								{
 									//alert('not checked shown');
 									jQuery.alerts.dialogClass = 'alert-danger';
 									jAlert('Please Check The Checkbox for further proceed', 'error', function(){
                                         jQuery.alerts.dialogClass = null; // reset to default
                                         });	
-									jQuery('#checkbox_value_1_L').parent().find('label').addClass('warning');
+									jQuery('#t_checkbox_value_1_L').parent().find('label').addClass('warning');
 								
-									jQuery('#checkbox_value_1_L').focus();
+									jQuery('#t_checkbox_value_1_L').focus();
 									
 									return false;
 								}
 								else
 								{
-								    jQuery('#checkbox_value_1_L').parent().find('label').removeClass('warning');
+								    jQuery('#t_checkbox_value_1_L').parent().find('label').removeClass('warning');
 										
 								}
 								

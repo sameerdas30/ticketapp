@@ -910,7 +910,7 @@
 								
 								else
 									{
-										jQuery('#p_owner_phno1').css("border","black solid 2px");
+										jQuery('#p_owner_phno1').css("border","none");
 										
 									}
 									
@@ -930,7 +930,7 @@
 									}
 									else
 									{
-										jQuery('#p_language11').css("border","black solid 2px");
+										jQuery('#p_language11').css("border","none");
 										
 									}
 								var langid = $("#p_language11").children(":selected").attr("id");
