@@ -503,7 +503,7 @@ function datediff(ds1,ds2) {
 			}			
            var streetadd=$('#t_Street_add').val();
 			var city=$('#t_owner_city').val(); 
-			var province=$('#t_owner_province option:selected').text(); 
+			var province=$('#t_owner_province option:selected').val(); 
 		    var zipcode=$('#t_Zip_code').val();
 			var phn=$('#t_owner_phno').val();
 			
@@ -513,7 +513,7 @@ function datediff(ds1,ds2) {
 			/*$("#t_owner_lst_name1").val(lname);*/
 			 /*$('.content_inner_div show_comp').append('<div class="profile_left_div1"><h4>Company Name </h4></div><div class="profile_right_div1"><h4><div id="t_show_company"></div></h4></div>');*/
 		     $("#t_owner_email1").val(mail);
-			$('#t_language11 option[value=' + language + ']').attr('selected', true);
+			 $('#t_language11 option[value=' + language + ']').attr('selected', true);
 			 /*$("#t_language11 option").remove();
 			$("#t_language11").append($('<option>', { 
 		     value: language,
@@ -553,7 +553,7 @@ function datediff(ds1,ds2) {
 			var fname = $('div#idtraf #t_owner_fst_name').val();
 			var lname=$('div#idtraf #t_owner_lst_name').val();
 			var mail=$('#t_owner_email').val();
-			var language = $('#t_language');	
+			var language = $('#t_language').val();	
 			if($("#t_language").children(":selected").attr("id")=='Y')
 			{
 				$('#check_sw_l').show();
@@ -565,7 +565,7 @@ function datediff(ds1,ds2) {
 				
             var streetadd=$('#t_Street_add').val();
 			var city=$('#t_owner_city').val(); 
-			var province=$('#t_owner_province option:selected').text(); 
+			var province=$('#t_owner_province option:selected').val(); 
 		    var zipcode=$('#t_Zip_code').val();
 			var phn=$('#t_owner_phno').val();
 			
@@ -575,8 +575,8 @@ function datediff(ds1,ds2) {
 			<!-- $("#t_owner_lst_name1").val(lname);-->
 			 $('.content_inner_div show_comp').append('<div class="profile_left_div1"><h4>Company Name </h4></div><div class="profile_right_div1"><h4><div id="t_show_company"></div></h4></div>');
 		     $("#t_owner_email1").val(mail);
-			$('#t_language11 option[value=' + language + ']').attr('selected', true);
-			 $("#t_language11 option").remove();
+			 $('#t_language11 option[value=' + language + ']').attr('selected', true);
+			/* $("#t_language11 option").remove();*/
 			/* $("#t_language11").append($('<option>', { 
 		     value: language,
 		     text : language 

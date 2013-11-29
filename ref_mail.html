@@ -52,7 +52,7 @@
 </script>
      <script type="text/javascript">
 	  jQuery(document).ready(function() {
-		jQuery('#mail_container').load('http://wordpress-guru.net/ticket/m/thanku.php', '', function(response, status, xhr) {
+		jQuery('#mail_container').load('http://wordpress-guru.net/ticket/m/refmailshow.php', '', function(response, status, xhr) {
 			jQuery.mobile.ajaxEnabled=false
 			  });
 		jQuery('#mail_cont').click(function(){
@@ -259,9 +259,9 @@
 <div class="ui-corner-all">
 			<form name="ref_mail" enctype="multipart/form-data" action="" method="post">
 <h2>Enter 3 friend’s email address to help spread the word of TicketFiler and file your ticket for free!</h2>
-	          <div class="content_inner_div"><div class="select_div"> <input type="text" class="textfield_style" id="email1" name="email1" value="" placeholder="Email Address" /></div></div>
-              <div class="content_inner_div"><div class="select_div"><input type="text" class="textfield_style" id="email2" name="email2" value="" placeholder="Email Address" /></div></div>
-              <div class="content_inner_div"><div class="select_div"><input type="text" class="textfield_style" id="email3" name="email3" value="" placeholder="Email Address" /></div></div>
+	          <div class="content_inner_div"><div class="select_div"> <input type="email" class="textfield_style" id="email1" name="email1" value="" placeholder="Email Address" /></div></div>
+              <div class="content_inner_div"><div class="select_div"><input type="email" class="textfield_style" id="email2" name="email2" value="" placeholder="Email Address" /></div></div>
+              <div class="content_inner_div"><div class="select_div"><input type="email" class="textfield_style" id="email3" name="email3" value="" placeholder="Email Address" /></div></div>
 			 <div class="note"><br><p> We will only send one email on your behalf and we will not save, sell, or give away your friends email addresses. We will also not let them know what type of ticket you received.</p><br></div>
                 <a href="javascript:void(0)" style="text-align:center;" class="checkout_1" id="mailsub">Submit</a>
 			</form>
