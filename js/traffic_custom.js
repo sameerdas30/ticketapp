@@ -1000,7 +1000,7 @@ function datediff(ds1,ds2) {
     var nowd = new Date();
 		var mt= nowd.getMonth();
 		var yr= nowd.getFullYear();
-    $('#DateTime').mobiscroll().date({
+    $('#DateTime,#t_date_of_infraction').mobiscroll().date({
         theme: 'ios',
         display: 'bubble',
         mode: 'scroller',

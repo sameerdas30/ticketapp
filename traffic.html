@@ -504,7 +504,37 @@ $('#t_owner_province').load('http://wordpress-guru.net/ticket/m/t_owner_province
 					$("#t_language1_l").html($('#t_language11').val());
 				}
 	
-$("#t_owner_phno").mask("(999) 999-9999"); 			
+$("#t_owner_phno").mask("(999) 999-9999");
+
+$('#t_date_of_infraction').change('change', function() {
+	function datediff(ds1,ds2) {
+	console.log(ds1);
+	console.log(ds2);
+	var oneday = 86400000;
+	return (ds2-ds1) / oneday;
+	}
+	
+	//console.log(sam+'hisam');
+	
+	var curdt= new Date();
+	 //alert(window.dt);
+	//alert($('#date_of_infraction').val());
+	var pickdt=$('#t_date_of_infraction').mobiscroll( "getDate" );
+	//alert(pickdt);
+	//var dval = $('#date_of_infraction').mobiscroll({ dateFormat: 'yyyy-mm-dd' }).val();
+    console.log(datediff(pickdt,curdt));
+	if(datediff(pickdt,curdt)>25)
+	{
+		alert('Sorry We Can not Submit Past Due Tickets. File Tickets within last 25 days! Please Change Again');
+		$('#date_of_infraction').blur();
+		/*
+		jQuery('#datepicker').parent().parent().removeClass('success');		
+		jQuery('#datepicker').parent().parent().addClass('error');*/
+	}
+	else
+	{
+	}
+}); 			
             });
 			
 </script>
@@ -545,7 +575,7 @@ $("#t_owner_phno").mask("(999) 999-9999");
 <div data-role="content">
 <div class="content_div city">  
 <div class="header_text_top_div"><h1>01 - CITY</h1></div>
-<h2>Where did you get your parking ticket?</h2>
+<h2>Where did you get your traffic ticket?</h2>
  <div class="content_inner_div">
  <div class="select_div">
     <div class="styled-select">
@@ -738,7 +768,7 @@ car we need their name, not your's!<br>
 </div>
 
 <div class="content_inner_div">
-<div class="select_div"><input type="text" name="t_Zip_code" id="t_Zip_code" placeholder="POSTAL CODE" class="textfield_style"></div>
+<div class="select_div"><input maxlength="10" type="text" name="t_Zip_code" id="t_Zip_code" placeholder="POSTAL CODE" class="textfield_style"></div>
 </div>
    <div class="note"><p>Check the vehicle registration to find the proper address of the owner of the car.</p></div>
 </div>  
@@ -970,7 +1000,7 @@ us to stop watching YouTube and get to work!</p> </div></div></div></div>
 <div class="header_text_top_div">
 <h1>SORRY! WE CAN'T SUBMIT PAST DUE TICKETS.</h1></div>
 
-<h2>We can only file parking tickets you have received within the last 25 days.</h2>
+<h2>We can only file traffic tickets you have received within the last 25 days.</h2>
 <div class="content_inner_div"> 
 <div class="select_div">
         <input type="text" name="tDateTimew" id="tDateTimew" value="" class="textfield_style">
